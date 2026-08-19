@@ -1,0 +1,19 @@
+topics:
+  command: /vln/command
+  safe_velocity: /nav_vel
+
+frames:
+  global: map
+  odometry: odom
+  robot: base_link
+
+command_types:
+  stop: 0
+  waypoint: 1
+  trajectory: 2
+  velocity: 3
+
+velocity_mapping:
+  vx: linear.x
+  vy: linear.y
+  yaw_rate: angular.z

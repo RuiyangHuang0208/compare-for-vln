@@ -1,0 +1,38 @@
+deployment:
+  robot: unitree_b2w
+  namespace: b2_366
+  ros_domain_id: 10
+  rmw_implementation: rmw_cyclonedds_cpp
+
+required_inputs:
+  instruction: /vln/instruction
+  front_rgb: /b2_366/sensor/front/camera_raw
+  odometry: /b2_366/base/odom
+
+command_path:
+  vln_command: /vln/command
+  filtered_velocity: /b2_366/autonomous_mid_priority/cmd_vel
+  mux_output: /b2_366/hardware/cmd_vel
+  emergency_stop: /b2_366/e_stop
+  velocity_message_type: geometry_msgs/msg/Twist
+  order: [vx, vy, yaw_rate]
+  timeout_s: 0.5
+
+upstream:
+  repository: ../Unitree_B2_MybotShop_Software-main
+  modification_policy: read_only
+  required_packages:
+    - b2_platform
+    - b2_control
+  required_nodes:
+    - b2_front_video
+    - b2_statepublisher
+    - b2_hardware
+    - twist_mux_node
+
+excluded_from_minimum_dualvln_bringup:
+  - rear_camera
+  - realsense_depth
+  - lidar
+  - gnss
+  - z1_arm

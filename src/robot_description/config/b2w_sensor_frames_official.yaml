@@ -1,0 +1,39 @@
+# Nominal fixed sensor frames copied as data from Unitree's official B2W URDF.
+source:
+  repository: https://github.com/unitreerobotics/unitree_ros
+  branch: master
+  commit: daadf41ee9afce8f90fdc09a98506012691fa122
+  file: robots/b2w_description/urdf/b2w_description.urdf
+  local_file: third_party/unitree_ros/robots/b2w_description/urdf/b2w_description.urdf
+  sha256: cb70693d5bdf98d7c9c402a1dacb6c74cb64518fdb4daf47fa068534c8e10d90
+  parent_frame: base_link
+
+frames:
+  lidar_link:
+    joint: joint_lidar
+    position_xyz: [0.34218, 0.0, 0.17851]
+    rpy: [0.0, 0.0, 0.0]
+  f_dc_link:
+    joint: joint_f_dc
+    position_xyz: [0.42161, 0.025, 0.061851]
+    rpy: [-2.3562, 0.0, -1.5708]
+  r_dc_link:
+    joint: joint_r_dc
+    position_xyz: [-0.42244, -0.025, 0.038026]
+    rpy: [-2.3562, 0.0, 1.5708]
+  imu_link:
+    joint: joint_imu
+    position_xyz: [0.0, -0.02341, 0.04927]
+    rpy: [0.0, 0.0, 0.0]
+  f_oc_link:
+    joint: f_oc_link
+    position_xyz: [0.3993, 0.0, -0.01576]
+    rpy: [-1.5708, 0.0, -1.5708]
+  r_oc_ink:
+    joint: joint_r_oc
+    position_xyz: [-0.39143, 0.0, -0.026131]
+    rpy: [-1.5708, 0.0, 1.5708]
+
+dualvln:
+  rgb_frame: f_oc_link
+  note: The official URDF uses abbreviated frame names and does not contain sensor plugin definitions.

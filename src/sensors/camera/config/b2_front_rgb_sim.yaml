@@ -1,0 +1,51 @@
+camera:
+  scene_key: front_rgb
+  prim_path: "{ENV_REGEX_NS}/Robot/base_link/front_rgb_camera"
+  parent_frame: base_link
+  data_types: [rgb, distance_to_image_plane]
+  width: 640
+  height: 480
+  update_period_s: 0.1
+
+mount:
+  # Official Unitree B2W front optical-camera frame (joint/link: f_oc_link).
+  position_xyz: [0.3993, 0.0, -0.01576]
+  rpy: [-1.5708, 0.0, -1.5708]
+  quaternion_wxyz: [0.5, -0.5, 0.5, -0.5]
+  convention: ros
+  status: official_unitree_ros_nominal_transform
+  source:
+    repository: https://github.com/unitreerobotics/unitree_ros
+    file: robots/b2w_description/urdf/b2w_description.urdf
+    branch: master
+    commit: daadf41ee9afce8f90fdc09a98506012691fa122
+    local_file: third_party/unitree_ros/robots/b2w_description/urdf/b2w_description.urdf
+    joint: f_oc_link
+
+intrinsics:
+  # InternNav real-world reference: 640x480 and about 79 degrees horizontal FOV.
+  matrix_row_major:
+    - 386.5
+    - 0.0
+    - 320.0
+    - 0.0
+    - 386.5
+    - 240.0
+    - 0.0
+    - 0.0
+    - 1.0
+  clipping_range_m: [0.05, 100.0]
+
+dualvln:
+  required: true
+  rgb_source: 'env.unwrapped.scene["front_rgb"].data.output["rgb"]'
+  depth_source: 'env.unwrapped.scene["front_rgb"].data.output["distance_to_image_plane"]'
+  depth_unit: m
+  aligned_depth: true
+  preprocessing_owner: third_party/InternNav
+
+odometry:
+  position: 'env.unwrapped.scene["robot"].data.root_link_pos_w'
+  orientation_wxyz: 'env.unwrapped.scene["robot"].data.root_link_quat_w'
+  linear_velocity_body: 'env.unwrapped.scene["robot"].data.root_lin_vel_b'
+  angular_velocity_body: 'env.unwrapped.scene["robot"].data.root_ang_vel_b'

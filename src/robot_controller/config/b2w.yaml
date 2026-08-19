@@ -1,0 +1,43 @@
+robot: unitree_b2w
+backend: robot_lab_rsl_rl
+
+robot_lab:
+  root: third_party/robot_lab
+  source_commit: dda1510
+  task: RobotLab-Isaac-Velocity-Flat-Unitree-B2W-v0
+  play_script: src/robot_controller/scripts/rsl_rl/play.py
+
+policy:
+  checkpoint: checkpoints/b2w_locomotion/model_2600.pt
+  checkpoint_sha256: f9c1ce4400b9b3286f89a31e76a770a3e8c9a0ecea23666ac6e312a43a05f075
+  official_pretrained: false
+  observation_dimension: 57
+  critic_observation_dimension: 60
+  action_dimension: 16
+
+command:
+  order: [vx, vy, yaw_rate]
+  ranges:
+    vx: [-1.0, 1.0]
+    vy: [-1.0, 1.0]
+    yaw_rate: [-1.0, 1.0]
+
+joints:
+  legs:
+    - FR_hip_joint
+    - FR_thigh_joint
+    - FR_calf_joint
+    - FL_hip_joint
+    - FL_thigh_joint
+    - FL_calf_joint
+    - RR_hip_joint
+    - RR_thigh_joint
+    - RR_calf_joint
+    - RL_hip_joint
+    - RL_thigh_joint
+    - RL_calf_joint
+  wheels:
+    - FR_foot_joint
+    - FL_foot_joint
+    - RR_foot_joint
+    - RL_foot_joint

@@ -1,0 +1,28 @@
+# Sensor selection for the current DualVLN + B2W deployment.
+profile: b2w_dualvln_rgbd_sim
+
+required:
+  front_rgb:
+    config: src/sensors/camera/config/b2_front_rgb.yaml
+  aligned_depth:
+    required_for_official_realworld_pipeline: true
+  odometry:
+    topic: /b2_366/base/odom
+    message_type: nav_msgs/msg/Odometry
+
+simulation:
+  front_rgb:
+    config: src/sensors/camera/config/b2_front_rgb_sim.yaml
+  aligned_depth_source: distance_to_image_plane
+  odometry_source: isaaclab_articulation_root_state
+
+# These devices are not required for the simulation-only DualVLN pipeline.
+not_model_inputs:
+  rear_rgb: false
+  lidar: false
+  gnss: false
+  body_imu: false
+
+operational_safety:
+  emergency_stop_topic: /b2_366/e_stop
+  command_timeout_s: 0.5

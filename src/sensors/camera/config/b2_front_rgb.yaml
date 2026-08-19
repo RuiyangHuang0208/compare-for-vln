@@ -1,0 +1,39 @@
+# Minimal B2/B2W camera contract for InternVLA-N1 DualVLN.
+# Values are transcribed from the MybotShop B2 platform package; that upstream
+# repository remains unmodified.
+camera:
+  role: front_rgb
+  required_by_dualvln: true
+  topic: /b2_366/sensor/front/camera_raw
+  message_type: sensor_msgs/msg/Image
+  frame_id: front_camera
+  encoding: rgb8
+  width: 1280
+  height: 720
+
+upstream_transport:
+  multicast_address: 230.1.1.1
+  udp_port: 1720
+  network_interface: eno2
+  codec: H264
+
+preprocessing:
+  # Keep the native image here. InternNav owns the checkpoint-specific resize,
+  # crop, normalization, and temporal-history preprocessing.
+  preserve_native_image: true
+  rectification: pending_calibration_verification
+
+calibration:
+  camera_info_topic: /b2_366/sensor/camera_info
+  required_by_dualvln: false
+  status: upstream_topic_conflicts_when_front_and_rear_publish_together
+
+extrinsics:
+  parent_frame: base_link
+  child_frame: f_oc_link
+  position_xyz: [0.3993, 0.0, -0.01576]
+  rpy: [-1.5708, 0.0, -1.5708]
+  status: official_unitree_ros_nominal_transform_verify_actual_installation
+  source: https://github.com/unitreerobotics/unitree_ros/blob/master/robots/b2w_description/urdf/b2w_description.urdf
+  source_commit: daadf41ee9afce8f90fdc09a98506012691fa122
+  local_source: third_party/unitree_ros/robots/b2w_description/urdf/b2w_description.urdf

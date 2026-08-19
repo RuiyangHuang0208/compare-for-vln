@@ -1,0 +1,93 @@
+diff --git a/internnav/agent/__init__.py b/internnav/agent/__init__.py
+index 8ccc4f9..33ca3bc 100644
+--- a/internnav/agent/__init__.py
++++ b/internnav/agent/__init__.py
+@@ -1,8 +1,14 @@
++import os
++
+ from internnav.agent.base import Agent
+-from internnav.agent.cma_agent import CmaAgent
+-from internnav.agent.dialog_agent import DialogAgent
+-from internnav.agent.internvla_n1_agent import InternVLAN1Agent
+-from internnav.agent.rdp_agent import RdpAgent
+-from internnav.agent.seq2seq_agent import Seq2SeqAgent
+ 
+-__all__ = ['Agent', 'DialogAgent', 'CmaAgent', 'RdpAgent', 'Seq2SeqAgent', 'InternVLAN1Agent']
++if os.environ.get('INTERNNAV_MINIMAL_IMPORT') == '1':
++    __all__ = ['Agent']
++else:
++    from internnav.agent.cma_agent import CmaAgent
++    from internnav.agent.dialog_agent import DialogAgent
++    from internnav.agent.internvla_n1_agent import InternVLAN1Agent
++    from internnav.agent.rdp_agent import RdpAgent
++    from internnav.agent.seq2seq_agent import Seq2SeqAgent
++
++    __all__ = ['Agent', 'DialogAgent', 'CmaAgent', 'RdpAgent', 'Seq2SeqAgent', 'InternVLAN1Agent']
+diff --git a/internnav/agent/internvla_n1_agent_realworld.py b/internnav/agent/internvla_n1_agent_realworld.py
+index 1cb71c1..1da3f5b 100644
+--- a/internnav/agent/internvla_n1_agent_realworld.py
++++ b/internnav/agent/internvla_n1_agent_realworld.py
+@@ -31,7 +31,7 @@ class InternVLAN1AsyncAgent:
+         self.model = InternVLAN1ForCausalLM.from_pretrained(
+             args.model_path,
+             torch_dtype=torch.bfloat16,
+-            attn_implementation="flash_attention_2",
++            attn_implementation=getattr(args, 'attn_implementation', 'flash_attention_2'),
+             device_map={"": self.device},
+         )
+         self.model.eval()
+diff --git a/internnav/model/basemodel/internvla_n1/internvla_n1_arch.py b/internnav/model/basemodel/internvla_n1/internvla_n1_arch.py
+index fe7eaa0..6f34996 100644
+--- a/internnav/model/basemodel/internvla_n1/internvla_n1_arch.py
++++ b/internnav/model/basemodel/internvla_n1/internvla_n1_arch.py
+@@ -1,10 +1,10 @@
+ from abc import ABC, abstractmethod
++import os
+ 
+ import torch
+ import torch.nn as nn
+ 
+ LatentEmbSize = 768
+-MODEL_PATH_TO = "checkpoints"
+ 
+ 
+ def build_navdp(navdp_cfg, memory_size):
+@@ -20,7 +20,9 @@ def build_traj_dit(config):
+ 
+     from .nextdit_crossattn_traj import NextDiTCrossAttn, NextDiTCrossAttnConfig
+ 
+-    dit = NextDiTCrossAttn(NextDiTCrossAttnConfig(latent_embedding_size=LatentEmbSize))
++    dit = NextDiTCrossAttn(
++        NextDiTCrossAttnConfig(latent_embedding_size=LatentEmbSize, ffn_dim_multiplier=2.0 / 3.0)
++    )
+     noise_scheduler = FlowMatchEulerDiscreteScheduler()
+     return dit, noise_scheduler
+ 
+@@ -32,8 +34,9 @@ def build_depthanythingv2(config):
+ 
+     model_configs = {'vits': {'encoder': 'vits', 'features': 64, 'out_channels': [48, 96, 192, 384]}}
+     DAv2_model = DepthAnythingV2(**model_configs['vits'])
++    checkpoint_root = os.environ.get("INTERNNAV_AUX_CHECKPOINT_ROOT", "checkpoints")
+     DAv2_model.load_state_dict(
+-        torch.load(f'{MODEL_PATH_TO}/depth_anything_v2_metric_hypersim_vits.pth', map_location="cpu")
++        torch.load(f'{checkpoint_root}/depth_anything_v2_metric_hypersim_vits.pth', map_location="cpu")
+     )  # download from https://huggingface.co/depth-anything/Depth-Anything-V2-Metric-Hypersim-Small/resolve/main/depth_anything_v2_metric_hypersim_vits.pth
+     rgb_model = DAv2_model.pretrained
+ 
+diff --git a/internnav/model/basemodel/internvla_n1/nextdit_traj.py b/internnav/model/basemodel/internvla_n1/nextdit_traj.py
+index 1c18a63..036c0eb 100644
+--- a/internnav/model/basemodel/internvla_n1/nextdit_traj.py
++++ b/internnav/model/basemodel/internvla_n1/nextdit_traj.py
+@@ -292,9 +292,9 @@ class LuminaNextDiT2DModel(ModelMixin, ConfigMixin):
+ 
+         assert (hidden_size // num_attention_heads) % 4 == 0, "2d rope needs head dim to be divisible by 4"
+ 
+-    def _set_gradient_checkpointing(self, module, value=False):
+-        if hasattr(module, "gradient_checkpointing"):
+-            module.gradient_checkpointing = value
++    def _set_gradient_checkpointing(self, enable=True, gradient_checkpointing_func=None):
++        """Use the Diffusers 0.33 ModelMixin gradient-checkpointing contract."""
++        self.gradient_checkpointing = enable
+ 
+     def forward(
+         self,
