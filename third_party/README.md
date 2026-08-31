@@ -35,9 +35,9 @@ recorded in that directory's README; upstream source files are not modified here
 Clone all pinned upstream repositories with:
 
 ```bash
-git clone --recurse-submodules https://github.com/RuiyangHuang0208/VLNmodel_B2W.git
-cd VLNmodel_B2W
-git -C third_party/InternNav apply ../patches/internnav_sim_compat.patch
+git clone --recurse-submodules https://github.com/RuiyangHuang0208/compare-for-vln.git
+cd compare-for-vln
+git -C third_party/InternNav apply ../../patches/internnav-local.patch
 ```
 
 The InternNav patch contains the four simulation compatibility changes documented in
