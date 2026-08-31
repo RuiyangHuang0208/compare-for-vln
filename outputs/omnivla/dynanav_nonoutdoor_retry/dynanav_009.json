@@ -1,0 +1,81 @@
+{
+  "model_name": "omnivla",
+  "experiment": "dynanav_nonoutdoor_retry",
+  "episode_id": "dynanav_009",
+  "scene": "hospital",
+  "evaluation_mode": "trajectory_normalized",
+  "sensor_profile": "rgb_only",
+  "comparison_track": "rgb_only",
+  "camera_horizontal_fov_degrees": 90.0,
+  "model_inputs": [
+    "rgb",
+    "instruction"
+  ],
+  "model_runtime": {
+    "variant": "omnivla-original",
+    "resume_step": 120000,
+    "modality_id": 7,
+    "action_shape": [
+      8,
+      4
+    ],
+    "target_inference_rate_hz": 3.0,
+    "sensors": [
+      "rgb"
+    ],
+    "derived_inputs": [],
+    "model_internal_3d_perception": false,
+    "external_local_avoidance": false,
+    "uses_shared_path_follower": true,
+    "uses_shared_velocity_filter": true
+  },
+  "derived_inputs": [],
+  "model_internal_3d_perception": false,
+  "external_local_avoidance": false,
+  "uses_shared_path_follower": true,
+  "uses_shared_velocity_filter": true,
+  "instruction": "Walk straight down the hallway and stop at the red bed located to the right of the doors.",
+  "seed": 666,
+  "pedestrian_count": 0,
+  "official_pedestrian_count": 30,
+  "effective_pedestrian_count": 0,
+  "success": false,
+  "termination_reason": "timeout",
+  "failure_attribution": "inconclusive_timeout",
+  "navigation_error": 25.741095924,
+  "start_pose": [
+    19.711442947387695,
+    29.235618591308594
+  ],
+  "final_pose": [
+    17.649240493774414,
+    22.655059814453125
+  ],
+  "spl": 0.0,
+  "path_length": 12.93334068899071,
+  "duration": 85.02,
+  "physical_collision_count": 1,
+  "pedestrian_collision_count": 0,
+  "collision_rate": 0.011761938367442956,
+  "stuck_count": 9,
+  "recovery_count": 9,
+  "mean_inference_latency": 0.11570250913072591,
+  "p50_inference_latency": 0.1154688335955143,
+  "p95_inference_latency": 0.11857967637479305,
+  "max_inference_latency": 0.11987041682004929,
+  "mean_vlm_latency": null,
+  "mean_action_expert_latency": null,
+  "mean_control_frequency": 20.010547997957616,
+  "minimum_control_frequency": 18.75671524887973,
+  "direct_velocity": false,
+  "collision_events": [
+    {
+      "time": 78.92,
+      "force": 121.58885192871094,
+      "object": "unknown_static_geometry",
+      "robot_body": "base_link",
+      "is_pedestrian": false,
+      "episode_failure": false
+    }
+  ]
+}

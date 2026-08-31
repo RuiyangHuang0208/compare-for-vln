@@ -1,0 +1,49 @@
+path_follower:
+  type: pure_pursuit
+  lookahead_distance: 1.0
+  # 滚动局部轨迹的耗尽阈值；episode 成功距离由 goal_monitor 单独判断。
+  goal_tolerance: 0.05
+  # 仅对显式提供非零 Pose2D.theta 的转向轨迹生效（5 度）。
+  heading_tolerance: 0.0872664626
+  heading_capture_distance: 0.10
+  desired_speed: 1.0
+  yaw_gain: 0.8
+  yaw_filter_alpha: 0.35
+  curvature_feedforward_gain: 0.5
+
+limits:
+  # SRU ONNX B2-W accepts [vx, vy, wz]. These are conservative runtime limits.
+  # 2.0 m/s 是超出已验证 1.0 m/s 范围的仿真实验上限。
+  max_vx: 2.0
+  max_vy: 0.5
+  max_wz: 1.0
+  max_linear_acceleration: 0.8
+  max_angular_acceleration: 1.5
+  max_linear_deceleration: 0.8
+  max_angular_deceleration: 1.5
+
+timeout:
+  command_timeout: 0.5
+  # 覆盖两个 30 度物理转向及最终航向校正；所有公平轨道使用相同值。
+  trajectory_timeout: 15.0
+
+runtime:
+  # Fair-comparison launch overrides this to true. Manual demonstrations may change speed.
+  lock_desired_speed: false
+
+stuck:
+  recovery_enabled: true
+  recovery_speed: -0.3
+  recovery_duration: 1.5
+
+frames:
+  command: base_link
+  world: world
+
+topics:
+  command: /vln/command
+  velocity: /nav_vel
+  odometry: /odom
+  debug_path: /vln/debug_path
+  desired_speed: /navigation/desired_speed
+  current_speed: /navigation/desired_speed/current

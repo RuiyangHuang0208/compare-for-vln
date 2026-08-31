@@ -1,0 +1,129 @@
+{
+  "model_name": "omnivla",
+  "experiment": "dynanav_nonoutdoor_retry",
+  "episode_id": "dynanav_001",
+  "scene": "hospital",
+  "evaluation_mode": "trajectory_normalized",
+  "sensor_profile": "rgb_only",
+  "comparison_track": "rgb_only",
+  "camera_horizontal_fov_degrees": 90.0,
+  "model_inputs": [
+    "rgb",
+    "instruction"
+  ],
+  "model_runtime": {
+    "variant": "omnivla-original",
+    "resume_step": 120000,
+    "modality_id": 7,
+    "action_shape": [
+      8,
+      4
+    ],
+    "target_inference_rate_hz": 3.0,
+    "sensors": [
+      "rgb"
+    ],
+    "derived_inputs": [],
+    "model_internal_3d_perception": false,
+    "external_local_avoidance": false,
+    "uses_shared_path_follower": true,
+    "uses_shared_velocity_filter": true
+  },
+  "derived_inputs": [],
+  "model_internal_3d_perception": false,
+  "external_local_avoidance": false,
+  "uses_shared_path_follower": true,
+  "uses_shared_velocity_filter": true,
+  "instruction": "Go straight ahead and stop at the vending machine at front.",
+  "seed": 666,
+  "pedestrian_count": 0,
+  "official_pedestrian_count": 0,
+  "effective_pedestrian_count": 0,
+  "success": false,
+  "termination_reason": "timeout",
+  "failure_attribution": "inconclusive_timeout",
+  "navigation_error": 8.273193026,
+  "start_pose": [
+    -2.951413154602051,
+    -1.198370337486267
+  ],
+  "final_pose": [
+    2.645099639892578,
+    -2.2726540565490723
+  ],
+  "spl": 0.0,
+  "path_length": 7.241161109603918,
+  "duration": 40.02,
+  "physical_collision_count": 7,
+  "pedestrian_collision_count": 0,
+  "collision_rate": 0.17491254372813592,
+  "stuck_count": 0,
+  "recovery_count": 0,
+  "mean_inference_latency": 0.11854700577078443,
+  "p50_inference_latency": 0.11564328521490097,
+  "p95_inference_latency": 0.12032207548618316,
+  "max_inference_latency": 0.5272252559661865,
+  "mean_vlm_latency": null,
+  "mean_action_expert_latency": null,
+  "mean_control_frequency": 20.018920709992567,
+  "minimum_control_frequency": 19.82466826488405,
+  "direct_velocity": false,
+  "collision_events": [
+    {
+      "time": 20.0,
+      "force": 140.17010498046875,
+      "object": "unknown_static_geometry",
+      "robot_body": "base_link",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 24.240000000000002,
+      "force": 162.33273315429688,
+      "object": "unknown_static_geometry",
+      "robot_body": "base_link",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 31.54,
+      "force": 58848.1796875,
+      "object": "unknown_static_geometry",
+      "robot_body": "FL_hip",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 31.580000000000002,
+      "force": 46267.76171875,
+      "object": "unknown_static_geometry",
+      "robot_body": "FL_thigh",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 31.64,
+      "force": 11924.7568359375,
+      "object": "unknown_static_geometry",
+      "robot_body": "base_link",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 33.72,
+      "force": 4761.90966796875,
+      "object": "unknown_static_geometry",
+      "robot_body": "base_link",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 33.86,
+      "force": 3615.16796875,
+      "object": "unknown_static_geometry",
+      "robot_body": "FL_calf",
+      "is_pedestrian": false,
+      "episode_failure": false
+    }
+  ]
+}

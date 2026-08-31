@@ -1,0 +1,67 @@
+{
+  "model_name": "ticvla",
+  "experiment": "dynanav_nonoutdoor_retry",
+  "episode_id": "dynanav_084",
+  "scene": "warehouse",
+  "evaluation_mode": "trajectory_normalized",
+  "sensor_profile": "rgb_only",
+  "comparison_track": "rgb_only",
+  "camera_horizontal_fov_degrees": 90.0,
+  "model_inputs": [
+    "rgb",
+    "motion_state",
+    "inference_latency",
+    "instruction"
+  ],
+  "model_runtime": {
+    "sensors": [
+      "rgb",
+      "odom"
+    ],
+    "derived_inputs": [],
+    "model_internal_3d_perception": false,
+    "external_local_avoidance": false,
+    "uses_shared_path_follower": true,
+    "uses_shared_velocity_filter": true
+  },
+  "derived_inputs": [],
+  "model_internal_3d_perception": false,
+  "external_local_avoidance": false,
+  "uses_shared_path_follower": true,
+  "uses_shared_velocity_filter": true,
+  "instruction": "Go straight past the aisle ahead. Turn right at the end and proceed forward to approach the fire extinguisher on the last rack.",
+  "seed": 666,
+  "pedestrian_count": 0,
+  "official_pedestrian_count": 30,
+  "effective_pedestrian_count": 0,
+  "success": true,
+  "termination_reason": "success",
+  "failure_attribution": "success",
+  "navigation_error": 1.495508693,
+  "start_pose": [
+    -18.101667404174805,
+    0.048585161566734314
+  ],
+  "final_pose": [
+    -0.49789202213287354,
+    27.25951385498047
+  ],
+  "spl": 0.7320727824818083,
+  "path_length": 43.28858518227847,
+  "duration": 44.480000000000004,
+  "physical_collision_count": 0,
+  "pedestrian_collision_count": 0,
+  "collision_rate": 0.0,
+  "stuck_count": 0,
+  "recovery_count": 0,
+  "mean_inference_latency": 0.03613762884316119,
+  "p50_inference_latency": 0.029065808281302452,
+  "p95_inference_latency": 0.08154177740216254,
+  "max_inference_latency": 1.1521977186203003,
+  "mean_vlm_latency": 0.034741929901594464,
+  "mean_action_expert_latency": 0.0013956990685652603,
+  "mean_control_frequency": 20.020498085851067,
+  "minimum_control_frequency": 18.978635902831012,
+  "direct_velocity": false,
+  "collision_events": []
+}

@@ -1,0 +1,273 @@
+{
+  "model_name": "omnivla",
+  "experiment": "scene_smoke_20260829",
+  "episode_id": "dynanav_061",
+  "scene": "warehouse",
+  "evaluation_mode": "trajectory_normalized",
+  "sensor_profile": "rgb_only",
+  "comparison_track": "rgb_only",
+  "camera_horizontal_fov_degrees": 90.0,
+  "model_inputs": [
+    "rgb",
+    "instruction"
+  ],
+  "model_runtime": {
+    "variant": "omnivla-original",
+    "resume_step": 120000,
+    "modality_id": 7,
+    "action_shape": [
+      8,
+      4
+    ],
+    "target_inference_rate_hz": 3.0,
+    "sensors": [
+      "rgb"
+    ],
+    "derived_inputs": [],
+    "model_internal_3d_perception": false,
+    "external_local_avoidance": false,
+    "uses_shared_path_follower": true,
+    "uses_shared_velocity_filter": true
+  },
+  "derived_inputs": [],
+  "model_internal_3d_perception": false,
+  "external_local_avoidance": false,
+  "uses_shared_path_follower": true,
+  "uses_shared_velocity_filter": true,
+  "instruction": "Proceed to the traffic cones at the entrance of Aisle 05 (the second aisle from the right).",
+  "seed": 666,
+  "pedestrian_count": 0,
+  "official_pedestrian_count": 0,
+  "effective_pedestrian_count": 0,
+  "success": false,
+  "termination_reason": "timeout",
+  "failure_attribution": "inconclusive_timeout",
+  "navigation_error": 13.685711425,
+  "start_pose": [
+    -10.215163230895996,
+    -7.3417134284973145
+  ],
+  "final_pose": [
+    4.769731044769287,
+    -3.4695560932159424
+  ],
+  "spl": 0.0,
+  "path_length": 25.698905710971157,
+  "duration": 70.02,
+  "physical_collision_count": 25,
+  "pedestrian_collision_count": 0,
+  "collision_rate": 0.3570408454727221,
+  "stuck_count": 0,
+  "recovery_count": 0,
+  "mean_inference_latency": 0.12167623879125454,
+  "p50_inference_latency": 0.12174436077475548,
+  "p95_inference_latency": 0.12434657402336598,
+  "max_inference_latency": 0.12582817673683167,
+  "mean_vlm_latency": null,
+  "mean_action_expert_latency": null,
+  "mean_control_frequency": 20.018502308024722,
+  "minimum_control_frequency": 19.678734745313538,
+  "direct_velocity": false,
+  "collision_events": [
+    {
+      "time": 3.2800000000000002,
+      "force": 151.38160705566406,
+      "object": "unknown_static_geometry",
+      "robot_body": "RL_calf",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 3.2800000000000002,
+      "force": 151.38160705566406,
+      "object": "unknown_static_geometry",
+      "robot_body": "RR_calf",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 36.4,
+      "force": 4484.6796875,
+      "object": "unknown_static_geometry",
+      "robot_body": "FR_hip",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 38.24,
+      "force": 5218.40283203125,
+      "object": "unknown_static_geometry",
+      "robot_body": "FR_hip",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 38.300000000000004,
+      "force": 113.6024398803711,
+      "object": "unknown_static_geometry",
+      "robot_body": "FR_hip",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 40.24,
+      "force": 107.05284118652344,
+      "object": "unknown_static_geometry",
+      "robot_body": "FR_hip",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 42.18,
+      "force": 5886.87939453125,
+      "object": "unknown_static_geometry",
+      "robot_body": "FR_hip",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 44.02,
+      "force": 115.48857879638672,
+      "object": "unknown_static_geometry",
+      "robot_body": "FR_hip",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 45.92,
+      "force": 130.9797821044922,
+      "object": "unknown_static_geometry",
+      "robot_body": "FR_hip",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 47.96,
+      "force": 133.32916259765625,
+      "object": "unknown_static_geometry",
+      "robot_body": "base_link",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 49.96,
+      "force": 6508.212890625,
+      "object": "unknown_static_geometry",
+      "robot_body": "base_link",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 50.0,
+      "force": 108.12293243408203,
+      "object": "unknown_static_geometry",
+      "robot_body": "base_link",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 51.88,
+      "force": 114.17611694335938,
+      "object": "unknown_static_geometry",
+      "robot_body": "base_link",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 53.7,
+      "force": 6450.45947265625,
+      "object": "unknown_static_geometry",
+      "robot_body": "base_link",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 53.74,
+      "force": 103.20328521728516,
+      "object": "unknown_static_geometry",
+      "robot_body": "base_link",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 55.64,
+      "force": 108.60858154296875,
+      "object": "unknown_static_geometry",
+      "robot_body": "base_link",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 57.54,
+      "force": 100.7939682006836,
+      "object": "unknown_static_geometry",
+      "robot_body": "base_link",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 59.72,
+      "force": 116.71174621582031,
+      "object": "unknown_static_geometry",
+      "robot_body": "base_link",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 61.82,
+      "force": 6243.41845703125,
+      "object": "unknown_static_geometry",
+      "robot_body": "base_link",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 61.88,
+      "force": 113.99465942382812,
+      "object": "unknown_static_geometry",
+      "robot_body": "base_link",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 64.02,
+      "force": 116.02291107177734,
+      "object": "unknown_static_geometry",
+      "robot_body": "base_link",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 66.16,
+      "force": 102.63829040527344,
+      "object": "unknown_static_geometry",
+      "robot_body": "base_link",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 68.3,
+      "force": 110.81262969970703,
+      "object": "unknown_static_geometry",
+      "robot_body": "base_link",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 70.38,
+      "force": 5959.763671875,
+      "object": "unknown_static_geometry",
+      "robot_body": "base_link",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 70.44,
+      "force": 103.19792175292969,
+      "object": "unknown_static_geometry",
+      "robot_body": "base_link",
+      "is_pedestrian": false,
+      "episode_failure": false
+    }
+  ]
+}

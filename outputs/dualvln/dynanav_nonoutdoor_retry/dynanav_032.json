@@ -1,0 +1,86 @@
+{
+  "model_name": "dualvln",
+  "experiment": "dynanav_nonoutdoor_retry",
+  "episode_id": "dynanav_032",
+  "scene": "office",
+  "evaluation_mode": "trajectory_normalized",
+  "sensor_profile": "rgb_d",
+  "comparison_track": "rgb_d",
+  "camera_horizontal_fov_degrees": 79.0,
+  "model_inputs": [
+    "rgb",
+    "depth",
+    "camera_info",
+    "motion_state",
+    "instruction"
+  ],
+  "model_runtime": {
+    "sensors": [
+      "rgb",
+      "depth",
+      "odom"
+    ],
+    "derived_inputs": [],
+    "model_internal_3d_perception": false,
+    "external_local_avoidance": false,
+    "uses_shared_path_follower": true,
+    "uses_shared_velocity_filter": true
+  },
+  "derived_inputs": [],
+  "model_internal_3d_perception": false,
+  "external_local_avoidance": false,
+  "uses_shared_path_follower": true,
+  "uses_shared_velocity_filter": true,
+  "instruction": "Turn right and follow the blue carpet to the end of the hallway. Enter the room with the reception desk.",
+  "seed": 666,
+  "pedestrian_count": 0,
+  "official_pedestrian_count": 10,
+  "effective_pedestrian_count": 0,
+  "success": false,
+  "termination_reason": "timeout",
+  "failure_attribution": "inconclusive_timeout",
+  "navigation_error": 33.676684009,
+  "start_pose": [
+    -8.152487754821777,
+    52.20355224609375
+  ],
+  "final_pose": [
+    0.819381058216095,
+    44.329410552978516
+  ],
+  "spl": 0.0,
+  "path_length": 18.5832543572632,
+  "duration": 75.10000000000001,
+  "physical_collision_count": 2,
+  "pedestrian_collision_count": 0,
+  "collision_rate": 0.026631158455392805,
+  "stuck_count": 0,
+  "recovery_count": 0,
+  "mean_inference_latency": 0.855156592497256,
+  "p50_inference_latency": 1.0711381435394287,
+  "p95_inference_latency": 3.819324398040771,
+  "max_inference_latency": 3.887099266052246,
+  "mean_vlm_latency": null,
+  "mean_action_expert_latency": null,
+  "mean_control_frequency": 20.253672078020426,
+  "minimum_control_frequency": 19.137485693172383,
+  "direct_velocity": false,
+  "collision_events": [
+    {
+      "time": 55.72,
+      "force": 263.9939880371094,
+      "object": "unknown_static_geometry",
+      "robot_body": "base_link",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 55.92,
+      "force": 142.96775817871094,
+      "object": "unknown_static_geometry",
+      "robot_body": "FL_hip",
+      "is_pedestrian": false,
+      "episode_failure": false
+    }
+  ]
+}

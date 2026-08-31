@@ -1,0 +1,74 @@
+{
+  "model_name": "ticvla",
+  "experiment": "dynanav_full85_noped_fixed",
+  "episode_id": "dynanav_001",
+  "scene": "hospital",
+  "evaluation_mode": "trajectory_normalized",
+  "sensor_profile": "rgb_only",
+  "comparison_track": "rgb_only",
+  "camera_horizontal_fov_degrees": 120.0,
+  "model_inputs": [
+    "rgb",
+    "motion_state",
+    "inference_latency",
+    "instruction"
+  ],
+  "model_runtime": {
+    "sensors": [
+      "rgb",
+      "odom"
+    ],
+    "derived_inputs": [],
+    "model_internal_3d_perception": false,
+    "external_local_avoidance": false,
+    "uses_shared_path_follower": true,
+    "uses_shared_velocity_filter": true
+  },
+  "derived_inputs": [],
+  "model_internal_3d_perception": false,
+  "external_local_avoidance": false,
+  "uses_shared_path_follower": true,
+  "uses_shared_velocity_filter": true,
+  "instruction": "Go straight ahead and stop at the vending machine at front.",
+  "seed": 666,
+  "pedestrian_count": 0,
+  "official_pedestrian_count": 0,
+  "effective_pedestrian_count": 0,
+  "success": false,
+  "navigation_error": 9.844523153,
+  "spl": 0.0,
+  "path_length": 23.872466987411503,
+  "duration": 28.079999998999998,
+  "physical_collision_count": 2,
+  "pedestrian_collision_count": 0,
+  "collision_rate": 0.07122507122760774,
+  "stuck_count": 0,
+  "recovery_count": 0,
+  "mean_inference_latency": 1.1529075709673076,
+  "p50_inference_latency": 1.1446504592895508,
+  "p95_inference_latency": 1.203783392906189,
+  "max_inference_latency": 1.3048975467681885,
+  "mean_vlm_latency": 1.1518874924916487,
+  "mean_action_expert_latency": 0.0010200676915701479,
+  "mean_control_frequency": 20.03568844658903,
+  "minimum_control_frequency": 19.655418108626996,
+  "direct_velocity": false,
+  "collision_events": [
+    {
+      "time": 27.18,
+      "force": 115.88262176513672,
+      "object": "unknown_static_geometry",
+      "robot_body": "RL_calf",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 27.18,
+      "force": 115.88262176513672,
+      "object": "unknown_static_geometry",
+      "robot_body": "RR_calf",
+      "is_pedestrian": false,
+      "episode_failure": false
+    }
+  ]
+}

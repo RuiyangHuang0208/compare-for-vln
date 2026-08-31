@@ -1,5 +1,5 @@
 robot: unitree_b2w
-backend: robot_lab_rsl_rl
+backend: sru_onnx
 
 robot_lab:
   root: third_party/robot_lab
@@ -8,12 +8,24 @@ robot_lab:
   play_script: src/robot_controller/scripts/rsl_rl/play.py
 
 policy:
-  checkpoint: checkpoints/b2w_locomotion/model_2600.pt
-  checkpoint_sha256: f9c1ce4400b9b3286f89a31e76a770a3e8c9a0ecea23666ac6e312a43a05f075
-  official_pretrained: false
-  observation_dimension: 57
-  critic_observation_dimension: 60
+  checkpoint: checkpoints/b2w_locomotion/sru_onnx/policy_force_new.onnx
+  official_pretrained: true
+  observation_dimension: 60
   action_dimension: 16
+  recurrent_state_dimension: 256
+  inference_rate_hz: 50
+
+retained_policies:
+  isaac_pt:
+    checkpoint: checkpoints/b2w_locomotion/isaac_pt/policy_b2w_new_2.pt
+    observation_dimension: 60
+    action_dimension: 16
+  robotlab:
+    checkpoint: checkpoints/b2w_locomotion/model_2600.pt
+    checkpoint_sha256: f9c1ce4400b9b3286f89a31e76a770a3e8c9a0ecea23666ac6e312a43a05f075
+    observation_dimension: 57
+    critic_observation_dimension: 60
+    action_dimension: 16
 
 command:
   order: [vx, vy, yaw_rate]

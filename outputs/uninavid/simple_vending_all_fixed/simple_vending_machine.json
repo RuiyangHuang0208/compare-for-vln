@@ -1,0 +1,70 @@
+{
+  "model_name": "uninavid",
+  "experiment": "simple_vending_all_fixed",
+  "episode_id": "simple_vending_machine",
+  "scene": "hospital",
+  "evaluation_mode": "trajectory_normalized",
+  "sensor_profile": "rgb_only",
+  "comparison_track": "rgb_only",
+  "camera_horizontal_fov_degrees": 90.0,
+  "model_inputs": [
+    "rgb",
+    "instruction"
+  ],
+  "model_runtime": {
+    "frame_sample_hz": 1.0,
+    "do_sample": true,
+    "temperature": 0.2,
+    "max_new_tokens": 1024,
+    "predicted_action_limit": 4,
+    "executed_action_limit": 2,
+    "sensors": [
+      "rgb"
+    ],
+    "derived_inputs": [],
+    "model_internal_3d_perception": false,
+    "external_local_avoidance": false,
+    "uses_shared_path_follower": true,
+    "uses_shared_velocity_filter": true
+  },
+  "derived_inputs": [],
+  "model_internal_3d_perception": false,
+  "external_local_avoidance": false,
+  "uses_shared_path_follower": true,
+  "uses_shared_velocity_filter": true,
+  "instruction": "Go straight ahead and stop at the vending machine.",
+  "seed": 666,
+  "pedestrian_count": 0,
+  "official_pedestrian_count": 0,
+  "effective_pedestrian_count": 0,
+  "success": false,
+  "termination_reason": "timeout",
+  "failure_attribution": "inconclusive_timeout",
+  "navigation_error": 9.728294185,
+  "start_pose": [
+    -2.9698901176452637,
+    -1.2004528045654297
+  ],
+  "final_pose": [
+    0.2214209884405136,
+    -0.5313039422035217
+  ],
+  "spl": 0.0,
+  "path_length": 7.624953907016015,
+  "duration": 60.100000001,
+  "physical_collision_count": 0,
+  "pedestrian_collision_count": 0,
+  "collision_rate": 0.0,
+  "stuck_count": 0,
+  "recovery_count": 0,
+  "mean_inference_latency": 0.3092039693146944,
+  "p50_inference_latency": 0.2944987267255783,
+  "p95_inference_latency": 0.44324540346860875,
+  "max_inference_latency": 0.49846816062927246,
+  "mean_vlm_latency": null,
+  "mean_action_expert_latency": null,
+  "mean_control_frequency": 20.018764444998116,
+  "minimum_control_frequency": 19.690691115695156,
+  "direct_velocity": false,
+  "collision_events": []
+}

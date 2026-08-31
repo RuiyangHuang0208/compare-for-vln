@@ -1,0 +1,89 @@
+{
+  "model_name": "omnivla",
+  "experiment": "dynanav_nonoutdoor_retry",
+  "episode_id": "dynanav_049",
+  "scene": "office",
+  "evaluation_mode": "trajectory_normalized",
+  "sensor_profile": "rgb_only",
+  "comparison_track": "rgb_only",
+  "camera_horizontal_fov_degrees": 90.0,
+  "model_inputs": [
+    "rgb",
+    "instruction"
+  ],
+  "model_runtime": {
+    "variant": "omnivla-original",
+    "resume_step": 120000,
+    "modality_id": 7,
+    "action_shape": [
+      8,
+      4
+    ],
+    "target_inference_rate_hz": 3.0,
+    "sensors": [
+      "rgb"
+    ],
+    "derived_inputs": [],
+    "model_internal_3d_perception": false,
+    "external_local_avoidance": false,
+    "uses_shared_path_follower": true,
+    "uses_shared_velocity_filter": true
+  },
+  "derived_inputs": [],
+  "model_internal_3d_perception": false,
+  "external_local_avoidance": false,
+  "uses_shared_path_follower": true,
+  "uses_shared_velocity_filter": true,
+  "instruction": "Go straight ahead, passing through the hallway behind the black glass doors, and then enter the office desk area and stop at the white desk with the plant on it, located on the right side of the wall at the end.",
+  "seed": 666,
+  "pedestrian_count": 0,
+  "official_pedestrian_count": 30,
+  "effective_pedestrian_count": 0,
+  "success": false,
+  "termination_reason": "timeout",
+  "failure_attribution": "inconclusive_timeout",
+  "navigation_error": 26.474608935,
+  "start_pose": [
+    -15.201667785644531,
+    12.74901008605957
+  ],
+  "final_pose": [
+    -14.416450500488281,
+    22.598905563354492
+  ],
+  "spl": 0.0,
+  "path_length": 18.870611108641924,
+  "duration": 140.04000000000002,
+  "physical_collision_count": 2,
+  "pedestrian_collision_count": 0,
+  "collision_rate": 0.014281633818908882,
+  "stuck_count": 18,
+  "recovery_count": 17,
+  "mean_inference_latency": 0.11675114574579061,
+  "p50_inference_latency": 0.11643502116203308,
+  "p95_inference_latency": 0.11960790604352951,
+  "max_inference_latency": 0.16497854888439178,
+  "mean_vlm_latency": null,
+  "mean_action_expert_latency": null,
+  "mean_control_frequency": 20.007491112540862,
+  "minimum_control_frequency": 19.6467054314593,
+  "direct_velocity": false,
+  "collision_events": [
+    {
+      "time": 34.76,
+      "force": 102.50123596191406,
+      "object": "unknown_static_geometry",
+      "robot_body": "FR_hip",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 81.34,
+      "force": 102.83258056640625,
+      "object": "unknown_static_geometry",
+      "robot_body": "FR_hip",
+      "is_pedestrian": false,
+      "episode_failure": false
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+ticvla_adapter:
+  ros__parameters:
+    model.base_model_path: ""
+    model.checkpoint_path: ""
+    model.device: cuda:0
+    model.dtype: bfloat16
+    model.server_url: http://127.0.0.1:5802
+    input.image_topic: /camera/rgb/image_raw
+    input.odom_topic: /odom
+    input.instruction_topic: /vln/instruction
+    input.episode_state_topic: /episode/state
+    input.history_length: 4
+    input.history_capacity_frames: 190
+    input.history_interval_frames: 30
+    input.image_width: 640
+    input.image_height: 480
+    # Optional experiment: set to 1.7777777778 to center-crop 640x480 to 16:9.
+    # Keep disabled by default: the current checkpoint performs better on the
+    # native B2-W 640x480 stream until a full official preprocessing match is added.
+    input.model_image_aspect_ratio: 0.0
+    output.command_topic: /vln/command
+    output.debug_path_topic: /vln/debug_path
+    output.latency_topic: /vln/inference_latency
+    output.frame_id: base_link
+    output.action_horizon: 30
+    output.action_dt: 0.1
+    runtime.asynchronous_vlm: true
+    runtime.initial_inference_timeout: 30.0
+    runtime.command_timeout: 0.5
+    runtime.publish_debug_path: true
+    # Match the public DynaNav behavior sensor/action update cadence.
+    runtime.inference_rate_hz: 10.0
+    evaluation.mode: trajectory_normalized
+    evaluation.direct_velocity: false
+    # Official Spot DynaNav curvature equations.  The upstream 1.5 m/s maximum
+    # is clipped to the verified B2-W SRU-ONNX 1.0 m/s command range.
+    native_output.lookahead_distance: 1.0
+    native_output.angular_gain: 0.8
+    native_output.yaw_filter_alpha: 0.35
+    native_output.curvature_feedforward_gain: 0.5
+    native_output.max_linear_velocity: 1.0
+    native_output.max_angular_velocity: 1.0

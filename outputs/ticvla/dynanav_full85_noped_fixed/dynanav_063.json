@@ -1,0 +1,90 @@
+{
+  "model_name": "ticvla",
+  "experiment": "dynanav_full85_noped_fixed",
+  "episode_id": "dynanav_063",
+  "scene": "warehouse",
+  "evaluation_mode": "trajectory_normalized",
+  "sensor_profile": "rgb_only",
+  "comparison_track": "rgb_only",
+  "camera_horizontal_fov_degrees": 120.0,
+  "model_inputs": [
+    "rgb",
+    "motion_state",
+    "inference_latency",
+    "instruction"
+  ],
+  "model_runtime": {
+    "sensors": [
+      "rgb",
+      "odom"
+    ],
+    "derived_inputs": [],
+    "model_internal_3d_perception": false,
+    "external_local_avoidance": false,
+    "uses_shared_path_follower": true,
+    "uses_shared_velocity_filter": true
+  },
+  "derived_inputs": [],
+  "model_internal_3d_perception": false,
+  "external_local_avoidance": false,
+  "uses_shared_path_follower": true,
+  "uses_shared_velocity_filter": true,
+  "instruction": "Proceed to the yellow forklift at the entrance of Aisle 06 (the first aisle from the right).",
+  "seed": 666,
+  "pedestrian_count": 0,
+  "official_pedestrian_count": 20,
+  "effective_pedestrian_count": 0,
+  "success": false,
+  "navigation_error": 9.984475554,
+  "spl": 0.0,
+  "path_length": 49.822886055247864,
+  "duration": 55.18,
+  "physical_collision_count": 4,
+  "pedestrian_collision_count": 0,
+  "collision_rate": 0.07249003262051468,
+  "stuck_count": 0,
+  "recovery_count": 0,
+  "mean_inference_latency": 1.2082156473849,
+  "p50_inference_latency": 1.2093480825424194,
+  "p95_inference_latency": 1.2555407524108886,
+  "max_inference_latency": 1.2982895374298096,
+  "mean_vlm_latency": 1.2072438392318596,
+  "mean_action_expert_latency": 0.0009718083164130314,
+  "mean_control_frequency": 20.012810843735092,
+  "minimum_control_frequency": 18.95169783045224,
+  "direct_velocity": false,
+  "collision_events": [
+    {
+      "time": 35.1,
+      "force": 483.1761169433594,
+      "object": "unknown_static_geometry",
+      "robot_body": "RL_calf",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 35.1,
+      "force": 483.1761169433594,
+      "object": "unknown_static_geometry",
+      "robot_body": "RR_calf",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 37.94,
+      "force": 307.595458984375,
+      "object": "unknown_static_geometry",
+      "robot_body": "RL_calf",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 37.94,
+      "force": 307.595458984375,
+      "object": "unknown_static_geometry",
+      "robot_body": "RR_calf",
+      "is_pedestrian": false,
+      "episode_failure": false
+    }
+  ]
+}

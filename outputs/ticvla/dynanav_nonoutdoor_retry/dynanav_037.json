@@ -1,0 +1,67 @@
+{
+  "model_name": "ticvla",
+  "experiment": "dynanav_nonoutdoor_retry",
+  "episode_id": "dynanav_037",
+  "scene": "office",
+  "evaluation_mode": "trajectory_normalized",
+  "sensor_profile": "rgb_only",
+  "comparison_track": "rgb_only",
+  "camera_horizontal_fov_degrees": 90.0,
+  "model_inputs": [
+    "rgb",
+    "motion_state",
+    "inference_latency",
+    "instruction"
+  ],
+  "model_runtime": {
+    "sensors": [
+      "rgb",
+      "odom"
+    ],
+    "derived_inputs": [],
+    "model_internal_3d_perception": false,
+    "external_local_avoidance": false,
+    "uses_shared_path_follower": true,
+    "uses_shared_velocity_filter": true
+  },
+  "derived_inputs": [],
+  "model_internal_3d_perception": false,
+  "external_local_avoidance": false,
+  "uses_shared_path_follower": true,
+  "uses_shared_velocity_filter": true,
+  "instruction": "Go straight ahead through the hallway, then turn left at the end to approach the red emergency exit door.",
+  "seed": 666,
+  "pedestrian_count": 0,
+  "official_pedestrian_count": 10,
+  "effective_pedestrian_count": 0,
+  "success": true,
+  "termination_reason": "success",
+  "failure_attribution": "success",
+  "navigation_error": 1.497659057,
+  "start_pose": [
+    -10.598298072814941,
+    -12.849406242370605
+  ],
+  "final_pose": [
+    -9.048089981079102,
+    -24.82469940185547
+  ],
+  "spl": 1.0,
+  "path_length": 12.453194392496808,
+  "duration": 13.64,
+  "physical_collision_count": 0,
+  "pedestrian_collision_count": 0,
+  "collision_rate": 0.0,
+  "stuck_count": 0,
+  "recovery_count": 0,
+  "mean_inference_latency": 0.0394648472270505,
+  "p50_inference_latency": 0.02876969799399376,
+  "p95_inference_latency": 0.061403439380228506,
+  "max_inference_latency": 1.0858747959136963,
+  "mean_vlm_latency": 0.03814234834333712,
+  "mean_action_expert_latency": 0.0013224984956623027,
+  "mean_control_frequency": 20.07335935836219,
+  "minimum_control_frequency": 19.788096010011277,
+  "direct_velocity": false,
+  "collision_events": []
+}

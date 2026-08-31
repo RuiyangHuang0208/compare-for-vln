@@ -1,0 +1,67 @@
+{
+  "model_name": "ticvla",
+  "experiment": "dynanav_nonoutdoor_retry",
+  "episode_id": "dynanav_040",
+  "scene": "office",
+  "evaluation_mode": "trajectory_normalized",
+  "sensor_profile": "rgb_only",
+  "comparison_track": "rgb_only",
+  "camera_horizontal_fov_degrees": 90.0,
+  "model_inputs": [
+    "rgb",
+    "motion_state",
+    "inference_latency",
+    "instruction"
+  ],
+  "model_runtime": {
+    "sensors": [
+      "rgb",
+      "odom"
+    ],
+    "derived_inputs": [],
+    "model_internal_3d_perception": false,
+    "external_local_avoidance": false,
+    "uses_shared_path_follower": true,
+    "uses_shared_velocity_filter": true
+  },
+  "derived_inputs": [],
+  "model_internal_3d_perception": false,
+  "external_local_avoidance": false,
+  "uses_shared_path_follower": true,
+  "uses_shared_velocity_filter": true,
+  "instruction": "Go straight ahead through the hallway, then turn left at the end to approach the red emergency exit door.",
+  "seed": 666,
+  "pedestrian_count": 0,
+  "official_pedestrian_count": 40,
+  "effective_pedestrian_count": 0,
+  "success": true,
+  "termination_reason": "success",
+  "failure_attribution": "success",
+  "navigation_error": 1.489170743,
+  "start_pose": [
+    -10.598326683044434,
+    -12.149018287658691
+  ],
+  "final_pose": [
+    -8.955303192138672,
+    -24.707857131958008
+  ],
+  "spl": 1.0,
+  "path_length": 13.072752962980362,
+  "duration": 14.219999998999999,
+  "physical_collision_count": 0,
+  "pedestrian_collision_count": 0,
+  "collision_rate": 0.0,
+  "stuck_count": 0,
+  "recovery_count": 0,
+  "mean_inference_latency": 0.03850842135951674,
+  "p50_inference_latency": 0.02866327576339245,
+  "p95_inference_latency": 0.04544954001903534,
+  "max_inference_latency": 1.071632981300354,
+  "mean_vlm_latency": 0.03711206456579322,
+  "mean_action_expert_latency": 0.001396357219183831,
+  "mean_control_frequency": 20.085662177684814,
+  "minimum_control_frequency": 19.469489568018464,
+  "direct_velocity": false,
+  "collision_events": []
+}

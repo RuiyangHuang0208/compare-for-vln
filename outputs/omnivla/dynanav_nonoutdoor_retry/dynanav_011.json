@@ -1,0 +1,129 @@
+{
+  "model_name": "omnivla",
+  "experiment": "dynanav_nonoutdoor_retry",
+  "episode_id": "dynanav_011",
+  "scene": "hospital",
+  "evaluation_mode": "trajectory_normalized",
+  "sensor_profile": "rgb_only",
+  "comparison_track": "rgb_only",
+  "camera_horizontal_fov_degrees": 90.0,
+  "model_inputs": [
+    "rgb",
+    "instruction"
+  ],
+  "model_runtime": {
+    "variant": "omnivla-original",
+    "resume_step": 120000,
+    "modality_id": 7,
+    "action_shape": [
+      8,
+      4
+    ],
+    "target_inference_rate_hz": 3.0,
+    "sensors": [
+      "rgb"
+    ],
+    "derived_inputs": [],
+    "model_internal_3d_perception": false,
+    "external_local_avoidance": false,
+    "uses_shared_path_follower": true,
+    "uses_shared_velocity_filter": true
+  },
+  "derived_inputs": [],
+  "model_internal_3d_perception": false,
+  "external_local_avoidance": false,
+  "uses_shared_path_follower": true,
+  "uses_shared_velocity_filter": true,
+  "instruction": "Go straight past the wheelchairs and stop at the water dispenser by the window.",
+  "seed": 666,
+  "pedestrian_count": 0,
+  "official_pedestrian_count": 0,
+  "effective_pedestrian_count": 0,
+  "success": false,
+  "termination_reason": "timeout",
+  "failure_attribution": "inconclusive_timeout",
+  "navigation_error": 1.668262026,
+  "start_pose": [
+    9.703254699707031,
+    2.7896032333374023
+  ],
+  "final_pose": [
+    -3.7157464027404785,
+    -0.4318885803222656
+  ],
+  "spl": 0.0,
+  "path_length": 18.15102414899524,
+  "duration": 70.139999999,
+  "physical_collision_count": 7,
+  "pedestrian_collision_count": 0,
+  "collision_rate": 0.09980039920301968,
+  "stuck_count": 4,
+  "recovery_count": 4,
+  "mean_inference_latency": 0.11568134288407034,
+  "p50_inference_latency": 0.11553879454731941,
+  "p95_inference_latency": 0.11859611719846724,
+  "max_inference_latency": 0.12073663622140884,
+  "mean_vlm_latency": null,
+  "mean_action_expert_latency": null,
+  "mean_control_frequency": 20.01924753003636,
+  "minimum_control_frequency": 18.76073558945149,
+  "direct_velocity": false,
+  "collision_events": [
+    {
+      "time": 28.84,
+      "force": 197.07472229003906,
+      "object": "unknown_static_geometry",
+      "robot_body": "base_link",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 32.94,
+      "force": 179.7557373046875,
+      "object": "unknown_static_geometry",
+      "robot_body": "base_link",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 37.1,
+      "force": 180.74432373046875,
+      "object": "unknown_static_geometry",
+      "robot_body": "base_link",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 41.300000000000004,
+      "force": 220.280517578125,
+      "object": "unknown_static_geometry",
+      "robot_body": "base_link",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 48.58,
+      "force": 360.0387878417969,
+      "object": "unknown_static_geometry",
+      "robot_body": "base_link",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 61.28,
+      "force": 229.40182495117188,
+      "object": "unknown_static_geometry",
+      "robot_body": "base_link",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 65.18,
+      "force": 267.8665771484375,
+      "object": "unknown_static_geometry",
+      "robot_body": "base_link",
+      "is_pedestrian": false,
+      "episode_failure": false
+    }
+  ]
+}

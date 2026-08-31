@@ -1,0 +1,88 @@
+{
+  "model_name": "ticvla",
+  "experiment": "dynanav_full85_noped_20260828",
+  "episode_id": "dynanav_020",
+  "scene": "hospital",
+  "evaluation_mode": "trajectory_normalized",
+  "sensor_profile": "rgb_only",
+  "comparison_track": "rgb_only",
+  "camera_horizontal_fov_degrees": 120.0,
+  "model_inputs": [
+    "rgb",
+    "motion_state",
+    "inference_latency",
+    "instruction"
+  ],
+  "model_runtime": {
+    "sensors": [
+      "rgb",
+      "odom"
+    ],
+    "derived_inputs": [],
+    "model_internal_3d_perception": false,
+    "external_local_avoidance": false,
+    "uses_shared_path_follower": true,
+    "uses_shared_velocity_filter": true
+  },
+  "derived_inputs": [],
+  "model_internal_3d_perception": false,
+  "external_local_avoidance": false,
+  "uses_shared_path_follower": true,
+  "uses_shared_velocity_filter": true,
+  "instruction": "Move forward toward the staircase, then turn left to enter the hallway. Continue straight ahead and stop in front of the blue hospital bed on the right side of the hallway.",
+  "seed": 666,
+  "pedestrian_count": 40,
+  "success": true,
+  "navigation_error": 1.494153081,
+  "spl": 0.8923375936552257,
+  "path_length": 24.03642419590122,
+  "duration": 28.46,
+  "physical_collision_count": 4,
+  "pedestrian_collision_count": 0,
+  "collision_rate": 0.14054813773717498,
+  "stuck_count": 0,
+  "recovery_count": 0,
+  "mean_inference_latency": 1.038646119396861,
+  "p50_inference_latency": 1.0371862649917603,
+  "p95_inference_latency": 1.0769782066345215,
+  "max_inference_latency": 1.0967769622802734,
+  "mean_vlm_latency": 1.0377945245766058,
+  "mean_action_expert_latency": 0.000851583823266371,
+  "mean_control_frequency": 20.064371194375365,
+  "minimum_control_frequency": 19.69661269521338,
+  "direct_velocity": false,
+  "collision_events": [
+    {
+      "time": 28.740000000000002,
+      "force": 139.25741577148438,
+      "object": "unknown_static_geometry",
+      "robot_body": "RL_calf",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 28.740000000000002,
+      "force": 139.25741577148438,
+      "object": "unknown_static_geometry",
+      "robot_body": "RR_calf",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 30.38,
+      "force": 127.16641235351562,
+      "object": "unknown_static_geometry",
+      "robot_body": "RL_calf",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 30.38,
+      "force": 127.16641235351562,
+      "object": "unknown_static_geometry",
+      "robot_body": "RR_calf",
+      "is_pedestrian": false,
+      "episode_failure": false
+    }
+  ]
+}

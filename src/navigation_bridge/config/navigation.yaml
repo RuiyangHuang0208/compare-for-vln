@@ -1,0 +1,46 @@
+navigation_bridge:
+  ros__parameters:
+    command_topic: /vln/command
+    odom_topic: /odom
+    output_topic: /nav_vel
+    debug_path_topic: /vln/debug_path
+    desired_speed_topic: /navigation/desired_speed
+    current_speed_topic: /navigation/desired_speed/current
+    trajectory_finished_topic: /navigation/trajectory_finished
+    trajectory_failed_topic: /navigation/trajectory_failed
+    episode_state_topic: /episode/state
+    control_rate_hz: 20.0
+    base_frame: base_link
+    world_frame: world
+    path_follower.lookahead_distance: 1.0
+    path_follower.controller: shared_pure_pursuit
+    # This is the end tolerance for each rolling local path, not episode success.
+    path_follower.goal_tolerance: 0.05
+    # Applied only when an adapter explicitly supplies non-zero Pose2D.theta values.
+    path_follower.heading_tolerance: 0.0872664626
+    # Prevent a physical B2-W from circling a very short arc endpoint while correcting yaw.
+    path_follower.heading_capture_distance: 0.10
+    path_follower.desired_speed: 1.0
+    path_follower.yaw_gain: 0.8
+    path_follower.yaw_filter_alpha: 0.35
+    path_follower.curvature_feedforward_gain: 0.5
+    # 2.0 m/s is an experimental command outside the previously verified 1.0 m/s range.
+    limits.max_vx: 2.0
+    limits.max_vy: 0.5
+    limits.max_wz: 1.0
+    limits.max_linear_acceleration: 0.8
+    limits.max_angular_acceleration: 1.5
+    limits.max_linear_deceleration: 0.8
+    limits.max_angular_deceleration: 1.5
+    timeout.command_timeout: 0.5
+    # Covers two physical 30-degree Uni-NaVid turns, including final-heading correction.
+    timeout.trajectory_timeout: 15.0
+    # Fair-comparison launch overrides this to true. Manual launches retain speed control.
+    runtime.lock_desired_speed: false
+    stuck.command_speed_threshold: 0.1
+    stuck.motion_speed_threshold: 0.03
+    stuck.duration: 2.0
+    stuck.recovery_enabled: true
+    stuck.recovery_speed: -0.3
+    stuck.recovery_duration: 1.5
+    collision.recovery_enabled: true

@@ -1,0 +1,64 @@
+{
+  "model_name": "navila",
+  "experiment": "dynanav_nonoutdoor_retry",
+  "episode_id": "dynanav_019",
+  "scene": "hospital",
+  "evaluation_mode": "trajectory_normalized",
+  "sensor_profile": "rgb_only",
+  "comparison_track": "rgb_only",
+  "camera_horizontal_fov_degrees": 90.0,
+  "model_inputs": [
+    "rgb",
+    "instruction"
+  ],
+  "model_runtime": {
+    "sensors": [
+      "rgb"
+    ],
+    "derived_inputs": [],
+    "model_internal_3d_perception": false,
+    "external_local_avoidance": false,
+    "uses_shared_path_follower": true,
+    "uses_shared_velocity_filter": true
+  },
+  "derived_inputs": [],
+  "model_internal_3d_perception": false,
+  "external_local_avoidance": false,
+  "uses_shared_path_follower": true,
+  "uses_shared_velocity_filter": true,
+  "instruction": "Move forward toward the staircase, then turn left to enter the hallway. Continue straight ahead and stop in front of the blue hospital bed on the right side of the hallway.",
+  "seed": 666,
+  "pedestrian_count": 0,
+  "official_pedestrian_count": 30,
+  "effective_pedestrian_count": 0,
+  "success": true,
+  "termination_reason": "success",
+  "failure_attribution": "success",
+  "navigation_error": 1.495700774,
+  "start_pose": [
+    7.378490924835205,
+    1.5369746685028076
+  ],
+  "final_pose": [
+    -10.73807430267334,
+    9.856110572814941
+  ],
+  "spl": 0.7989725851775982,
+  "path_length": 26.82553423650899,
+  "duration": 50.179999999,
+  "physical_collision_count": 0,
+  "pedestrian_collision_count": 0,
+  "collision_rate": 0.0,
+  "stuck_count": 0,
+  "recovery_count": 0,
+  "mean_inference_latency": 0.569078728556633,
+  "p50_inference_latency": 0.5685113370418549,
+  "p95_inference_latency": 0.5774321854114532,
+  "max_inference_latency": 0.5900583267211914,
+  "mean_vlm_latency": null,
+  "mean_action_expert_latency": null,
+  "mean_control_frequency": 20.029912934845534,
+  "minimum_control_frequency": 18.665483620909058,
+  "direct_velocity": false,
+  "collision_events": []
+}

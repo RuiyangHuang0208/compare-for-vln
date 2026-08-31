@@ -1,0 +1,67 @@
+{
+  "model_name": "ticvla",
+  "experiment": "dynanav_nonoutdoor_retry",
+  "episode_id": "dynanav_012",
+  "scene": "hospital",
+  "evaluation_mode": "trajectory_normalized",
+  "sensor_profile": "rgb_only",
+  "comparison_track": "rgb_only",
+  "camera_horizontal_fov_degrees": 90.0,
+  "model_inputs": [
+    "rgb",
+    "motion_state",
+    "inference_latency",
+    "instruction"
+  ],
+  "model_runtime": {
+    "sensors": [
+      "rgb",
+      "odom"
+    ],
+    "derived_inputs": [],
+    "model_internal_3d_perception": false,
+    "external_local_avoidance": false,
+    "uses_shared_path_follower": true,
+    "uses_shared_velocity_filter": true
+  },
+  "derived_inputs": [],
+  "model_internal_3d_perception": false,
+  "external_local_avoidance": false,
+  "uses_shared_path_follower": true,
+  "uses_shared_velocity_filter": true,
+  "instruction": "Go straight past the wheelchairs and stop at the water dispenser by the window.",
+  "seed": 666,
+  "pedestrian_count": 0,
+  "official_pedestrian_count": 10,
+  "effective_pedestrian_count": 0,
+  "success": true,
+  "termination_reason": "success",
+  "failure_attribution": "success",
+  "navigation_error": 1.491410546,
+  "start_pose": [
+    9.702887535095215,
+    2.7893500328063965
+  ],
+  "final_pose": [
+    -2.9341843128204346,
+    -1.5749539136886597
+  ],
+  "spl": 1.0,
+  "path_length": 13.471266185834835,
+  "duration": 14.439999999,
+  "physical_collision_count": 0,
+  "pedestrian_collision_count": 0,
+  "collision_rate": 0.0,
+  "stuck_count": 0,
+  "recovery_count": 0,
+  "mean_inference_latency": 0.038842098841028246,
+  "p50_inference_latency": 0.029057122766971588,
+  "p95_inference_latency": 0.04894756413996217,
+  "max_inference_latency": 1.1296826601028442,
+  "mean_vlm_latency": 0.03755540442284491,
+  "mean_action_expert_latency": 0.0012866947598916163,
+  "mean_control_frequency": 20.05986162295808,
+  "minimum_control_frequency": 18.800677386341533,
+  "direct_velocity": false,
+  "collision_events": []
+}

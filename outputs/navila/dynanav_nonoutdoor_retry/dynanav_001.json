@@ -1,0 +1,64 @@
+{
+  "model_name": "navila",
+  "experiment": "dynanav_nonoutdoor_retry",
+  "episode_id": "dynanav_001",
+  "scene": "hospital",
+  "evaluation_mode": "trajectory_normalized",
+  "sensor_profile": "rgb_only",
+  "comparison_track": "rgb_only",
+  "camera_horizontal_fov_degrees": 90.0,
+  "model_inputs": [
+    "rgb",
+    "instruction"
+  ],
+  "model_runtime": {
+    "sensors": [
+      "rgb"
+    ],
+    "derived_inputs": [],
+    "model_internal_3d_perception": false,
+    "external_local_avoidance": false,
+    "uses_shared_path_follower": true,
+    "uses_shared_velocity_filter": true
+  },
+  "derived_inputs": [],
+  "model_internal_3d_perception": false,
+  "external_local_avoidance": false,
+  "uses_shared_path_follower": true,
+  "uses_shared_velocity_filter": true,
+  "instruction": "Go straight ahead and stop at the vending machine at front.",
+  "seed": 666,
+  "pedestrian_count": 0,
+  "official_pedestrian_count": 0,
+  "effective_pedestrian_count": 0,
+  "success": false,
+  "termination_reason": "model_stop_before_goal",
+  "failure_attribution": "model_behavior",
+  "navigation_error": 6.510961967,
+  "start_pose": [
+    -2.954658031463623,
+    -1.198644995689392
+  ],
+  "final_pose": [
+    4.358116626739502,
+    -1.651781678199768
+  ],
+  "spl": 0.0,
+  "path_length": 7.331231059774353,
+  "duration": 14.399999998999998,
+  "physical_collision_count": 0,
+  "pedestrian_collision_count": 0,
+  "collision_rate": 0.0,
+  "stuck_count": 0,
+  "recovery_count": 0,
+  "mean_inference_latency": 0.5815571899767276,
+  "p50_inference_latency": 0.5686712861061096,
+  "p95_inference_latency": 0.5935520827770233,
+  "max_inference_latency": 0.8942959308624268,
+  "mean_vlm_latency": null,
+  "mean_action_expert_latency": null,
+  "mean_control_frequency": 20.143616956970593,
+  "minimum_control_frequency": 18.884534740087553,
+  "direct_velocity": false,
+  "collision_events": []
+}

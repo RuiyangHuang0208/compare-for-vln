@@ -1,5 +1,5 @@
-# Sensor selection for the current DualVLN + B2W deployment.
-profile: b2w_dualvln_rgbd_sim
+# Shared simulated sensor contract. Model-specific experiments select a subset.
+profile: b2w_vln_rgbd_sim
 
 required:
   front_rgb:
@@ -7,7 +7,7 @@ required:
   aligned_depth:
     required_for_official_realworld_pipeline: true
   odometry:
-    topic: /b2_366/base/odom
+    topic: /odom
     message_type: nav_msgs/msg/Odometry
 
 simulation:
@@ -15,6 +15,20 @@ simulation:
     config: src/sensors/camera/config/b2_front_rgb_sim.yaml
   aligned_depth_source: distance_to_image_plane
   odometry_source: isaaclab_articulation_root_state
+  rgb_topic: /camera/rgb/image_raw
+  depth_topic: /camera/depth/image_raw
+  camera_info_topic: /camera/rgb/camera_info
+  ground_truth_topic: /ground_truth/odom
+  frame_id: camera_front_optical
+  width: 640
+  height: 480
+  rate_hz: 10
+
+evaluation_profiles:
+  rgb_only: [front_rgb, odometry]
+  rgb_d: [front_rgb, aligned_depth, odometry]
+  rgb_d_pointcloud_from_depth: [front_rgb, aligned_depth, camera_info, odometry]
+  rgb_d_lidar: [front_rgb, aligned_depth, lidar, odometry]
 
 # These devices are not required for the simulation-only DualVLN pipeline.
 not_model_inputs:

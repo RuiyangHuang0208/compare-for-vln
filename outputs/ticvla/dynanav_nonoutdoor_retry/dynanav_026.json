@@ -1,0 +1,67 @@
+{
+  "model_name": "ticvla",
+  "experiment": "dynanav_nonoutdoor_retry",
+  "episode_id": "dynanav_026",
+  "scene": "office",
+  "evaluation_mode": "trajectory_normalized",
+  "sensor_profile": "rgb_only",
+  "comparison_track": "rgb_only",
+  "camera_horizontal_fov_degrees": 90.0,
+  "model_inputs": [
+    "rgb",
+    "motion_state",
+    "inference_latency",
+    "instruction"
+  ],
+  "model_runtime": {
+    "sensors": [
+      "rgb",
+      "odom"
+    ],
+    "derived_inputs": [],
+    "model_internal_3d_perception": false,
+    "external_local_avoidance": false,
+    "uses_shared_path_follower": true,
+    "uses_shared_velocity_filter": true
+  },
+  "derived_inputs": [],
+  "model_internal_3d_perception": false,
+  "external_local_avoidance": false,
+  "uses_shared_path_follower": true,
+  "uses_shared_velocity_filter": true,
+  "instruction": "Go straight ahead and stop at the nearest elevator.",
+  "seed": 666,
+  "pedestrian_count": 0,
+  "official_pedestrian_count": 0,
+  "effective_pedestrian_count": 0,
+  "success": true,
+  "termination_reason": "success",
+  "failure_attribution": "success",
+  "navigation_error": 1.495448977,
+  "start_pose": [
+    -2.8811159133911133,
+    9.563855171203613
+  ],
+  "final_pose": [
+    -13.603591918945312,
+    0.29962125420570374
+  ],
+  "spl": 1.0,
+  "path_length": 14.483245519521777,
+  "duration": 15.32,
+  "physical_collision_count": 0,
+  "pedestrian_collision_count": 0,
+  "collision_rate": 0.0,
+  "stuck_count": 0,
+  "recovery_count": 0,
+  "mean_inference_latency": 0.03806016381297793,
+  "p50_inference_latency": 0.029677782207727432,
+  "p95_inference_latency": 0.04251688867807388,
+  "max_inference_latency": 1.0854071378707886,
+  "mean_vlm_latency": 0.036665860120029675,
+  "mean_action_expert_latency": 0.001394303656518966,
+  "mean_control_frequency": 20.049083903662424,
+  "minimum_control_frequency": 19.831645986789077,
+  "direct_velocity": false,
+  "collision_events": []
+}

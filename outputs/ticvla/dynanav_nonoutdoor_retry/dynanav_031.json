@@ -1,0 +1,132 @@
+{
+  "model_name": "ticvla",
+  "experiment": "dynanav_nonoutdoor_retry",
+  "episode_id": "dynanav_031",
+  "scene": "office",
+  "evaluation_mode": "trajectory_normalized",
+  "sensor_profile": "rgb_only",
+  "comparison_track": "rgb_only",
+  "camera_horizontal_fov_degrees": 90.0,
+  "model_inputs": [
+    "rgb",
+    "motion_state",
+    "inference_latency",
+    "instruction"
+  ],
+  "model_runtime": {
+    "sensors": [
+      "rgb",
+      "odom"
+    ],
+    "derived_inputs": [],
+    "model_internal_3d_perception": false,
+    "external_local_avoidance": false,
+    "uses_shared_path_follower": true,
+    "uses_shared_velocity_filter": true
+  },
+  "derived_inputs": [],
+  "model_internal_3d_perception": false,
+  "external_local_avoidance": false,
+  "uses_shared_path_follower": true,
+  "uses_shared_velocity_filter": true,
+  "instruction": "Turn right and follow the blue carpet to the end of the hallway. Enter the room with the reception desk.",
+  "seed": 666,
+  "pedestrian_count": 0,
+  "official_pedestrian_count": 0,
+  "effective_pedestrian_count": 0,
+  "success": false,
+  "termination_reason": "timeout",
+  "failure_attribution": "inconclusive_timeout",
+  "navigation_error": 13.710653883,
+  "start_pose": [
+    -8.152487754821777,
+    52.20355224609375
+  ],
+  "final_pose": [
+    -1.808223009109497,
+    24.528759002685547
+  ],
+  "spl": 0.0,
+  "path_length": 34.720656087584814,
+  "duration": 65.10000000000001,
+  "physical_collision_count": 8,
+  "pedestrian_collision_count": 0,
+  "collision_rate": 0.12288786482334868,
+  "stuck_count": 1,
+  "recovery_count": 1,
+  "mean_inference_latency": 0.035410526404186474,
+  "p50_inference_latency": 0.02929965127259493,
+  "p95_inference_latency": 0.0788511924445629,
+  "max_inference_latency": 1.0821436643600464,
+  "mean_vlm_latency": 0.03404412625596908,
+  "mean_action_expert_latency": 0.0013664001675591246,
+  "mean_control_frequency": 20.01072390285121,
+  "minimum_control_frequency": 19.184355209380698,
+  "direct_velocity": false,
+  "collision_events": [
+    {
+      "time": 25.94,
+      "force": 280.5108642578125,
+      "object": "unknown_static_geometry",
+      "robot_body": "base_link",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 30.740000000000002,
+      "force": 237.3411865234375,
+      "object": "unknown_static_geometry",
+      "robot_body": "base_link",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 35.96,
+      "force": 365.6169738769531,
+      "object": "unknown_static_geometry",
+      "robot_body": "base_link",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 38.82,
+      "force": 347.57720947265625,
+      "object": "unknown_static_geometry",
+      "robot_body": "base_link",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 41.86,
+      "force": 321.6969299316406,
+      "object": "unknown_static_geometry",
+      "robot_body": "base_link",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 44.980000000000004,
+      "force": 352.5491943359375,
+      "object": "unknown_static_geometry",
+      "robot_body": "base_link",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 47.86,
+      "force": 384.2655029296875,
+      "object": "unknown_static_geometry",
+      "robot_body": "base_link",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 50.660000000000004,
+      "force": 332.06866455078125,
+      "object": "unknown_static_geometry",
+      "robot_body": "FL_hip",
+      "is_pedestrian": false,
+      "episode_failure": false
+    }
+  ]
+}

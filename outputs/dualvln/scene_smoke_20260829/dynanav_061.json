@@ -1,0 +1,118 @@
+{
+  "model_name": "dualvln",
+  "experiment": "scene_smoke_20260829",
+  "episode_id": "dynanav_061",
+  "scene": "warehouse",
+  "evaluation_mode": "trajectory_normalized",
+  "sensor_profile": "rgb_d",
+  "comparison_track": "rgb_d",
+  "camera_horizontal_fov_degrees": 79.0,
+  "model_inputs": [
+    "rgb",
+    "depth",
+    "camera_info",
+    "motion_state",
+    "instruction"
+  ],
+  "model_runtime": {
+    "sensors": [
+      "rgb",
+      "depth",
+      "odom"
+    ],
+    "derived_inputs": [],
+    "model_internal_3d_perception": false,
+    "external_local_avoidance": false,
+    "uses_shared_path_follower": true,
+    "uses_shared_velocity_filter": true
+  },
+  "derived_inputs": [],
+  "model_internal_3d_perception": false,
+  "external_local_avoidance": false,
+  "uses_shared_path_follower": true,
+  "uses_shared_velocity_filter": true,
+  "instruction": "Proceed to the traffic cones at the entrance of Aisle 05 (the second aisle from the right).",
+  "seed": 666,
+  "pedestrian_count": 0,
+  "official_pedestrian_count": 0,
+  "effective_pedestrian_count": 0,
+  "success": false,
+  "termination_reason": "timeout",
+  "failure_attribution": "inconclusive_timeout",
+  "navigation_error": 7.212671576,
+  "start_pose": [
+    -10.215177536010742,
+    -7.341338634490967
+  ],
+  "final_pose": [
+    3.2236881256103516,
+    4.480138301849365
+  ],
+  "spl": 0.0,
+  "path_length": 21.87970394107861,
+  "duration": 70.08000000000001,
+  "physical_collision_count": 6,
+  "pedestrian_collision_count": 0,
+  "collision_rate": 0.08561643835616436,
+  "stuck_count": 0,
+  "recovery_count": 0,
+  "mean_inference_latency": 0.908596867050689,
+  "p50_inference_latency": 0.11854090169072151,
+  "p95_inference_latency": 4.2098942518234255,
+  "max_inference_latency": 4.28667688369751,
+  "mean_vlm_latency": null,
+  "mean_action_expert_latency": null,
+  "mean_control_frequency": 20.12211908867497,
+  "minimum_control_frequency": 19.443128955730746,
+  "direct_velocity": false,
+  "collision_events": [
+    {
+      "time": 4.64,
+      "force": 456.0622253417969,
+      "object": "unknown_static_geometry",
+      "robot_body": "RL_calf",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 4.64,
+      "force": 456.0622253417969,
+      "object": "unknown_static_geometry",
+      "robot_body": "RR_calf",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 50.18,
+      "force": 129.55282592773438,
+      "object": "unknown_static_geometry",
+      "robot_body": "RL_calf",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 50.18,
+      "force": 129.55282592773438,
+      "object": "unknown_static_geometry",
+      "robot_body": "RR_calf",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 52.44,
+      "force": 105.322509765625,
+      "object": "unknown_static_geometry",
+      "robot_body": "RL_calf",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 52.44,
+      "force": 105.322509765625,
+      "object": "unknown_static_geometry",
+      "robot_body": "RR_calf",
+      "is_pedestrian": false,
+      "episode_failure": false
+    }
+  ]
+}

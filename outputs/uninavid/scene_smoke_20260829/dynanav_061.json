@@ -1,0 +1,87 @@
+{
+  "model_name": "uninavid",
+  "experiment": "scene_smoke_20260829",
+  "episode_id": "dynanav_061",
+  "scene": "warehouse",
+  "evaluation_mode": "trajectory_normalized",
+  "sensor_profile": "rgb_only",
+  "comparison_track": "rgb_only",
+  "camera_horizontal_fov_degrees": 90.0,
+  "model_inputs": [
+    "rgb",
+    "instruction"
+  ],
+  "model_runtime": {
+    "frame_sample_hz": 1.0,
+    "do_sample": true,
+    "temperature": 0.2,
+    "max_new_tokens": 1024,
+    "predicted_action_limit": 4,
+    "executed_action_limit": 2,
+    "sensors": [
+      "rgb"
+    ],
+    "derived_inputs": [],
+    "model_internal_3d_perception": false,
+    "external_local_avoidance": false,
+    "uses_shared_path_follower": true,
+    "uses_shared_velocity_filter": true
+  },
+  "derived_inputs": [],
+  "model_internal_3d_perception": false,
+  "external_local_avoidance": false,
+  "uses_shared_path_follower": true,
+  "uses_shared_velocity_filter": true,
+  "instruction": "Proceed to the traffic cones at the entrance of Aisle 05 (the second aisle from the right).",
+  "seed": 666,
+  "pedestrian_count": 0,
+  "official_pedestrian_count": 0,
+  "effective_pedestrian_count": 0,
+  "success": false,
+  "termination_reason": "timeout",
+  "failure_attribution": "inconclusive_timeout",
+  "navigation_error": 15.94426041,
+  "start_pose": [
+    -10.215263366699219,
+    -7.339468479156494
+  ],
+  "final_pose": [
+    -9.865344047546387,
+    -6.9016804695129395
+  ],
+  "spl": 0.0,
+  "path_length": 4.259147308175811,
+  "duration": 70.01999999899999,
+  "physical_collision_count": 2,
+  "pedestrian_collision_count": 0,
+  "collision_rate": 0.0285632676382257,
+  "stuck_count": 0,
+  "recovery_count": 0,
+  "mean_inference_latency": 0.23688437789678574,
+  "p50_inference_latency": 0.23944202810525894,
+  "p95_inference_latency": 0.30245406180620193,
+  "max_inference_latency": 0.3031799793243408,
+  "mean_vlm_latency": null,
+  "mean_action_expert_latency": null,
+  "mean_control_frequency": 20.031991554317152,
+  "minimum_control_frequency": 19.774361882813697,
+  "direct_velocity": false,
+  "collision_events": [
+    {
+      "time": 42.9,
+      "force": 500.9106140136719,
+      "object": "unknown_static_geometry",
+      "robot_body": "RL_calf",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 42.9,
+      "force": 500.9106140136719,
+      "object": "unknown_static_geometry",
+      "robot_body": "RR_calf",
+      "is_pedestrian": false,
+      "episode_failure": false
+    }
+  ]
+}

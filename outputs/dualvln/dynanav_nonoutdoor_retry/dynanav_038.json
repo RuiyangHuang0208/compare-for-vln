@@ -1,0 +1,69 @@
+{
+  "model_name": "dualvln",
+  "experiment": "dynanav_nonoutdoor_retry",
+  "episode_id": "dynanav_038",
+  "scene": "office",
+  "evaluation_mode": "trajectory_normalized",
+  "sensor_profile": "rgb_d",
+  "comparison_track": "rgb_d",
+  "camera_horizontal_fov_degrees": 79.0,
+  "model_inputs": [
+    "rgb",
+    "depth",
+    "camera_info",
+    "motion_state",
+    "instruction"
+  ],
+  "model_runtime": {
+    "sensors": [
+      "rgb",
+      "depth",
+      "odom"
+    ],
+    "derived_inputs": [],
+    "model_internal_3d_perception": false,
+    "external_local_avoidance": false,
+    "uses_shared_path_follower": true,
+    "uses_shared_velocity_filter": true
+  },
+  "derived_inputs": [],
+  "model_internal_3d_perception": false,
+  "external_local_avoidance": false,
+  "uses_shared_path_follower": true,
+  "uses_shared_velocity_filter": true,
+  "instruction": "Go straight ahead through the hallway, then turn left at the end to approach the red emergency exit door.",
+  "seed": 666,
+  "pedestrian_count": 0,
+  "official_pedestrian_count": 20,
+  "effective_pedestrian_count": 0,
+  "success": false,
+  "termination_reason": "timeout",
+  "failure_attribution": "inconclusive_timeout",
+  "navigation_error": 15.705067417,
+  "start_pose": [
+    -10.598326683044434,
+    -12.149018287658691
+  ],
+  "final_pose": [
+    -8.497827529907227,
+    -9.848694801330566
+  ],
+  "spl": 0.0,
+  "path_length": 29.838672564481023,
+  "duration": 100.01999999899999,
+  "physical_collision_count": 0,
+  "pedestrian_collision_count": 0,
+  "collision_rate": 0.0,
+  "stuck_count": 0,
+  "recovery_count": 0,
+  "mean_inference_latency": 0.8647841022295111,
+  "p50_inference_latency": 0.12387614697217941,
+  "p95_inference_latency": 3.871260738372803,
+  "max_inference_latency": 3.950988292694092,
+  "mean_vlm_latency": null,
+  "mean_action_expert_latency": null,
+  "mean_control_frequency": 20.012571057100384,
+  "minimum_control_frequency": 19.56875973482019,
+  "direct_velocity": false,
+  "collision_events": []
+}

@@ -1,0 +1,137 @@
+{
+  "model_name": "omnivla",
+  "experiment": "dynanav_nonoutdoor_retry",
+  "episode_id": "dynanav_074",
+  "scene": "warehouse",
+  "evaluation_mode": "trajectory_normalized",
+  "sensor_profile": "rgb_only",
+  "comparison_track": "rgb_only",
+  "camera_horizontal_fov_degrees": 90.0,
+  "model_inputs": [
+    "rgb",
+    "instruction"
+  ],
+  "model_runtime": {
+    "variant": "omnivla-original",
+    "resume_step": 120000,
+    "modality_id": 7,
+    "action_shape": [
+      8,
+      4
+    ],
+    "target_inference_rate_hz": 3.0,
+    "sensors": [
+      "rgb"
+    ],
+    "derived_inputs": [],
+    "model_internal_3d_perception": false,
+    "external_local_avoidance": false,
+    "uses_shared_path_follower": true,
+    "uses_shared_velocity_filter": true
+  },
+  "derived_inputs": [],
+  "model_internal_3d_perception": false,
+  "external_local_avoidance": false,
+  "uses_shared_path_follower": true,
+  "uses_shared_velocity_filter": true,
+  "instruction": "Enter Aisle 01, the leftmost aisle, and continue to the end.",
+  "seed": 666,
+  "pedestrian_count": 0,
+  "official_pedestrian_count": 30,
+  "effective_pedestrian_count": 0,
+  "success": false,
+  "termination_reason": "timeout",
+  "failure_attribution": "inconclusive_timeout",
+  "navigation_error": 19.442138994,
+  "start_pose": [
+    -15.783137321472168,
+    -5.653347492218018
+  ],
+  "final_pose": [
+    -6.457450866699219,
+    12.870391845703125
+  ],
+  "spl": 0.0,
+  "path_length": 30.41098944021484,
+  "duration": 115.14,
+  "physical_collision_count": 8,
+  "pedestrian_collision_count": 0,
+  "collision_rate": 0.06948063227375369,
+  "stuck_count": 9,
+  "recovery_count": 9,
+  "mean_inference_latency": 0.11603018878821582,
+  "p50_inference_latency": 0.1155216284096241,
+  "p95_inference_latency": 0.12023464143276213,
+  "max_inference_latency": 0.12375467270612717,
+  "mean_vlm_latency": null,
+  "mean_action_expert_latency": null,
+  "mean_control_frequency": 20.010263133459368,
+  "minimum_control_frequency": 19.702039028857588,
+  "direct_velocity": false,
+  "collision_events": [
+    {
+      "time": 43.72,
+      "force": 133.42457580566406,
+      "object": "unknown_static_geometry",
+      "robot_body": "FR_hip",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 50.120000000000005,
+      "force": 161.0397491455078,
+      "object": "unknown_static_geometry",
+      "robot_body": "base_link",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 54.36,
+      "force": 219.17098999023438,
+      "object": "unknown_static_geometry",
+      "robot_body": "base_link",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 77.74,
+      "force": 154.60801696777344,
+      "object": "unknown_static_geometry",
+      "robot_body": "FL_hip",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 82.10000000000001,
+      "force": 181.46389770507812,
+      "object": "unknown_static_geometry",
+      "robot_body": "FL_hip",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 86.18,
+      "force": 179.08863830566406,
+      "object": "unknown_static_geometry",
+      "robot_body": "FL_hip",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 90.38,
+      "force": 194.6561737060547,
+      "object": "unknown_static_geometry",
+      "robot_body": "FL_hip",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 96.52,
+      "force": 143.25416564941406,
+      "object": "unknown_static_geometry",
+      "robot_body": "FL_hip",
+      "is_pedestrian": false,
+      "episode_failure": false
+    }
+  ]
+}

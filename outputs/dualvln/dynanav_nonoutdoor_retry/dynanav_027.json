@@ -1,0 +1,126 @@
+{
+  "model_name": "dualvln",
+  "experiment": "dynanav_nonoutdoor_retry",
+  "episode_id": "dynanav_027",
+  "scene": "office",
+  "evaluation_mode": "trajectory_normalized",
+  "sensor_profile": "rgb_d",
+  "comparison_track": "rgb_d",
+  "camera_horizontal_fov_degrees": 79.0,
+  "model_inputs": [
+    "rgb",
+    "depth",
+    "camera_info",
+    "motion_state",
+    "instruction"
+  ],
+  "model_runtime": {
+    "sensors": [
+      "rgb",
+      "depth",
+      "odom"
+    ],
+    "derived_inputs": [],
+    "model_internal_3d_perception": false,
+    "external_local_avoidance": false,
+    "uses_shared_path_follower": true,
+    "uses_shared_velocity_filter": true
+  },
+  "derived_inputs": [],
+  "model_internal_3d_perception": false,
+  "external_local_avoidance": false,
+  "uses_shared_path_follower": true,
+  "uses_shared_velocity_filter": true,
+  "instruction": "Go straight ahead and stop at the nearest elevator.",
+  "seed": 666,
+  "pedestrian_count": 0,
+  "official_pedestrian_count": 10,
+  "effective_pedestrian_count": 0,
+  "success": false,
+  "termination_reason": "timeout",
+  "failure_attribution": "inconclusive_timeout",
+  "navigation_error": 15.313353971,
+  "start_pose": [
+    -2.8785147666931152,
+    9.567261695861816
+  ],
+  "final_pose": [
+    -4.657431602478027,
+    11.369465827941895
+  ],
+  "spl": 0.0,
+  "path_length": 7.378864790358227,
+  "duration": 60.140000001000004,
+  "physical_collision_count": 7,
+  "pedestrian_collision_count": 0,
+  "collision_rate": 0.11639507814904564,
+  "stuck_count": 6,
+  "recovery_count": 6,
+  "mean_inference_latency": 0.7289211666493705,
+  "p50_inference_latency": 0.12072063982486725,
+  "p95_inference_latency": 3.901062870025635,
+  "max_inference_latency": 3.973994493484497,
+  "mean_vlm_latency": null,
+  "mean_action_expert_latency": null,
+  "mean_control_frequency": 20.02105846789654,
+  "minimum_control_frequency": 18.11180913538271,
+  "direct_velocity": false,
+  "collision_events": [
+    {
+      "time": 16.48,
+      "force": 305.3489685058594,
+      "object": "unknown_static_geometry",
+      "robot_body": "base_link",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 19.900000000000002,
+      "force": 280.871337890625,
+      "object": "unknown_static_geometry",
+      "robot_body": "base_link",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 23.28,
+      "force": 276.0283508300781,
+      "object": "unknown_static_geometry",
+      "robot_body": "base_link",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 27.76,
+      "force": 291.8574523925781,
+      "object": "unknown_static_geometry",
+      "robot_body": "base_link",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 34.46,
+      "force": 300.93878173828125,
+      "object": "unknown_static_geometry",
+      "robot_body": "base_link",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 37.800000000000004,
+      "force": 314.4140625,
+      "object": "unknown_static_geometry",
+      "robot_body": "base_link",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 49.620000000000005,
+      "force": 247.09420776367188,
+      "object": "unknown_static_geometry",
+      "robot_body": "base_link",
+      "is_pedestrian": false,
+      "episode_failure": false
+    }
+  ]
+}

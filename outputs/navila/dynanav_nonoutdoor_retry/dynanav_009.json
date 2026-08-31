@@ -1,0 +1,64 @@
+{
+  "model_name": "navila",
+  "experiment": "dynanav_nonoutdoor_retry",
+  "episode_id": "dynanav_009",
+  "scene": "hospital",
+  "evaluation_mode": "trajectory_normalized",
+  "sensor_profile": "rgb_only",
+  "comparison_track": "rgb_only",
+  "camera_horizontal_fov_degrees": 90.0,
+  "model_inputs": [
+    "rgb",
+    "instruction"
+  ],
+  "model_runtime": {
+    "sensors": [
+      "rgb"
+    ],
+    "derived_inputs": [],
+    "model_internal_3d_perception": false,
+    "external_local_avoidance": false,
+    "uses_shared_path_follower": true,
+    "uses_shared_velocity_filter": true
+  },
+  "derived_inputs": [],
+  "model_internal_3d_perception": false,
+  "external_local_avoidance": false,
+  "uses_shared_path_follower": true,
+  "uses_shared_velocity_filter": true,
+  "instruction": "Walk straight down the hallway and stop at the red bed located to the right of the doors.",
+  "seed": 666,
+  "pedestrian_count": 0,
+  "official_pedestrian_count": 30,
+  "effective_pedestrian_count": 0,
+  "success": false,
+  "termination_reason": "model_stop_before_goal",
+  "failure_attribution": "model_behavior",
+  "navigation_error": 3.873737905,
+  "start_pose": [
+    19.711410522460938,
+    29.236042022705078
+  ],
+  "final_pose": [
+    16.010208129882812,
+    0.8326970934867859
+  ],
+  "spl": 0.0,
+  "path_length": 28.673812699935354,
+  "duration": 51.879999999999995,
+  "physical_collision_count": 0,
+  "pedestrian_collision_count": 0,
+  "collision_rate": 0.0,
+  "stuck_count": 0,
+  "recovery_count": 0,
+  "mean_inference_latency": 0.5701127739585176,
+  "p50_inference_latency": 0.5700714886188507,
+  "p95_inference_latency": 0.5786361187696457,
+  "max_inference_latency": 0.6045274138450623,
+  "mean_vlm_latency": null,
+  "mean_action_expert_latency": null,
+  "mean_control_frequency": 20.039370882444896,
+  "minimum_control_frequency": 18.578503034997848,
+  "direct_velocity": false,
+  "collision_events": []
+}

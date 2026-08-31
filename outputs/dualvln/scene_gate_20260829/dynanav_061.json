@@ -1,0 +1,69 @@
+{
+  "model_name": "dualvln",
+  "experiment": "scene_gate_20260829",
+  "episode_id": "dynanav_061",
+  "scene": "warehouse",
+  "evaluation_mode": "trajectory_normalized",
+  "sensor_profile": "rgb_d",
+  "comparison_track": "rgb_d",
+  "camera_horizontal_fov_degrees": 79.0,
+  "model_inputs": [
+    "rgb",
+    "depth",
+    "camera_info",
+    "motion_state",
+    "instruction"
+  ],
+  "model_runtime": {
+    "sensors": [
+      "rgb",
+      "depth",
+      "odom"
+    ],
+    "derived_inputs": [],
+    "model_internal_3d_perception": false,
+    "external_local_avoidance": false,
+    "uses_shared_path_follower": true,
+    "uses_shared_velocity_filter": true
+  },
+  "derived_inputs": [],
+  "model_internal_3d_perception": false,
+  "external_local_avoidance": false,
+  "uses_shared_path_follower": true,
+  "uses_shared_velocity_filter": true,
+  "instruction": "Proceed to the traffic cones at the entrance of Aisle 05 (the second aisle from the right).",
+  "seed": 666,
+  "pedestrian_count": 0,
+  "official_pedestrian_count": 0,
+  "effective_pedestrian_count": 0,
+  "success": false,
+  "termination_reason": "timeout",
+  "failure_attribution": "inconclusive_timeout",
+  "navigation_error": 16.748871224,
+  "start_pose": [
+    -10.221659660339355,
+    -7.310995578765869
+  ],
+  "final_pose": [
+    -12.820402145385742,
+    -6.142214298248291
+  ],
+  "spl": 0.0,
+  "path_length": 29.3573935557518,
+  "duration": 70.04,
+  "physical_collision_count": 0,
+  "pedestrian_collision_count": 0,
+  "collision_rate": 0.0,
+  "stuck_count": 0,
+  "recovery_count": 0,
+  "mean_inference_latency": 0.9252676709117938,
+  "p50_inference_latency": 1.1033790111541748,
+  "p95_inference_latency": 3.9001837968826294,
+  "max_inference_latency": 3.943585157394409,
+  "mean_vlm_latency": null,
+  "mean_action_expert_latency": null,
+  "mean_control_frequency": 20.022888579148248,
+  "minimum_control_frequency": 19.66048035519686,
+  "direct_velocity": false,
+  "collision_events": []
+}

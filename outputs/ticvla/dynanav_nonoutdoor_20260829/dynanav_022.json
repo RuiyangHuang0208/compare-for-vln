@@ -1,0 +1,67 @@
+{
+  "model_name": "ticvla",
+  "experiment": "dynanav_nonoutdoor_20260829",
+  "episode_id": "dynanav_022",
+  "scene": "hospital",
+  "evaluation_mode": "trajectory_normalized",
+  "sensor_profile": "rgb_only",
+  "comparison_track": "rgb_only",
+  "camera_horizontal_fov_degrees": 90.0,
+  "model_inputs": [
+    "rgb",
+    "motion_state",
+    "inference_latency",
+    "instruction"
+  ],
+  "model_runtime": {
+    "sensors": [
+      "rgb",
+      "odom"
+    ],
+    "derived_inputs": [],
+    "model_internal_3d_perception": false,
+    "external_local_avoidance": false,
+    "uses_shared_path_follower": true,
+    "uses_shared_velocity_filter": true
+  },
+  "derived_inputs": [],
+  "model_internal_3d_perception": false,
+  "external_local_avoidance": false,
+  "uses_shared_path_follower": true,
+  "uses_shared_velocity_filter": true,
+  "instruction": "Exit the room and turn right to enter the hallway. Continue straight ahead and to the end of the hallway.",
+  "seed": 666,
+  "pedestrian_count": 0,
+  "official_pedestrian_count": 10,
+  "effective_pedestrian_count": 0,
+  "success": true,
+  "termination_reason": "success",
+  "failure_attribution": "success",
+  "navigation_error": 1.492377919,
+  "start_pose": [
+    23.25067901611328,
+    -0.901698648929596
+  ],
+  "final_pose": [
+    18.905332565307617,
+    22.940460205078125
+  ],
+  "spl": 0.46326505004859064,
+  "path_length": 54.20865425536168,
+  "duration": 69.85999999900001,
+  "physical_collision_count": 0,
+  "pedestrian_collision_count": 0,
+  "collision_rate": 0.0,
+  "stuck_count": 0,
+  "recovery_count": 0,
+  "mean_inference_latency": 0.033721577988910505,
+  "p50_inference_latency": 0.028996704146265984,
+  "p95_inference_latency": 0.07269991487264629,
+  "max_inference_latency": 1.0888692140579224,
+  "mean_vlm_latency": 0.03240751844925293,
+  "mean_action_expert_latency": 0.001314059419867893,
+  "mean_control_frequency": 20.013416713024252,
+  "minimum_control_frequency": 18.86725562501858,
+  "direct_velocity": false,
+  "collision_events": []
+}

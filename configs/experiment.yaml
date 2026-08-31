@@ -1,8 +1,18 @@
-experiment: b2w_hospital
+experiment: fair_rgb_only
 robot_config: configs/robot.yaml
 sensor_config: configs/sensors.yaml
-interface_config: src/vln_interface/config/interface.yaml
-navigation_bridge_config: src/navigation_bridge/config/bridge.yaml
+model_registry: configs/models.yaml
+interface_package: vln_interfaces
+navigation_bridge_config: configs/navigation.yaml
 scene: hospital
-controller_mode: goal
-vln_model: null
+episode: dynanav_001
+model: navila
+comparison_track: rgb_only
+evaluation_mode: trajectory_normalized
+sensor_profile: rgb_only
+locomotion: sru-onnx
+seed: 666
+pedestrian_count: 0
+# Episode-specific values are authoritative in simulation_bridge/dynanav_bridge/config/episodes.yaml.
+success_threshold: 1.5
+max_duration: 40.0

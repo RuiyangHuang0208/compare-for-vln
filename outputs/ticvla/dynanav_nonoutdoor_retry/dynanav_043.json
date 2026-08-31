@@ -1,0 +1,76 @@
+{
+  "model_name": "ticvla",
+  "experiment": "dynanav_nonoutdoor_retry",
+  "episode_id": "dynanav_043",
+  "scene": "office",
+  "evaluation_mode": "trajectory_normalized",
+  "sensor_profile": "rgb_only",
+  "comparison_track": "rgb_only",
+  "camera_horizontal_fov_degrees": 90.0,
+  "model_inputs": [
+    "rgb",
+    "motion_state",
+    "inference_latency",
+    "instruction"
+  ],
+  "model_runtime": {
+    "sensors": [
+      "rgb",
+      "odom"
+    ],
+    "derived_inputs": [],
+    "model_internal_3d_perception": false,
+    "external_local_avoidance": false,
+    "uses_shared_path_follower": true,
+    "uses_shared_velocity_filter": true
+  },
+  "derived_inputs": [],
+  "model_internal_3d_perception": false,
+  "external_local_avoidance": false,
+  "uses_shared_path_follower": true,
+  "uses_shared_velocity_filter": true,
+  "instruction": "Go straight down the hallway, turn left at the end, then continue forward to enter the office room. Move inside and stop in front of the desk on the right.",
+  "seed": 666,
+  "pedestrian_count": 0,
+  "official_pedestrian_count": 20,
+  "effective_pedestrian_count": 0,
+  "success": true,
+  "termination_reason": "success",
+  "failure_attribution": "success",
+  "navigation_error": 1.4886559,
+  "start_pose": [
+    -3.07584285736084,
+    48.146202087402344
+  ],
+  "final_pose": [
+    -16.335983276367188,
+    53.34892272949219
+  ],
+  "spl": 0.537262741107328,
+  "path_length": 26.145079598530565,
+  "duration": 43.059999999000006,
+  "physical_collision_count": 1,
+  "pedestrian_collision_count": 0,
+  "collision_rate": 0.023223409197009364,
+  "stuck_count": 0,
+  "recovery_count": 0,
+  "mean_inference_latency": 0.03525733849143281,
+  "p50_inference_latency": 0.02958730049431324,
+  "p95_inference_latency": 0.06555167734622944,
+  "max_inference_latency": 1.0548216104507446,
+  "mean_vlm_latency": 0.03392015262561686,
+  "mean_action_expert_latency": 0.0013371856401071828,
+  "mean_control_frequency": 20.01820518650644,
+  "minimum_control_frequency": 19.347929432343015,
+  "direct_velocity": false,
+  "collision_events": [
+    {
+      "time": 36.800000000000004,
+      "force": 174.50424194335938,
+      "object": "unknown_static_geometry",
+      "robot_body": "FR_hip",
+      "is_pedestrian": false,
+      "episode_failure": false
+    }
+  ]
+}

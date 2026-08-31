@@ -3,4 +3,14 @@ controller_config: src/robot_controller/config/b2w.yaml
 description_config: src/robot_description/config/b2w.yaml
 command_interface: [vx, vy, yaw_rate]
 velocity_topic: /nav_vel
-ros_velocity_bridge: pending
+command_sources: [keyboard, vln]
+default_command_source: vln
+source_switch_requires_zero: true
+ros_velocity_bridge: robot_controller/udp_velocity_bridge
+
+locomotion:
+  default: sru-onnx
+  retained: [isaac-pt, robotlab]
+  policy_input: [vx, vy, yaw_rate]
+  observation_dimension: 60
+  action_dimension: 16

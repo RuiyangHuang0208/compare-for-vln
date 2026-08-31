@@ -1,0 +1,81 @@
+{
+  "model_name": "navila",
+  "experiment": "dynanav_nonoutdoor_retry",
+  "episode_id": "dynanav_007",
+  "scene": "hospital",
+  "evaluation_mode": "trajectory_normalized",
+  "sensor_profile": "rgb_only",
+  "comparison_track": "rgb_only",
+  "camera_horizontal_fov_degrees": 90.0,
+  "model_inputs": [
+    "rgb",
+    "instruction"
+  ],
+  "model_runtime": {
+    "sensors": [
+      "rgb"
+    ],
+    "derived_inputs": [],
+    "model_internal_3d_perception": false,
+    "external_local_avoidance": false,
+    "uses_shared_path_follower": true,
+    "uses_shared_velocity_filter": true
+  },
+  "derived_inputs": [],
+  "model_internal_3d_perception": false,
+  "external_local_avoidance": false,
+  "uses_shared_path_follower": true,
+  "uses_shared_velocity_filter": true,
+  "instruction": "Walk straight down the hallway and stop at the red bed located to the right of the doors.",
+  "seed": 666,
+  "pedestrian_count": 0,
+  "official_pedestrian_count": 10,
+  "effective_pedestrian_count": 0,
+  "success": false,
+  "termination_reason": "failed",
+  "failure_attribution": "collision_or_scene_contact",
+  "navigation_error": 29.839927151,
+  "start_pose": [
+    18.70550537109375,
+    29.24317741394043
+  ],
+  "final_pose": [
+    14.877883911132812,
+    26.772071838378906
+  ],
+  "spl": 0.0,
+  "path_length": 20.53713102854,
+  "duration": 55.0,
+  "physical_collision_count": 2,
+  "pedestrian_collision_count": 0,
+  "collision_rate": 0.03636363636363636,
+  "stuck_count": 0,
+  "recovery_count": 0,
+  "mean_inference_latency": 0.5752168125934429,
+  "p50_inference_latency": 0.5750245451927185,
+  "p95_inference_latency": 0.5867407023906708,
+  "max_inference_latency": 0.6071358323097229,
+  "mean_vlm_latency": null,
+  "mean_action_expert_latency": null,
+  "mean_control_frequency": 20.019182342547563,
+  "minimum_control_frequency": 18.794012657187842,
+  "direct_velocity": false,
+  "collision_events": [
+    {
+      "time": 17.580000000000002,
+      "force": 261.415771484375,
+      "object": "unknown_static_geometry",
+      "robot_body": "base_link",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 28.36,
+      "force": 225.91339111328125,
+      "object": "unknown_static_geometry",
+      "robot_body": "FL_hip",
+      "is_pedestrian": false,
+      "episode_failure": false
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "model_name": "uninavid",
+  "experiment": "simple_nonoutdoor_20260829",
+  "episode_id": "simple_forward_3m_standard",
+  "scene": "hospital",
+  "evaluation_mode": "trajectory_normalized",
+  "sensor_profile": "rgb_only",
+  "comparison_track": "rgb_only",
+  "camera_horizontal_fov_degrees": 90.0,
+  "model_inputs": [
+    "rgb",
+    "instruction"
+  ],
+  "model_runtime": {
+    "frame_sample_hz": 1.0,
+    "do_sample": true,
+    "temperature": 0.2,
+    "max_new_tokens": 1024,
+    "predicted_action_limit": 4,
+    "executed_action_limit": 2,
+    "sensors": [
+      "rgb"
+    ],
+    "derived_inputs": [],
+    "model_internal_3d_perception": false,
+    "external_local_avoidance": false,
+    "uses_shared_path_follower": true,
+    "uses_shared_velocity_filter": true
+  },
+  "derived_inputs": [],
+  "model_internal_3d_perception": false,
+  "external_local_avoidance": false,
+  "uses_shared_path_follower": true,
+  "uses_shared_velocity_filter": true,
+  "instruction": "Move straight forward for 3 meters, then stop.",
+  "seed": 1,
+  "pedestrian_count": 0,
+  "official_pedestrian_count": 0,
+  "effective_pedestrian_count": 0,
+  "success": false,
+  "termination_reason": "timeout",
+  "failure_attribution": "inconclusive_timeout",
+  "navigation_error": 4.225525884,
+  "start_pose": [
+    8.02127742767334,
+    -0.00427133496850729
+  ],
+  "final_pose": [
+    7.484874725341797,
+    -2.318296194076538
+  ],
+  "spl": 0.0,
+  "path_length": 6.593322689676899,
+  "duration": 45.18,
+  "physical_collision_count": 4,
+  "pedestrian_collision_count": 0,
+  "collision_rate": 0.08853474988933156,
+  "stuck_count": 0,
+  "recovery_count": 0,
+  "mean_inference_latency": 0.27756697311997414,
+  "p50_inference_latency": 0.2827991247177124,
+  "p95_inference_latency": 0.37217834293842317,
+  "max_inference_latency": 0.38587555289268494,
+  "mean_vlm_latency": null,
+  "mean_action_expert_latency": null,
+  "mean_control_frequency": 20.080165533316986,
+  "minimum_control_frequency": 19.52929056904189,
+  "direct_velocity": false,
+  "collision_events": [
+    {
+      "time": 17.66,
+      "force": 110.75145721435547,
+      "object": "unknown_static_geometry",
+      "robot_body": "FL_hip",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 17.84,
+      "force": 266.9170227050781,
+      "object": "unknown_static_geometry",
+      "robot_body": "FL_calf",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 17.84,
+      "force": 266.9170227050781,
+      "object": "unknown_static_geometry",
+      "robot_body": "FR_calf",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 23.38,
+      "force": 350.5467529296875,
+      "object": "unknown_static_geometry",
+      "robot_body": "FL_hip",
+      "is_pedestrian": false,
+      "episode_failure": false
+    }
+  ]
+}

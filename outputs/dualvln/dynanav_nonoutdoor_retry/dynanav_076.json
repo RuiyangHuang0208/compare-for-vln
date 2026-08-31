@@ -1,0 +1,78 @@
+{
+  "model_name": "dualvln",
+  "experiment": "dynanav_nonoutdoor_retry",
+  "episode_id": "dynanav_076",
+  "scene": "warehouse",
+  "evaluation_mode": "trajectory_normalized",
+  "sensor_profile": "rgb_d",
+  "comparison_track": "rgb_d",
+  "camera_horizontal_fov_degrees": 79.0,
+  "model_inputs": [
+    "rgb",
+    "depth",
+    "camera_info",
+    "motion_state",
+    "instruction"
+  ],
+  "model_runtime": {
+    "sensors": [
+      "rgb",
+      "depth",
+      "odom"
+    ],
+    "derived_inputs": [],
+    "model_internal_3d_perception": false,
+    "external_local_avoidance": false,
+    "uses_shared_path_follower": true,
+    "uses_shared_velocity_filter": true
+  },
+  "derived_inputs": [],
+  "model_internal_3d_perception": false,
+  "external_local_avoidance": false,
+  "uses_shared_path_follower": true,
+  "uses_shared_velocity_filter": true,
+  "instruction": "Go straight to enter Aisle 06 (the last aisle from the left), passing the yellow forklift to reach the end of the aisle.",
+  "seed": 666,
+  "pedestrian_count": 0,
+  "official_pedestrian_count": 0,
+  "effective_pedestrian_count": 0,
+  "success": false,
+  "termination_reason": "timeout",
+  "failure_attribution": "inconclusive_timeout",
+  "navigation_error": 18.41538308,
+  "start_pose": [
+    -13.197491645812988,
+    -6.320592880249023
+  ],
+  "final_pose": [
+    -10.865116119384766,
+    11.150270462036133
+  ],
+  "spl": 0.0,
+  "path_length": 77.20349748542922,
+  "duration": 250.039999999,
+  "physical_collision_count": 1,
+  "pedestrian_collision_count": 0,
+  "collision_rate": 0.0039993601023996135,
+  "stuck_count": 0,
+  "recovery_count": 0,
+  "mean_inference_latency": 0.8070520265729882,
+  "p50_inference_latency": 0.11494769155979156,
+  "p95_inference_latency": 3.8693471193313598,
+  "max_inference_latency": 3.9943490028381348,
+  "mean_vlm_latency": null,
+  "mean_action_expert_latency": null,
+  "mean_control_frequency": 20.099994972029133,
+  "minimum_control_frequency": 19.23243538789505,
+  "direct_velocity": false,
+  "collision_events": [
+    {
+      "time": 240.28,
+      "force": 353.56915283203125,
+      "object": "unknown_static_geometry",
+      "robot_body": "base_link",
+      "is_pedestrian": false,
+      "episode_failure": false
+    }
+  ]
+}

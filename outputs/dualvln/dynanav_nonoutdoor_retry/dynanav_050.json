@@ -1,0 +1,86 @@
+{
+  "model_name": "dualvln",
+  "experiment": "dynanav_nonoutdoor_retry",
+  "episode_id": "dynanav_050",
+  "scene": "office",
+  "evaluation_mode": "trajectory_normalized",
+  "sensor_profile": "rgb_d",
+  "comparison_track": "rgb_d",
+  "camera_horizontal_fov_degrees": 79.0,
+  "model_inputs": [
+    "rgb",
+    "depth",
+    "camera_info",
+    "motion_state",
+    "instruction"
+  ],
+  "model_runtime": {
+    "sensors": [
+      "rgb",
+      "depth",
+      "odom"
+    ],
+    "derived_inputs": [],
+    "model_internal_3d_perception": false,
+    "external_local_avoidance": false,
+    "uses_shared_path_follower": true,
+    "uses_shared_velocity_filter": true
+  },
+  "derived_inputs": [],
+  "model_internal_3d_perception": false,
+  "external_local_avoidance": false,
+  "uses_shared_path_follower": true,
+  "uses_shared_velocity_filter": true,
+  "instruction": "Go straight ahead, passing through the hallway behind the black glass doors, and then enter the office desk area and stop at the white desk with the plant on it, located on the right side of the wall at the end.",
+  "seed": 666,
+  "pedestrian_count": 0,
+  "official_pedestrian_count": 40,
+  "effective_pedestrian_count": 0,
+  "success": false,
+  "termination_reason": "timeout",
+  "failure_attribution": "inconclusive_timeout",
+  "navigation_error": 24.777022012,
+  "start_pose": [
+    -15.201451301574707,
+    12.746173858642578
+  ],
+  "final_pose": [
+    -14.443004608154297,
+    24.299285888671875
+  ],
+  "spl": 0.0,
+  "path_length": 35.6138322502962,
+  "duration": 150.02,
+  "physical_collision_count": 2,
+  "pedestrian_collision_count": 0,
+  "collision_rate": 0.013331555792560991,
+  "stuck_count": 0,
+  "recovery_count": 0,
+  "mean_inference_latency": 0.9322375250996742,
+  "p50_inference_latency": 0.13024340569972992,
+  "p95_inference_latency": 4.133589744567871,
+  "max_inference_latency": 4.330277919769287,
+  "mean_vlm_latency": null,
+  "mean_action_expert_latency": null,
+  "mean_control_frequency": 20.090485651558808,
+  "minimum_control_frequency": 19.088149599398466,
+  "direct_velocity": false,
+  "collision_events": [
+    {
+      "time": 118.12,
+      "force": 255.18569946289062,
+      "object": "unknown_static_geometry",
+      "robot_body": "FL_hip",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 137.92000000000002,
+      "force": 227.29005432128906,
+      "object": "unknown_static_geometry",
+      "robot_body": "base_link",
+      "is_pedestrian": false,
+      "episode_failure": false
+    }
+  ]
+}

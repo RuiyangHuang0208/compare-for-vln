@@ -1,0 +1,72 @@
+{
+  "model_name": "omnivla",
+  "experiment": "scene_smoke_20260829",
+  "episode_id": "simple_forward_3m_standard",
+  "scene": "hospital",
+  "evaluation_mode": "trajectory_normalized",
+  "sensor_profile": "rgb_only",
+  "comparison_track": "rgb_only",
+  "camera_horizontal_fov_degrees": 90.0,
+  "model_inputs": [
+    "rgb",
+    "instruction"
+  ],
+  "model_runtime": {
+    "variant": "omnivla-original",
+    "resume_step": 120000,
+    "modality_id": 7,
+    "action_shape": [
+      8,
+      4
+    ],
+    "target_inference_rate_hz": 3.0,
+    "sensors": [
+      "rgb"
+    ],
+    "derived_inputs": [],
+    "model_internal_3d_perception": false,
+    "external_local_avoidance": false,
+    "uses_shared_path_follower": true,
+    "uses_shared_velocity_filter": true
+  },
+  "derived_inputs": [],
+  "model_internal_3d_perception": false,
+  "external_local_avoidance": false,
+  "uses_shared_path_follower": true,
+  "uses_shared_velocity_filter": true,
+  "instruction": "Move straight forward for 3 meters, then stop.",
+  "seed": 1,
+  "pedestrian_count": 0,
+  "official_pedestrian_count": 0,
+  "effective_pedestrian_count": 0,
+  "success": true,
+  "termination_reason": "success",
+  "failure_attribution": "success",
+  "navigation_error": 1.496103581,
+  "start_pose": [
+    8.020904541015625,
+    -0.004284059628844261
+  ],
+  "final_pose": [
+    9.504426002502441,
+    -0.03980380669236183
+  ],
+  "spl": 1.0,
+  "path_length": 1.484050648516778,
+  "duration": 4.5,
+  "physical_collision_count": 0,
+  "pedestrian_collision_count": 0,
+  "collision_rate": 0.0,
+  "stuck_count": 0,
+  "recovery_count": 0,
+  "mean_inference_latency": 0.14992331630653805,
+  "p50_inference_latency": 0.1217058040201664,
+  "p95_inference_latency": 0.20122735574841427,
+  "max_inference_latency": 0.6316947937011719,
+  "mean_vlm_latency": null,
+  "mean_action_expert_latency": null,
+  "mean_control_frequency": 20.2363407466176,
+  "minimum_control_frequency": 19.91409146679088,
+  "direct_velocity": false,
+  "collision_events": []
+}

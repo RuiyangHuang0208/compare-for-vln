@@ -1,0 +1,64 @@
+{
+  "model_name": "navila",
+  "experiment": "dynanav_nonoutdoor_retry",
+  "episode_id": "dynanav_015",
+  "scene": "hospital",
+  "evaluation_mode": "trajectory_normalized",
+  "sensor_profile": "rgb_only",
+  "comparison_track": "rgb_only",
+  "camera_horizontal_fov_degrees": 90.0,
+  "model_inputs": [
+    "rgb",
+    "instruction"
+  ],
+  "model_runtime": {
+    "sensors": [
+      "rgb"
+    ],
+    "derived_inputs": [],
+    "model_internal_3d_perception": false,
+    "external_local_avoidance": false,
+    "uses_shared_path_follower": true,
+    "uses_shared_velocity_filter": true
+  },
+  "derived_inputs": [],
+  "model_internal_3d_perception": false,
+  "external_local_avoidance": false,
+  "uses_shared_path_follower": true,
+  "uses_shared_velocity_filter": true,
+  "instruction": "Go straight past the wheelchairs and stop at the water dispenser by the window.",
+  "seed": 666,
+  "pedestrian_count": 0,
+  "official_pedestrian_count": 40,
+  "effective_pedestrian_count": 0,
+  "success": false,
+  "termination_reason": "model_stop_before_goal",
+  "failure_attribution": "model_behavior",
+  "navigation_error": 17.503679065,
+  "start_pose": [
+    9.705106735229492,
+    2.790886640548706
+  ],
+  "final_pose": [
+    12.529831886291504,
+    2.177065372467041
+  ],
+  "spl": 0.0,
+  "path_length": 20.43253020599647,
+  "duration": 40.139999999000004,
+  "physical_collision_count": 0,
+  "pedestrian_collision_count": 0,
+  "collision_rate": 0.0,
+  "stuck_count": 0,
+  "recovery_count": 0,
+  "mean_inference_latency": 0.5731409014045418,
+  "p50_inference_latency": 0.5732253789901733,
+  "p95_inference_latency": 0.5840906858444214,
+  "max_inference_latency": 0.6076975464820862,
+  "mean_vlm_latency": null,
+  "mean_action_expert_latency": null,
+  "mean_control_frequency": 20.038967434484455,
+  "minimum_control_frequency": 19.47221718033792,
+  "direct_velocity": false,
+  "collision_events": []
+}

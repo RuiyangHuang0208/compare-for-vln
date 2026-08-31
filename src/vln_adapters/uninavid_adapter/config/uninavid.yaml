@@ -1,0 +1,41 @@
+uninavid_adapter:
+  ros__parameters:
+    model.repository_path: third_party/Uni-NaVid
+    model.checkpoint_path: checkpoints/vln/uninavid/uninavid-7b-full-224-video-fps-1-grid-2
+    model.vision_encoder_path: checkpoints/vln/uninavid/eva_vit_g.pth
+    model.device: cuda:0
+    model.dtype: auto
+    model.run_type: eval
+    model.conversation_mode: vicuna_v1
+    model.server_url: http://127.0.0.1:5804
+    input.image_topic: /camera/rgb/image_raw
+    input.instruction_topic: /vln/instruction
+    input.episode_topic: /episode/state
+    input.episode_id_topic: /episode/id
+    input.sensor_profile: rgb_only
+    # Confirmed from the official train scripts (--video_fps 1).
+    input.frame_sample_hz: 1.0
+    generation.do_sample: true
+    generation.temperature: 0.2
+    generation.offline_temperature: 0.5
+    generation.max_new_tokens: 1024
+    generation.predicted_action_limit: 4
+    generation.executed_action_limit: 2
+    action.forward_distance: 0.5
+    action.turn_angle_degrees: 30.0
+    output.command_topic: /vln/command
+    output.raw_action_topic: /vln/uninavid/raw_action
+    output.latency_topic: /vln/inference_latency
+    output.model_stop_topic: /episode/model_stop
+    output.trajectory_finished_topic: /navigation/trajectory_finished
+    output.trajectory_failed_topic: /navigation/trajectory_failed
+    output.frame_id: base_link
+    # Validated in Isaac Sim with the SRU ONNX B2-W: +/-30 deg completes within 5 deg.
+    conversion.turn_radius: 0.25
+    conversion.trajectory_spacing: 0.1
+    runtime.poll_rate_hz: 10.0
+    runtime.inference_timeout: 30.0
+    runtime.trajectory_timeout: 15.0
+    runtime.command_timeout: 0.5
+    runtime.asynchronous: true
+    runtime.local_avoidance_enabled: false

@@ -1,0 +1,67 @@
+{
+  "model_name": "ticvla",
+  "experiment": "dynanav_nonoutdoor_retry",
+  "episode_id": "dynanav_050",
+  "scene": "office",
+  "evaluation_mode": "trajectory_normalized",
+  "sensor_profile": "rgb_only",
+  "comparison_track": "rgb_only",
+  "camera_horizontal_fov_degrees": 90.0,
+  "model_inputs": [
+    "rgb",
+    "motion_state",
+    "inference_latency",
+    "instruction"
+  ],
+  "model_runtime": {
+    "sensors": [
+      "rgb",
+      "odom"
+    ],
+    "derived_inputs": [],
+    "model_internal_3d_perception": false,
+    "external_local_avoidance": false,
+    "uses_shared_path_follower": true,
+    "uses_shared_velocity_filter": true
+  },
+  "derived_inputs": [],
+  "model_internal_3d_perception": false,
+  "external_local_avoidance": false,
+  "uses_shared_path_follower": true,
+  "uses_shared_velocity_filter": true,
+  "instruction": "Go straight ahead, passing through the hallway behind the black glass doors, and then enter the office desk area and stop at the white desk with the plant on it, located on the right side of the wall at the end.",
+  "seed": 666,
+  "pedestrian_count": 0,
+  "official_pedestrian_count": 40,
+  "effective_pedestrian_count": 0,
+  "success": true,
+  "termination_reason": "success",
+  "failure_attribution": "success",
+  "navigation_error": 1.486884106,
+  "start_pose": [
+    -15.201542854309082,
+    12.747386932373047
+  ],
+  "final_pose": [
+    -12.836101531982422,
+    47.49040985107422
+  ],
+  "spl": 0.9123055886259781,
+  "path_length": 39.84753966051781,
+  "duration": 47.739999999999995,
+  "physical_collision_count": 0,
+  "pedestrian_collision_count": 0,
+  "collision_rate": 0.0,
+  "stuck_count": 0,
+  "recovery_count": 0,
+  "mean_inference_latency": 0.04164938854795518,
+  "p50_inference_latency": 0.03143409639596939,
+  "p95_inference_latency": 0.10095479749143121,
+  "max_inference_latency": 1.192009687423706,
+  "mean_vlm_latency": 0.04027352938665298,
+  "mean_action_expert_latency": 0.0013758592984354976,
+  "mean_control_frequency": 20.016795424780277,
+  "minimum_control_frequency": 18.01136160308864,
+  "direct_velocity": false,
+  "collision_events": []
+}

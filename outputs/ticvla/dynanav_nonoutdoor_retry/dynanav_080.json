@@ -1,0 +1,67 @@
+{
+  "model_name": "ticvla",
+  "experiment": "dynanav_nonoutdoor_retry",
+  "episode_id": "dynanav_080",
+  "scene": "warehouse",
+  "evaluation_mode": "trajectory_normalized",
+  "sensor_profile": "rgb_only",
+  "comparison_track": "rgb_only",
+  "camera_horizontal_fov_degrees": 90.0,
+  "model_inputs": [
+    "rgb",
+    "motion_state",
+    "inference_latency",
+    "instruction"
+  ],
+  "model_runtime": {
+    "sensors": [
+      "rgb",
+      "odom"
+    ],
+    "derived_inputs": [],
+    "model_internal_3d_perception": false,
+    "external_local_avoidance": false,
+    "uses_shared_path_follower": true,
+    "uses_shared_velocity_filter": true
+  },
+  "derived_inputs": [],
+  "model_internal_3d_perception": false,
+  "external_local_avoidance": false,
+  "uses_shared_path_follower": true,
+  "uses_shared_velocity_filter": true,
+  "instruction": "Go straight to enter Aisle 06 (the last aisle from the left), passing the yellow forklift to reach the end of the aisle.",
+  "seed": 666,
+  "pedestrian_count": 0,
+  "official_pedestrian_count": 40,
+  "effective_pedestrian_count": 0,
+  "success": true,
+  "termination_reason": "success",
+  "failure_attribution": "success",
+  "navigation_error": 1.48954599,
+  "start_pose": [
+    -13.197676658630371,
+    -6.320944309234619
+  ],
+  "final_pose": [
+    1.0291144847869873,
+    25.80817222595215
+  ],
+  "spl": 0.37150124191837053,
+  "path_length": 92.28771283493305,
+  "duration": 114.59999999899999,
+  "physical_collision_count": 0,
+  "pedestrian_collision_count": 0,
+  "collision_rate": 0.0,
+  "stuck_count": 0,
+  "recovery_count": 0,
+  "mean_inference_latency": 0.033586998064670526,
+  "p50_inference_latency": 0.029639096930623055,
+  "p95_inference_latency": 0.0633015036582947,
+  "max_inference_latency": 1.1946126222610474,
+  "mean_vlm_latency": 0.03220001055073508,
+  "mean_action_expert_latency": 0.0013869875260172518,
+  "mean_control_frequency": 20.009086448604084,
+  "minimum_control_frequency": 19.430623281821614,
+  "direct_velocity": false,
+  "collision_events": []
+}

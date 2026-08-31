@@ -1,0 +1,67 @@
+{
+  "model_name": "ticvla",
+  "experiment": "dynanav_nonoutdoor_20260829",
+  "episode_id": "dynanav_009",
+  "scene": "hospital",
+  "evaluation_mode": "trajectory_normalized",
+  "sensor_profile": "rgb_only",
+  "comparison_track": "rgb_only",
+  "camera_horizontal_fov_degrees": 90.0,
+  "model_inputs": [
+    "rgb",
+    "motion_state",
+    "inference_latency",
+    "instruction"
+  ],
+  "model_runtime": {
+    "sensors": [
+      "rgb",
+      "odom"
+    ],
+    "derived_inputs": [],
+    "model_internal_3d_perception": false,
+    "external_local_avoidance": false,
+    "uses_shared_path_follower": true,
+    "uses_shared_velocity_filter": true
+  },
+  "derived_inputs": [],
+  "model_internal_3d_perception": false,
+  "external_local_avoidance": false,
+  "uses_shared_path_follower": true,
+  "uses_shared_velocity_filter": true,
+  "instruction": "Walk straight down the hallway and stop at the red bed located to the right of the doors.",
+  "seed": 666,
+  "pedestrian_count": 0,
+  "official_pedestrian_count": 30,
+  "effective_pedestrian_count": 0,
+  "success": true,
+  "termination_reason": "success",
+  "failure_attribution": "success",
+  "navigation_error": 1.499606399,
+  "start_pose": [
+    19.711442947387695,
+    29.235618591308594
+  ],
+  "final_pose": [
+    16.23476791381836,
+    -1.5332571268081665
+  ],
+  "spl": 0.9787503484174892,
+  "path_length": 33.182148296456106,
+  "duration": 43.099999999000005,
+  "physical_collision_count": 0,
+  "pedestrian_collision_count": 0,
+  "collision_rate": 0.0,
+  "stuck_count": 1,
+  "recovery_count": 1,
+  "mean_inference_latency": 0.03549956694735048,
+  "p50_inference_latency": 0.02918691188097,
+  "p95_inference_latency": 0.07182670570909977,
+  "max_inference_latency": 1.0788518190383911,
+  "mean_vlm_latency": 0.03408378693646808,
+  "mean_action_expert_latency": 0.0014157800010444832,
+  "mean_control_frequency": 20.01913833268888,
+  "minimum_control_frequency": 18.192168160720264,
+  "direct_velocity": false,
+  "collision_events": []
+}

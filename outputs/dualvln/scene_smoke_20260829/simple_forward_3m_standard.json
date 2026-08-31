@@ -1,0 +1,94 @@
+{
+  "model_name": "dualvln",
+  "experiment": "scene_smoke_20260829",
+  "episode_id": "simple_forward_3m_standard",
+  "scene": "hospital",
+  "evaluation_mode": "trajectory_normalized",
+  "sensor_profile": "rgb_d",
+  "comparison_track": "rgb_d",
+  "camera_horizontal_fov_degrees": 79.0,
+  "model_inputs": [
+    "rgb",
+    "depth",
+    "camera_info",
+    "motion_state",
+    "instruction"
+  ],
+  "model_runtime": {
+    "sensors": [
+      "rgb",
+      "depth",
+      "odom"
+    ],
+    "derived_inputs": [],
+    "model_internal_3d_perception": false,
+    "external_local_avoidance": false,
+    "uses_shared_path_follower": true,
+    "uses_shared_velocity_filter": true
+  },
+  "derived_inputs": [],
+  "model_internal_3d_perception": false,
+  "external_local_avoidance": false,
+  "uses_shared_path_follower": true,
+  "uses_shared_velocity_filter": true,
+  "instruction": "Move straight forward for 3 meters, then stop.",
+  "seed": 1,
+  "pedestrian_count": 0,
+  "official_pedestrian_count": 0,
+  "effective_pedestrian_count": 0,
+  "success": true,
+  "termination_reason": "success",
+  "failure_attribution": "success",
+  "navigation_error": 1.497786093,
+  "start_pose": [
+    8.015680313110352,
+    -0.00446060486137867
+  ],
+  "final_pose": [
+    9.817431449890137,
+    -0.9361870884895325
+  ],
+  "spl": 1.0,
+  "path_length": 2.4088584449585113,
+  "duration": 8.620000000000001,
+  "physical_collision_count": 3,
+  "pedestrian_collision_count": 0,
+  "collision_rate": 0.34802784222737815,
+  "stuck_count": 0,
+  "recovery_count": 0,
+  "mean_inference_latency": 0.9283757309118906,
+  "p50_inference_latency": 1.0145497024059296,
+  "p95_inference_latency": 1.2998359322547914,
+  "max_inference_latency": 1.306624412536621,
+  "mean_vlm_latency": null,
+  "mean_action_expert_latency": null,
+  "mean_control_frequency": 20.25328265885304,
+  "minimum_control_frequency": 13.062651367856754,
+  "direct_velocity": false,
+  "collision_events": [
+    {
+      "time": 8.58,
+      "force": 864.8255615234375,
+      "object": "unknown_static_geometry",
+      "robot_body": "base_link",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 8.58,
+      "force": 544.7254638671875,
+      "object": "unknown_static_geometry",
+      "robot_body": "FR_hip",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 8.64,
+      "force": 146.44561767578125,
+      "object": "unknown_static_geometry",
+      "robot_body": "base_link",
+      "is_pedestrian": false,
+      "episode_failure": false
+    }
+  ]
+}

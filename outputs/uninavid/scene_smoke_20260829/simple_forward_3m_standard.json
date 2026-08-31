@@ -1,0 +1,95 @@
+{
+  "model_name": "uninavid",
+  "experiment": "scene_smoke_20260829",
+  "episode_id": "simple_forward_3m_standard",
+  "scene": "hospital",
+  "evaluation_mode": "trajectory_normalized",
+  "sensor_profile": "rgb_only",
+  "comparison_track": "rgb_only",
+  "camera_horizontal_fov_degrees": 90.0,
+  "model_inputs": [
+    "rgb",
+    "instruction"
+  ],
+  "model_runtime": {
+    "frame_sample_hz": 1.0,
+    "do_sample": true,
+    "temperature": 0.2,
+    "max_new_tokens": 1024,
+    "predicted_action_limit": 4,
+    "executed_action_limit": 2,
+    "sensors": [
+      "rgb"
+    ],
+    "derived_inputs": [],
+    "model_internal_3d_perception": false,
+    "external_local_avoidance": false,
+    "uses_shared_path_follower": true,
+    "uses_shared_velocity_filter": true
+  },
+  "derived_inputs": [],
+  "model_internal_3d_perception": false,
+  "external_local_avoidance": false,
+  "uses_shared_path_follower": true,
+  "uses_shared_velocity_filter": true,
+  "instruction": "Move straight forward for 3 meters, then stop.",
+  "seed": 1,
+  "pedestrian_count": 0,
+  "official_pedestrian_count": 0,
+  "effective_pedestrian_count": 0,
+  "success": false,
+  "termination_reason": "timeout",
+  "failure_attribution": "inconclusive_timeout",
+  "navigation_error": 5.42629152,
+  "start_pose": [
+    8.020529747009277,
+    -0.004296370781958103
+  ],
+  "final_pose": [
+    6.16250467300415,
+    -2.4562222957611084
+  ],
+  "spl": 0.0,
+  "path_length": 7.268260545215604,
+  "duration": 45.159999999,
+  "physical_collision_count": 3,
+  "pedestrian_collision_count": 0,
+  "collision_rate": 0.06643046944345506,
+  "stuck_count": 0,
+  "recovery_count": 0,
+  "mean_inference_latency": 0.2621581554412842,
+  "p50_inference_latency": 0.24862754344940186,
+  "p95_inference_latency": 0.41784873008728024,
+  "max_inference_latency": 0.4462743103504181,
+  "mean_vlm_latency": null,
+  "mean_action_expert_latency": null,
+  "mean_control_frequency": 20.044223653260033,
+  "minimum_control_frequency": 19.49726832792587,
+  "direct_velocity": false,
+  "collision_events": [
+    {
+      "time": 18.42,
+      "force": 114.01698303222656,
+      "object": "unknown_static_geometry",
+      "robot_body": "RL_calf",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 18.42,
+      "force": 114.01698303222656,
+      "object": "unknown_static_geometry",
+      "robot_body": "RR_calf",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 34.92,
+      "force": 233.5225372314453,
+      "object": "unknown_static_geometry",
+      "robot_body": "FL_hip",
+      "is_pedestrian": false,
+      "episode_failure": false
+    }
+  ]
+}

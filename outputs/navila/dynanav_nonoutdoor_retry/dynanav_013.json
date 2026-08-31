@@ -1,0 +1,81 @@
+{
+  "model_name": "navila",
+  "experiment": "dynanav_nonoutdoor_retry",
+  "episode_id": "dynanav_013",
+  "scene": "hospital",
+  "evaluation_mode": "trajectory_normalized",
+  "sensor_profile": "rgb_only",
+  "comparison_track": "rgb_only",
+  "camera_horizontal_fov_degrees": 90.0,
+  "model_inputs": [
+    "rgb",
+    "instruction"
+  ],
+  "model_runtime": {
+    "sensors": [
+      "rgb"
+    ],
+    "derived_inputs": [],
+    "model_internal_3d_perception": false,
+    "external_local_avoidance": false,
+    "uses_shared_path_follower": true,
+    "uses_shared_velocity_filter": true
+  },
+  "derived_inputs": [],
+  "model_internal_3d_perception": false,
+  "external_local_avoidance": false,
+  "uses_shared_path_follower": true,
+  "uses_shared_velocity_filter": true,
+  "instruction": "Go straight past the wheelchairs and stop at the water dispenser by the window.",
+  "seed": 666,
+  "pedestrian_count": 0,
+  "official_pedestrian_count": 20,
+  "effective_pedestrian_count": 0,
+  "success": false,
+  "termination_reason": "failed",
+  "failure_attribution": "collision_or_scene_contact",
+  "navigation_error": 1.909207944,
+  "start_pose": [
+    9.705106735229492,
+    2.790886640548706
+  ],
+  "final_pose": [
+    -2.875351667404175,
+    -0.8911841511726379
+  ],
+  "spl": 0.0,
+  "path_length": 13.72151993432168,
+  "duration": 28.68,
+  "physical_collision_count": 2,
+  "pedestrian_collision_count": 0,
+  "collision_rate": 0.0697350069735007,
+  "stuck_count": 0,
+  "recovery_count": 0,
+  "mean_inference_latency": 0.5753497513857755,
+  "p50_inference_latency": 0.5755983591079712,
+  "p95_inference_latency": 0.5810241758823395,
+  "max_inference_latency": 0.6112223267555237,
+  "mean_vlm_latency": null,
+  "mean_action_expert_latency": null,
+  "mean_control_frequency": 20.077205689080703,
+  "minimum_control_frequency": 18.480655077473646,
+  "direct_velocity": false,
+  "collision_events": [
+    {
+      "time": 29.46,
+      "force": 140.8252410888672,
+      "object": "unknown_static_geometry",
+      "robot_body": "RL_calf",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 29.46,
+      "force": 140.8252410888672,
+      "object": "unknown_static_geometry",
+      "robot_body": "RR_calf",
+      "is_pedestrian": false,
+      "episode_failure": false
+    }
+  ]
+}

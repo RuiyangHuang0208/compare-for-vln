@@ -1,0 +1,67 @@
+{
+  "model_name": "ticvla",
+  "experiment": "dynanav_nonoutdoor_retry",
+  "episode_id": "dynanav_061",
+  "scene": "warehouse",
+  "evaluation_mode": "trajectory_normalized",
+  "sensor_profile": "rgb_only",
+  "comparison_track": "rgb_only",
+  "camera_horizontal_fov_degrees": 90.0,
+  "model_inputs": [
+    "rgb",
+    "motion_state",
+    "inference_latency",
+    "instruction"
+  ],
+  "model_runtime": {
+    "sensors": [
+      "rgb",
+      "odom"
+    ],
+    "derived_inputs": [],
+    "model_internal_3d_perception": false,
+    "external_local_avoidance": false,
+    "uses_shared_path_follower": true,
+    "uses_shared_velocity_filter": true
+  },
+  "derived_inputs": [],
+  "model_internal_3d_perception": false,
+  "external_local_avoidance": false,
+  "uses_shared_path_follower": true,
+  "uses_shared_velocity_filter": true,
+  "instruction": "Proceed to the traffic cones at the entrance of Aisle 05 (the second aisle from the right).",
+  "seed": 666,
+  "pedestrian_count": 0,
+  "official_pedestrian_count": 0,
+  "effective_pedestrian_count": 0,
+  "success": true,
+  "termination_reason": "success",
+  "failure_attribution": "success",
+  "navigation_error": 1.49499061,
+  "start_pose": [
+    -10.221392631530762,
+    -7.314246654510498
+  ],
+  "final_pose": [
+    -4.638311386108398,
+    7.0309882164001465
+  ],
+  "spl": 0.7497357790829905,
+  "path_length": 21.96503512506354,
+  "duration": 28.96,
+  "physical_collision_count": 0,
+  "pedestrian_collision_count": 0,
+  "collision_rate": 0.0,
+  "stuck_count": 0,
+  "recovery_count": 0,
+  "mean_inference_latency": 0.03673390859836026,
+  "p50_inference_latency": 0.029683221131563187,
+  "p95_inference_latency": 0.0639390215277672,
+  "max_inference_latency": 1.12445867061615,
+  "mean_vlm_latency": 0.03539058462177452,
+  "mean_action_expert_latency": 0.0013433239218501145,
+  "mean_control_frequency": 20.030020664838418,
+  "minimum_control_frequency": 18.103930741041466,
+  "direct_velocity": false,
+  "collision_events": []
+}

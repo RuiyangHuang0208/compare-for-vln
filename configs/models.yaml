@@ -1,0 +1,499 @@
+models:
+  dummy:
+    package: dummy_adapter
+    executable: dummy_adapter
+    launch_file: dummy.launch.py
+    output_type: trajectory
+    sensors: [rgb]
+    sensor_profile: rgb_only
+    evaluation_mode: trajectory_normalized
+    direct_velocity: false
+    comparison_track: debug
+    model_inputs: [rgb, instruction]
+    launch_arguments:
+      wait_for_episode_start: true
+
+  controller_probe_shared:
+    package: vln_evaluation
+    executable: controller_probe
+    launch_file: controller_probe.launch.py
+    output_type: trajectory
+    sensors: [rgb]
+    sensor_profile: rgb_only
+    evaluation_mode: trajectory_normalized
+    direct_velocity: false
+    comparison_track: controller_path_debug
+    model_inputs: []
+    launch_arguments: {profile: shared_pure_pursuit}
+    runtime_metadata: {high_level_controller: shared_pure_pursuit, controller_acceptance: true}
+
+  controller_probe_navila:
+    package: vln_evaluation
+    executable: controller_probe
+    launch_file: controller_probe.launch.py
+    output_type: trajectory
+    sensors: [rgb]
+    sensor_profile: rgb_only
+    evaluation_mode: trajectory_normalized
+    direct_velocity: false
+    comparison_track: controller_path_debug
+    model_inputs: []
+    launch_arguments: {profile: navila_discrete}
+    runtime_metadata: {high_level_controller: discrete_action_path, controller_acceptance: true}
+
+  controller_probe_uninavid:
+    package: vln_evaluation
+    executable: controller_probe
+    launch_file: controller_probe.launch.py
+    output_type: trajectory
+    sensors: [rgb]
+    sensor_profile: rgb_only
+    evaluation_mode: trajectory_normalized
+    direct_velocity: false
+    comparison_track: controller_path_debug
+    model_inputs: []
+    launch_arguments: {profile: uninavid_discrete}
+    runtime_metadata: {high_level_controller: discrete_action_path, controller_acceptance: true}
+
+  controller_probe_ticvla:
+    package: vln_evaluation
+    executable: controller_probe
+    launch_file: controller_probe.launch.py
+    output_type: velocity
+    sensors: [rgb]
+    sensor_profile: rgb_only
+    evaluation_mode: native_output
+    direct_velocity: true
+    comparison_track: controller_velocity_debug
+    model_inputs: []
+    launch_arguments: {profile: ticvla_official}
+    runtime_metadata: {high_level_controller: adapter_native_velocity, controller_acceptance: true}
+
+  controller_probe_omnivla:
+    package: vln_evaluation
+    executable: controller_probe
+    launch_file: controller_probe.launch.py
+    output_type: velocity
+    sensors: [rgb]
+    sensor_profile: rgb_only
+    evaluation_mode: native_output
+    direct_velocity: true
+    comparison_track: controller_velocity_debug
+    model_inputs: []
+    launch_arguments: {profile: omnivla_official}
+    runtime_metadata: {high_level_controller: adapter_native_velocity, controller_acceptance: true}
+
+  dualvln:
+    package: dualvln_adapter
+    executable: dualvln_adapter
+    launch_file: dualvln.launch.py
+    output_type: trajectory
+    checkpoint: checkpoints/vln/dualvln
+    sensors: [rgb, depth, odom]
+    sensor_profile: rgb_d
+    evaluation_mode: trajectory_normalized
+    direct_velocity: false
+    comparison_track: rgb_d
+    model_inputs: [rgb, depth, camera_info, motion_state, instruction]
+    execution:
+      launch_model: dualvln
+      high_level_controller: shared_pure_pursuit
+      controller_fidelity: official_model_output_b2w_adapter_not_official_mpc
+      source: third_party/InternNav/scripts/realworld/controllers.py
+      upstream_repository: https://github.com/InternRobotics/InternNav
+      upstream_commit: 7a5c62400ac45b313d9b709c740b64191556a242
+      source_sha256: 251522af6da05daee5279e07371b5f9ca319326e7097c0c7e5ae68e76217e408
+      evidence: official_mpc_requires_casadi_ipopt_desired_v_0.3_vmax_0.4_wmax_0.4
+      official_controller_available: false
+      adapter_deviation: CasADi/IPOPT is not installed; shared Pure Pursuit is used and is not labelled official MPC.
+      camera_parameter_source: official InternNav D455 intrinsics converted to horizontal FOV
+      camera_horizontal_fov_degrees: 79.0
+      upstream_camera_resolution: [640, 480]
+      simulation_camera_resolution: [640, 480]
+      desired_speed: 0.3
+      official:
+        controller: MPC
+        desired_speed: 0.3
+        max_linear_speed: 0.4
+        max_angular_speed: 0.4
+      navigation:
+        lookahead_distance: 0.6
+        goal_tolerance: 0.05
+        yaw_gain: 0.8
+        yaw_filter_alpha: 0.35
+        curvature_feedforward_gain: 0.5
+        max_vx: 0.4
+        max_vy: 0.0
+        max_wz: 0.4
+        max_linear_acceleration: 0.8
+        max_angular_acceleration: 1.5
+        max_linear_deceleration: 0.8
+        max_angular_deceleration: 1.5
+        trajectory_timeout: 15.0
+        recovery_speed: -0.3
+        recovery_duration: 1.5
+
+  ticvla:
+    package: ticvla_adapter
+    executable: ticvla_adapter
+    launch_file: ticvla.launch.py
+    output_type: trajectory
+    checkpoint: checkpoints/vln/ticvla/TIC-VLA-model.ckpt
+    base_model: checkpoints/vln/ticvla/InternVL3-1B
+    sensors: [rgb, odom]
+    sensor_profile: rgb_only
+    evaluation_mode: trajectory_normalized
+    direct_velocity: false
+    comparison_track: rgb_only
+    model_inputs: [rgb, motion_state, inference_latency, instruction]
+    execution:
+      launch_model: ticvla_native
+      high_level_controller: adapter_native_velocity
+      controller_fidelity: official_spot_curvature_equations_with_b2w_speed_clip
+      source: third_party/TIC-VLA/DynaNav/behavior/spot_test_ticvla.py
+      upstream_repository: https://github.com/ucla-mobility/TIC-VLA
+      upstream_commit: 9fa6f8b66b9e121d5df5df071297bba8e5353ebb
+      source_sha256: 5c26a05febcfd86eaa5bb42337ac076277977749413d92bee3b414d56996d199
+      evidence: official_spot_30x2_curvature_controller_and_slew_limits
+      official_controller_available: true
+      adapter_deviation: Official Spot max_v=1.5 is clipped to the verified B2-W SRU-ONNX max_v=1.0; low-level Spot control is not used.
+      camera_parameter_source: official TIC-VLA DynaNav Spot camera
+      camera_horizontal_fov_degrees: 90.0
+      upstream_camera_resolution: [1920, 1080]
+      simulation_camera_resolution: [640, 480]
+      desired_speed: 1.0
+      official:
+        controller: curvature_adaptive_waypoint_follower
+        max_linear_speed: 1.5
+        max_angular_speed: 1.0
+        max_linear_acceleration: 2.0
+        max_linear_deceleration: 2.5
+        max_angular_acceleration: 3.0
+        max_angular_deceleration: 3.5
+        recovery_speed: -0.5
+        recovery_duration: 10.0
+      navigation:
+        lookahead_distance: 1.0
+        goal_tolerance: 0.05
+        yaw_gain: 0.8
+        yaw_filter_alpha: 0.35
+        curvature_feedforward_gain: 0.5
+        max_vx: 1.0
+        max_vy: 0.0
+        max_wz: 1.0
+        max_linear_acceleration: 2.0
+        max_angular_acceleration: 3.0
+        max_linear_deceleration: 2.5
+        max_angular_deceleration: 3.5
+        trajectory_timeout: 3.0
+        recovery_speed: -0.5
+        recovery_duration: 10.0
+
+  ticvla_native:
+    package: ticvla_adapter
+    executable: ticvla_adapter
+    launch_file: ticvla.launch.py
+    output_type: velocity
+    checkpoint: checkpoints/vln/ticvla/TIC-VLA-model.ckpt
+    base_model: checkpoints/vln/ticvla/InternVL3-1B
+    sensors: [rgb, odom]
+    sensor_profile: rgb_only
+    evaluation_mode: native_output
+    supported_evaluation_modes: [native_output]
+    direct_velocity: true
+    comparison_track: ticvla_native
+    model_inputs: [rgb, motion_state, inference_latency, instruction]
+    launch_arguments:
+      evaluation_mode: native_output
+      direct_velocity: true
+      model_image_aspect_ratio: 1.7777777778
+    runtime_metadata:
+      official_controller_source: DynaNav/behavior/spot_test_ticvla.py
+      official_camera_aspect_ratio: 1.7777777778
+      b2w_speed_clip: 1.0
+
+  navila:
+    package: navila_adapter
+    executable: navila_adapter
+    launch_file: navila.launch.py
+    repository: third_party/NaVILA
+    checkpoint: checkpoints/vln/navila
+    raw_output_type: text_action
+    output_type: trajectory
+    sensors: [rgb]
+    sensor_profile: rgb_only
+    evaluation_mode: trajectory_normalized
+    direct_velocity: false
+    local_avoidance: false
+    use_native_locomotion: false
+    comparison_track: rgb_only
+    model_inputs: [rgb, instruction]
+    execution:
+      launch_model: navila
+      high_level_controller: discrete_action_path
+      controller_fidelity: official_action_semantics_b2w_path_execution
+      source: third_party/NaVILA/evaluation/vlnce_baselines/navila_trainer.py
+      upstream_repository: https://github.com/AnjieCheng/NaVILA
+      upstream_commit: 76b98f233dd0fff05dfcd69435eec6740febff9d
+      source_sha256: e2f41b445a0d8f4ff7c8174568b03c7b66a017e6300ffa9d4a08e72b070ecd20
+      evidence: official_discrete_0.25m_15deg_actions_b2w_speed_selected_0.5
+      official_controller_available: false
+      adapter_deviation: Official Habitat discrete actions are converted to B2-W arcs; invalid text safely stops instead of the upstream forward fallback.
+      camera_parameter_source: official NaVILA Habitat VLN-CE RGB sensor config
+      camera_horizontal_fov_degrees: 90.0
+      upstream_camera_resolution: [512, 512]
+      simulation_camera_resolution: [640, 480]
+      model_image_resolution: [384, 384]
+      desired_speed: 0.5
+      official:
+        controller: discrete_actions
+        forward_step_m: 0.25
+        turn_step_degrees: 15.0
+        published_continuous_speed: false
+      navigation:
+        lookahead_distance: 0.25
+        goal_tolerance: 0.05
+        yaw_gain: 0.8
+        yaw_filter_alpha: 0.35
+        curvature_feedforward_gain: 0.5
+        max_vx: 0.5
+        max_vy: 0.0
+        max_wz: 0.6
+        max_linear_acceleration: 0.8
+        max_angular_acceleration: 1.5
+        max_linear_deceleration: 0.8
+        max_angular_deceleration: 1.5
+        trajectory_timeout: 15.0
+        recovery_speed: -0.3
+        recovery_duration: 1.5
+
+  uninavid:
+    package: uninavid_adapter
+    executable: uninavid_adapter
+    launch_file: uninavid.launch.py
+    repository: third_party/Uni-NaVid
+    checkpoint: checkpoints/vln/uninavid/uninavid-7b-full-224-video-fps-1-grid-2
+    vision_checkpoint: checkpoints/vln/uninavid/eva_vit_g.pth
+    raw_output_type: discrete_action_sequence
+    output_type: trajectory
+    sensors: [rgb]
+    sensor_profile: rgb_only
+    evaluation_mode: trajectory_normalized
+    direct_velocity: false
+    local_avoidance: false
+    use_native_locomotion: false
+    comparison_track: rgb_only
+    model_inputs: [rgb, instruction]
+    runtime_metadata:
+      frame_sample_hz: 1.0
+      do_sample: true
+      temperature: 0.2
+      max_new_tokens: 1024
+      predicted_action_limit: 4
+      executed_action_limit: 2
+    execution:
+      launch_model: uninavid
+      high_level_controller: discrete_action_path
+      controller_fidelity: official_action_semantics_b2w_path_execution
+      source: third_party/Uni-NaVid/offline_eval_uninavid.py
+      upstream_repository: https://github.com/jzhzhang/Uni-NaVid
+      upstream_commit: 79ef5ea3fea14c205342d1ab070563d84c7a966a
+      source_sha256: 9d5cb632022a8612d3337add0411ae5f46aee7908bab369a0c27a6d9bc8f6456
+      evidence: official_discrete_0.5m_30deg_actions_b2w_speed_selected_0.5
+      official_controller_available: false
+      adapter_deviation: Official offline code defines action increments but no continuous robot controller; B2-W executes calibrated arcs.
+      camera_parameter_source: shared DynaNav benchmark camera; Uni-NaVid does not publish a benchmark HFOV
+      camera_horizontal_fov_degrees: 90.0
+      upstream_camera_resolution: null
+      simulation_camera_resolution: [640, 480]
+      model_image_resolution: [224, 224]
+      desired_speed: 0.5
+      official:
+        controller: discrete_action_sequence
+        forward_step_m: 0.5
+        turn_step_degrees: 30.0
+        published_continuous_speed: false
+      navigation:
+        lookahead_distance: 0.5
+        goal_tolerance: 0.05
+        yaw_gain: 0.8
+        yaw_filter_alpha: 0.35
+        curvature_feedforward_gain: 0.5
+        max_vx: 0.5
+        max_vy: 0.0
+        max_wz: 1.0
+        max_linear_acceleration: 0.8
+        max_angular_acceleration: 1.5
+        max_linear_deceleration: 0.8
+        max_angular_deceleration: 1.5
+        trajectory_timeout: 15.0
+        recovery_speed: -0.3
+        recovery_duration: 1.5
+
+  omnivla:
+    package: omnivla_adapter
+    executable: omnivla_adapter
+    launch_file: omnivla.launch.py
+    repository: third_party/OmniVLA
+    checkpoint: checkpoints/vln/omnivla/omnivla-original
+    checkpoint_variant: omnivla-original
+    resume_step: 120000
+    raw_output_type: local_trajectory_xy_heading
+    output_type: trajectory
+    action_shape: [8, 4]
+    sensors: [rgb]
+    sensor_profile: rgb_only
+    goal_modalities: [language]
+    goal_profile: language_only
+    evaluation_mode: trajectory_normalized
+    supported_evaluation_modes: [trajectory_normalized]
+    direct_velocity: false
+    local_avoidance: false
+    use_native_controller: false
+    comparison_track: rgb_only
+    model_inputs: [rgb, instruction]
+    launch_arguments:
+      goal_profile: language_only
+    runtime_metadata:
+      variant: omnivla-original
+      resume_step: 120000
+      modality_id: 7
+      action_shape: [8, 4]
+      target_inference_rate_hz: 3.0
+    execution:
+      launch_model: omnivla_native
+      high_level_controller: adapter_native_velocity
+      controller_fidelity: official_waypoint_4_pd_b2w_velocity_output
+      source: third_party/OmniVLA/inference/run_omnivla.py
+      upstream_repository: https://github.com/NHirose/OmniVLA
+      upstream_commit: 5182600cb4a9ee07684e17cdd2a6cbafc56b8a68
+      source_sha256: 6bdd78a3533449cc8f1be6c14365650e8504bc072abc85e0bdedc2d1030679d0
+      evidence: official_waypoint_index_4_pd_dt_1over3_vmax_0.3_wmax_0.3
+      official_controller_available: true
+      adapter_deviation: Only the official high-level velocity conversion is reused; B2-W SRU-ONNX replaces the upstream robot low-level.
+      camera_parameter_source: shared DynaNav benchmark camera; OmniVLA does not publish a benchmark HFOV
+      camera_horizontal_fov_degrees: 90.0
+      upstream_camera_resolution: null
+      simulation_camera_resolution: [640, 480]
+      model_image_resolution: [224, 224]
+      desired_speed: 0.3
+      official:
+        controller: waypoint_4_pd
+        waypoint_index: 4
+        controller_dt: 0.3333333333
+        preliminary_max_linear_speed: 0.5
+        preliminary_max_angular_speed: 1.0
+        final_max_linear_speed: 0.3
+        final_max_angular_speed: 0.3
+      navigation:
+        lookahead_distance: 1.0
+        goal_tolerance: 0.05
+        yaw_gain: 0.8
+        yaw_filter_alpha: 0.35
+        curvature_feedforward_gain: 0.5
+        max_vx: 0.3
+        max_vy: 0.0
+        max_wz: 0.3
+        max_linear_acceleration: 2.0
+        max_angular_acceleration: 3.0
+        max_linear_deceleration: 2.5
+        max_angular_deceleration: 3.5
+        trajectory_timeout: 3.0
+        recovery_speed: -0.3
+        recovery_duration: 1.5
+
+  # Official OmniVLA waypoint-4 controller. Kept separate from omnivla so
+  # normalized trajectory comparisons remain unchanged.
+  omnivla_native:
+    package: omnivla_adapter
+    executable: omnivla_adapter
+    launch_file: omnivla.launch.py
+    repository: third_party/OmniVLA
+    checkpoint: checkpoints/vln/omnivla/omnivla-original
+    checkpoint_variant: omnivla-original
+    resume_step: 120000
+    raw_output_type: local_trajectory_xy_heading
+    output_type: velocity
+    action_shape: [8, 4]
+    sensors: [rgb]
+    sensor_profile: rgb_only
+    goal_modalities: [language]
+    goal_profile: language_only
+    evaluation_mode: native_output
+    supported_evaluation_modes: [native_output]
+    direct_velocity: true
+    local_avoidance: false
+    external_local_avoidance: false
+    use_native_controller: true
+    use_native_locomotion: false
+    comparison_track: omnivla_native
+    model_inputs: [rgb, instruction]
+    launch_arguments:
+      goal_profile: language_only
+      evaluation_mode: native_output
+      direct_velocity: true
+    runtime_metadata:
+      variant: omnivla-original
+      resume_step: 120000
+      modality_id: 7
+      action_shape: [8, 4]
+      target_inference_rate_hz: 3.0
+      native_waypoint_index: 4
+      native_max_v: 0.3
+      native_max_w: 0.3
+    execution:
+      launch_model: omnivla_native
+      high_level_controller: adapter_native_velocity
+      controller_fidelity: official_waypoint_4_pd_b2w_velocity_output
+      source: third_party/OmniVLA/inference/run_omnivla.py
+      upstream_repository: https://github.com/NHirose/OmniVLA
+      upstream_commit: 5182600cb4a9ee07684e17cdd2a6cbafc56b8a68
+      source_sha256: 6bdd78a3533449cc8f1be6c14365650e8504bc072abc85e0bdedc2d1030679d0
+      evidence: official_waypoint_index_4_pd_dt_1over3_vmax_0.3_wmax_0.3
+      official_controller_available: true
+      adapter_deviation: Only the official high-level velocity conversion is reused; B2-W SRU-ONNX replaces the upstream robot low-level.
+      camera_parameter_source: shared DynaNav benchmark camera; OmniVLA does not publish a benchmark HFOV
+      camera_horizontal_fov_degrees: 90.0
+      upstream_camera_resolution: null
+      simulation_camera_resolution: [640, 480]
+      model_image_resolution: [224, 224]
+      desired_speed: 0.3
+      official:
+        controller: waypoint_4_pd
+        waypoint_index: 4
+        controller_dt: 0.3333333333
+        preliminary_max_linear_speed: 0.5
+        preliminary_max_angular_speed: 1.0
+        final_max_linear_speed: 0.3
+        final_max_angular_speed: 0.3
+      navigation:
+        lookahead_distance: 1.0
+        goal_tolerance: 0.05
+        yaw_gain: 0.8
+        yaw_filter_alpha: 0.35
+        curvature_feedforward_gain: 0.5
+        max_vx: 0.3
+        max_vy: 0.0
+        max_wz: 0.3
+        max_linear_acceleration: 2.0
+        max_angular_acceleration: 3.0
+        max_linear_deceleration: 2.5
+        max_angular_deceleration: 3.5
+        trajectory_timeout: 3.0
+        recovery_speed: -0.3
+        recovery_duration: 1.5
+
+  aware_vln:
+    package: aware_vln_adapter
+    executable: aware_vln_adapter
+    launch_file: aware_vln.launch.py
+    output_type: waypoint
+    implemented: false
+
+  evolve_nav:
+    package: evolve_nav_adapter
+    executable: evolve_nav_adapter
+    launch_file: evolve_nav.launch.py
+    output_type: velocity
+    direct_velocity: true
+    implemented: false

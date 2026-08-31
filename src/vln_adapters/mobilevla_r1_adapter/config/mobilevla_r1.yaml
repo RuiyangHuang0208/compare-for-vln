@@ -1,0 +1,69 @@
+mobilevla_r1_adapter:
+  ros__parameters:
+    model.repository_path: third_party/MobileVLA-R1
+    model.checkpoint_path: checkpoints/vln/mobilevla_r1/MobileVLA-R1/weight/rl
+    model.base_model_path: ""
+    model.lora_path: ""
+    model.non_lora_trainables_path: ""
+    model.device: cuda:0
+    model.dtype: bfloat16
+    model.conversation_mode: llama_3
+    model.use_flash_attention: true
+    model.server_url: http://127.0.0.1:5806
+
+    input.rgb_topic: /camera/rgb/image_raw
+    input.depth_topic: /camera/depth/image_raw
+    input.camera_info_topic: /camera/rgb/camera_info
+    input.instruction_topic: /vln/instruction
+    input.episode_topic: /episode/state
+    input.episode_id_topic: /episode/id
+    input.sensor_profile: rgb_d_pointcloud_from_depth
+    input.sync_queue_size: 10
+    input.sync_slop_s: 0.05
+    input.maximum_sensor_age_s: 0.25
+    input.history_frames: 8
+    input.depth_frames: 1
+    input.depth_unit: m
+    input.pointcloud_points: 2048
+    input.pointcloud_normalize: true
+    input.pointcloud_seed: 0
+
+    generation.mode: official_sampling
+    generation.do_sample: true
+    generation.temperature: 0.7
+    generation.top_p: 0.9
+    generation.max_new_tokens: 512
+    generation.seed: 0
+
+    parser.require_answer_tag: true
+    parser.require_single_answer: true
+    parser.expected_vector_length: 12
+    parser.velocity_indices: [0, 1, 2]
+    parser.allow_conclusion_fallback: false
+    parser.allow_keyword_fallback: false
+    parser.allow_think_number_fallback: false
+
+    # Dataset prose supports m/s and rad/s, but the complete axis signs and execution
+    # window are not consistently specified. Keep zero/false until all are verified.
+    control.command_duration_s: 0.0
+    control.velocity_units_confirmed: false
+    control.coordinate_signs_confirmed: false
+
+    output.command_topic: /vln/command
+    output.raw_response_topic: /vln/mobilevla_r1/raw_response
+    output.parsed_velocity_topic: /vln/mobilevla_r1/parsed_velocity
+    output.latency_topic: /vln/inference_latency
+    output.model_latency_topic: /vln/mobilevla_r1/inference_latency
+    output.status_topic: /vln/mobilevla_r1/status
+    output.frame_id: base_link
+
+    evaluation.mode: native_output
+    evaluation.direct_velocity: true
+    evaluation.external_local_avoidance: false
+
+    runtime.asynchronous: true
+    runtime.max_inflight_requests: 1
+    runtime.inference_timeout_s: 60.0
+    runtime.command_timeout_s: 0.5
+    runtime.poll_rate_hz: 20.0
+    runtime.allow_stub_server: false

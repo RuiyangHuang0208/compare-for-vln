@@ -1,16 +1,32 @@
-# Unitree B2W Controller
+# Unitree B2W 控制器
 
-这里保存从 RobotLab 迁入的新工作区运行入口。完整 RobotLab 仓库位于工作区内的 `third_party/robot_lab`，负责注册 Isaac Lab task 和提供完整 locomotion 环境；本目录负责 Hospital 场景、键盘、目标点和后续 VLN 对接入口。
+这里保存 B2W 在 Isaac Sim 中的统一运行入口。默认使用 SRU Gazebo deployment 的
+`policy_force_new.onnx` 和 SRU Isaac B2W USD；原来的 `isaac-pt` 与 RobotLab policy 均完整
+保留，可随时切换对照。完整 RobotLab 仓库位于 `third_party/robot_lab`。
 
-键盘、目标点、40 秒移动验收和 DualVLN 仿真闭环都直接修改 policy observation 中的 `[vx, vy, yaw_rate]`。B2W policy、57 维 observation 和 16 维 action 结构保持不变；当前仿真不经过 ROS2 `/nav_vel`。
+键盘、目标点和旧 DualVLN 直接入口仍可直接修改 policy observation 中的
+`[vx, vy, yaw_rate]`。新统一评测入口则由 `udp_velocity_bridge` 把 ROS 2 `/nav_vel` 送入
+同一 observation；低层 policy、关节映射与动作缩放没有改变。
+
+| 选择 | Observation | Action | Robot asset |
+|---|---:|---:|---|
+| `sru-onnx`（默认） | 60 | 16 | SRU `b2w_rsl.usd` |
+| `isaac-pt`（保留） | 60 | 16 | SRU `b2w_rsl.usd` |
+| `robotlab`（保留） | 57 | 16 | RobotLab B2W asset |
+
+`sru-onnx` 与 `isaac-pt` 的 60 维输入均为 base linear velocity、base angular velocity、
+projected gravity、3 维 command、16 维 joint offset、16 维 joint velocity 和 16 维上一步
+raw action。输出前 12 维以 `default + 0.5 * action` 写入腿关节位置，后 4 维以
+`5.0 * action` 写入轮关节速度。`sru-onnx` 使用与 Gazebo 相同的显式 256 维 LSTM
+hidden/cell，并在 50 Hz 更新；Isaac 的 200 Hz physics 子步保持最新动作。
 
 ## 前置条件
 
 启动脚本会自动检测 Isaac Lab；从 `(base)` 运行时会自动激活 `isaaclab232` 并加载
-`/home/mifcom2/isaacsim/setup_conda_env.sh`，不需要手动执行 `conda activate`。进入工作区：
+`${ISAAC_SIM_ROOT:-$HOME/isaacsim}/setup_conda_env.sh`，不需要手动执行 `conda activate`。进入工作区：
 
 ```bash
-cd /home/mifcom2/b2w/robot_vln_ws
+cd "$ROBOT_VLN_WS"
 ```
 
 可先做不启动仿真窗口的环境检查：
@@ -51,6 +67,26 @@ D      右转
 SPACE  停止
 ```
 
+ROS 2 统一入口使用：
+
+```bash
+source /opt/ros/jazzy/setup.bash
+source install/setup.bash
+ros2 launch robot_bringup keyboard_b2w.launch.py
+```
+
+`udp_velocity_bridge` 支持 `keyboard` 与 `vln` 两个互斥 source。运行中向
+`/robot_controller/source` 发布新 source 时会先发送零速度，并等待该 source 的新命令；
+非活动 source 的消息不能控制机器人。VLN 统一输出始终是 `/nav_vel`，不需要模型知道
+Isaac UDP 或 locomotion policy。
+
+## Isaac Sim viewport 轨迹
+
+非 headless 的统一 VLN 评测会自动显示两条轨迹：青色为 `/vln/debug_path` 的模型预测，
+黄色为机器人实际运动轨迹。ROS 节点通过独立 UDP `5823` 发送世界坐标路径；速度仍使用
+UDP `5820`，因此调试显示不会修改 locomotion 命令。实际轨迹按 `0.08 m` 间距采样，最多
+保留 500 点。STOP 或 reset 会清除相应 marker。
+
 ## 40 秒移动验收
 
 ```bash
@@ -58,6 +94,26 @@ SPACE  停止
 ```
 
 该模式依次测试前进、停止、后退、停止、左转、停止、右转和停止。
+
+2026-08-21 在 Isaac Sim 5.1 Hospital 中对默认 `sru-onnx` 实际运行 40 秒：前进
+`0.520 m/s`、后退 `-0.493 m/s`、左转 `0.534 rad/s`、右转 `-0.516 rad/s`，停止与全部
+移动项目 PASS；upright `100%`，最低高度 `0.704 m`，最大腿关节位置 `1.327 rad`。
+保留的 `isaac-pt` 已于 2026-08-20 通过同一测试。
+
+## 切换控制器
+
+原 policy 和 checkpoint 没有删除。只对当前命令设置环境变量：
+
+```bash
+B2W_LOCOMOTION_POLICY=isaac-pt ./src/robot_controller/scripts/run_b2w_hospital.sh goal
+B2W_LOCOMOTION_POLICY=robotlab ./src/robot_controller/scripts/run_b2w_hospital.sh goal
+```
+
+键盘、测试和 DualVLN 模式同样适用。取消该环境变量后恢复默认 `sru-onnx`：
+
+```bash
+unset B2W_LOCOMOTION_POLICY
+```
 
 ## DualVLN 模拟传感器
 
@@ -84,14 +140,14 @@ robot.root_ang_vel_b          机体系角速度
 ./src/robot_controller/scripts/run_b2w_hospital.sh sensor-test
 ```
 
-输出保存在 `outputs/dualvln_sensor/front_rgb.png` 和 `front_depth.png`。传感器不会加入 locomotion policy observation，policy 维度保持 57/16。
+输出保存在 `outputs/dualvln_sensor/front_rgb.png` 和 `front_depth.png`。传感器不会加入 locomotion policy observation，因此两套 locomotion 契约仍分别保持 60/16 和 57/16。
 
 ## DualVLN 仿真闭环
 
 先在独立终端启动推理服务，再启动 Isaac Hospital：
 
 ```bash
-./src/vln_models/dualvln/run_sim_server.sh
+./src/vln_adapters/dualvln_adapter/run_inference_server.sh
 ./src/robot_controller/scripts/run_b2w_hospital.sh dualvln
 ```
 
@@ -99,4 +155,7 @@ robot.root_ang_vel_b          机体系角速度
 
 ## 直接调用 play.py
 
-入口位于 `scripts/rsl_rl/play.py`，默认 checkpoint 位于工作区根目录的 `checkpoints/b2w_locomotion/model_2600.pt`。完整 task、关节和命令信息见 `config/b2w.yaml`。
+入口位于 `scripts/rsl_rl/play.py`。默认 ONNX 位于
+`checkpoints/b2w_locomotion/sru_onnx/policy_force_new.onnx`，保留的 TorchScript 位于
+`checkpoints/b2w_locomotion/isaac_pt/policy_b2w_new_2.pt`，RobotLab checkpoint 位于
+`checkpoints/b2w_locomotion/model_2600.pt`。完整 task、关节和命令信息见 `config/b2w.yaml`。

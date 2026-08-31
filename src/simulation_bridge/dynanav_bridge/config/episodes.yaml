@@ -1,0 +1,1599 @@
+metadata:
+  source: third_party/TIC-VLA/DynaNav/configs/benchmark_full.yaml
+  official_episode_count: 85
+  yaw_unit: radians
+episodes:
+  hospital_001:
+    scene: hospital
+    instruction: Walk forward along the corridor and stop at the target.
+    spawn:
+    - 8.0
+    - 0.0
+    - 0.0
+    goal:
+    - 11.0
+    - 0.0
+    success_threshold: 0.5
+    max_duration: 60.0
+    pedestrian_count: 0
+    seed: 1
+  simple_forward_3m:
+    scene: hospital
+    instruction: Move straight forward for 3 meters, then stop.
+    spawn:
+    - 8.0
+    - 0.0
+    - 0.0
+    goal:
+    - 11.0
+    - 0.0
+    success_threshold: 0.5
+    max_duration: 45.0
+    pedestrian_count: 0
+    seed: 1
+  simple_forward_3m_standard:
+    scene: hospital
+    instruction: Move straight forward for 3 meters, then stop.
+    spawn:
+    - 8.0
+    - 0.0
+    - 0.0
+    goal:
+    - 11.0
+    - 0.0
+    success_threshold: 1.5
+    max_duration: 45.0
+    pedestrian_count: 0
+    seed: 1
+  controller_probe_straight:
+    scene: hospital
+    instruction: Deterministic controller acceptance; drive straight to the test goal.
+    spawn: [8.0, 0.0, 0.0]
+    goal: [10.0, 0.0]
+    success_threshold: 0.3
+    max_duration: 25.0
+    pedestrian_count: 0
+    seed: 666
+  controller_probe_shared_left:
+    scene: hospital
+    instruction: Deterministic shared path follower left-turn acceptance.
+    spawn: [8.0, 0.0, 0.0]
+    goal: [9.5, 0.5]
+    success_threshold: 0.3
+    max_duration: 25.0
+    pedestrian_count: 0
+    seed: 666
+  controller_probe_navila_left:
+    scene: hospital
+    instruction: Deterministic NaVILA 45-degree discrete-action execution acceptance.
+    spawn: [8.0, 0.0, 0.0]
+    goal: [9.2374, 0.8232]
+    success_threshold: 0.3
+    max_duration: 25.0
+    pedestrian_count: 0
+    seed: 666
+  controller_probe_uninavid_left:
+    scene: hospital
+    instruction: Deterministic Uni-NaVid 30-degree discrete-action execution acceptance.
+    spawn: [8.0, 0.0, 0.0]
+    goal: [8.5580, 0.2835]
+    success_threshold: 0.2
+    max_duration: 25.0
+    pedestrian_count: 0
+    seed: 666
+  controller_probe_velocity_left:
+    scene: hospital
+    instruction: Deterministic official velocity-controller left-turn acceptance.
+    spawn: [8.0, 0.0, 0.0]
+    goal: [9.5, 0.5]
+    success_threshold: 0.3
+    max_duration: 25.0
+    pedestrian_count: 0
+    seed: 666
+  simple_vending_machine:
+    scene: hospital
+    instruction: Go straight ahead and stop at the vending machine.
+    spawn:
+    - -3.0
+    - -1.2
+    - 0.0
+    floor_z: 0.01
+    goal:
+    - 9.52
+    - 2.33
+    success_threshold: 1.5
+    max_duration: 60.0
+    pedestrian_count: 0
+    seed: 666
+  hospital_dynamic_001:
+    scene: hospital
+    instruction: Walk forward along the corridor and stop at the target while people are moving nearby.
+    spawn:
+    - 8.0
+    - 0.0
+    - 0.0
+    goal:
+    - 11.0
+    - 0.0
+    success_threshold: 0.5
+    max_duration: 60.0
+    pedestrian_count: 1
+    seed: 666
+  dynanav_001:
+    suite: dynanav_full
+    source_episode: episode_1
+    scene: hospital
+    instruction: Go straight ahead and stop at the vending machine at front.
+    spawn:
+    - -3.0
+    - -1.2
+    - 0.0
+    floor_z: 0.01
+    goal:
+    - 9.52
+    - 2.33
+    success_threshold: 1.5
+    max_duration: 40.0
+    pedestrian_count: 0
+    seed: 666
+  dynanav_002:
+    suite: dynanav_full
+    source_episode: episode_2
+    scene: hospital
+    instruction: Go straight ahead and stop at the front of the vending machine at front left.
+    spawn:
+    - -3.0
+    - -1.2
+    - 0.0
+    floor_z: 0.01
+    goal:
+    - 9.52
+    - 2.33
+    success_threshold: 1.5
+    max_duration: 50.0
+    pedestrian_count: 10
+    seed: 666
+  dynanav_003:
+    suite: dynanav_full
+    source_episode: episode_3
+    scene: hospital
+    instruction: Go straight ahead and stop at the front of the vending machine at front left.
+    spawn:
+    - -3.0
+    - -1.2
+    - 0.0
+    floor_z: 0.01
+    goal:
+    - 9.52
+    - 2.33
+    success_threshold: 1.5
+    max_duration: 60.0
+    pedestrian_count: 20
+    seed: 666
+  dynanav_004:
+    suite: dynanav_full
+    source_episode: episode_4
+    scene: hospital
+    instruction: Go straight ahead and stop at the front of the vending machine at front left.
+    spawn:
+    - -3.0
+    - -1.2
+    - 0.0
+    floor_z: 0.01
+    goal:
+    - 9.52
+    - 2.33
+    success_threshold: 1.5
+    max_duration: 70.0
+    pedestrian_count: 30
+    seed: 666
+  dynanav_005:
+    suite: dynanav_full
+    source_episode: episode_5
+    scene: hospital
+    instruction: Go straight ahead and stop at the front of the vending machine at front left.
+    spawn:
+    - -3.0
+    - -1.2
+    - 0.0
+    floor_z: 0.01
+    goal:
+    - 9.52
+    - 2.33
+    success_threshold: 1.5
+    max_duration: 80.0
+    pedestrian_count: 40
+    seed: 666
+  dynanav_006:
+    suite: dynanav_full
+    source_episode: episode_6
+    scene: hospital
+    instruction: Walk straight down the hallway and stop at the red bed located to the right of the doors.
+    spawn:
+    - 19.7
+    - 29.3
+    - -1.5707963267948966
+    floor_z: 0.01
+    goal:
+    - 16.1
+    - -3.04
+    success_threshold: 1.5
+    max_duration: 55.0
+    pedestrian_count: 0
+    seed: 666
+  dynanav_007:
+    suite: dynanav_full
+    source_episode: episode_7
+    scene: hospital
+    instruction: Walk straight down the hallway and stop at the red bed located to the right of the doors.
+    spawn:
+    - 18.7
+    - 29.3
+    - -1.5707963267948966
+    floor_z: 0.01
+    goal:
+    - 16.1
+    - -3.04
+    success_threshold: 1.5
+    max_duration: 65.0
+    pedestrian_count: 10
+    seed: 666
+  dynanav_008:
+    suite: dynanav_full
+    source_episode: episode_8
+    scene: hospital
+    instruction: Walk straight down the hallway and stop at the red bed located to the right of the doors.
+    spawn:
+    - 19.7
+    - 29.3
+    - -1.5707963267948966
+    floor_z: 0.01
+    goal:
+    - 16.1
+    - -3.04
+    success_threshold: 1.5
+    max_duration: 75.0
+    pedestrian_count: 20
+    seed: 666
+  dynanav_009:
+    suite: dynanav_full
+    source_episode: episode_9
+    scene: hospital
+    instruction: Walk straight down the hallway and stop at the red bed located to the right of the doors.
+    spawn:
+    - 19.7
+    - 29.3
+    - -1.5707963267948966
+    floor_z: 0.01
+    goal:
+    - 16.1
+    - -3.04
+    success_threshold: 1.5
+    max_duration: 85.0
+    pedestrian_count: 30
+    seed: 666
+  dynanav_010:
+    suite: dynanav_full
+    source_episode: episode_10
+    scene: hospital
+    instruction: Walk straight down the hallway and stop at the red bed located to the right of the doors.
+    spawn:
+    - 19.7
+    - 29.3
+    - -1.5707963267948966
+    floor_z: 0.01
+    goal:
+    - 16.1
+    - -3.04
+    success_threshold: 1.5
+    max_duration: 95.0
+    pedestrian_count: 40
+    seed: 666
+  dynanav_011:
+    suite: dynanav_full
+    source_episode: episode_11
+    scene: hospital
+    instruction: Go straight past the wheelchairs and stop at the water dispenser by the window.
+    spawn:
+    - 9.75
+    - 2.82
+    - -2.530727415391778
+    floor_z: 0.01
+    goal:
+    - -4.49
+    - -1.91
+    success_threshold: 1.5
+    max_duration: 70.0
+    pedestrian_count: 0
+    seed: 666
+  dynanav_012:
+    suite: dynanav_full
+    source_episode: episode_12
+    scene: hospital
+    instruction: Go straight past the wheelchairs and stop at the water dispenser by the window.
+    spawn:
+    - 9.75
+    - 2.82
+    - -2.530727415391778
+    floor_z: 0.01
+    goal:
+    - -4.49
+    - -1.91
+    success_threshold: 1.5
+    max_duration: 85.0
+    pedestrian_count: 10
+    seed: 666
+  dynanav_013:
+    suite: dynanav_full
+    source_episode: episode_13
+    scene: hospital
+    instruction: Go straight past the wheelchairs and stop at the water dispenser by the window.
+    spawn:
+    - 9.75
+    - 2.82
+    - -2.530727415391778
+    floor_z: 0.01
+    goal:
+    - -4.49
+    - -1.91
+    success_threshold: 1.5
+    max_duration: 95.0
+    pedestrian_count: 20
+    seed: 666
+  dynanav_014:
+    suite: dynanav_full
+    source_episode: episode_14
+    scene: hospital
+    instruction: Go straight past the wheelchairs and stop at the water dispenser by the window.
+    spawn:
+    - 9.75
+    - 2.82
+    - -2.530727415391778
+    floor_z: 0.01
+    goal:
+    - -4.49
+    - -1.91
+    success_threshold: 1.5
+    max_duration: 105.0
+    pedestrian_count: 30
+    seed: 666
+  dynanav_015:
+    suite: dynanav_full
+    source_episode: episode_15
+    scene: hospital
+    instruction: Go straight past the wheelchairs and stop at the water dispenser by the window.
+    spawn:
+    - 9.75
+    - 2.82
+    - -2.530727415391778
+    floor_z: 0.01
+    goal:
+    - -4.49
+    - -1.91
+    success_threshold: 1.5
+    max_duration: 115.0
+    pedestrian_count: 40
+    seed: 666
+  dynanav_016:
+    suite: dynanav_full
+    source_episode: episode_16
+    scene: hospital
+    instruction: Move forward toward the staircase, then turn left to enter the hallway. Continue straight ahead and stop
+      in front of the blue hospital bed on the right side of the hallway.
+    spawn:
+    - 7.38
+    - 1.49
+    - 1.5707963267948966
+    floor_z: 0.01
+    goal:
+    - -12.23
+    - 10.19
+    success_threshold: 1.5
+    max_duration: 85.0
+    pedestrian_count: 0
+    seed: 666
+  dynanav_017:
+    suite: dynanav_full
+    source_episode: episode_17
+    scene: hospital
+    instruction: Move forward toward the staircase, then turn left to enter the hallway. Continue straight ahead and stop
+      in front of the blue hospital bed on the right side of the hallway.
+    spawn:
+    - 7.38
+    - 1.49
+    - 1.5707963267948966
+    floor_z: 0.01
+    goal:
+    - -12.23
+    - 10.19
+    success_threshold: 1.5
+    max_duration: 95.0
+    pedestrian_count: 10
+    seed: 666
+  dynanav_018:
+    suite: dynanav_full
+    source_episode: episode_18
+    scene: hospital
+    instruction: Move forward toward the staircase, then turn left to enter the hallway. Continue straight ahead and stop
+      in front of the blue hospital bed on the right side of the hallway.
+    spawn:
+    - 7.38
+    - 1.49
+    - 1.5707963267948966
+    floor_z: 0.01
+    goal:
+    - -12.23
+    - 10.19
+    success_threshold: 1.5
+    max_duration: 100.0
+    pedestrian_count: 20
+    seed: 666
+  dynanav_019:
+    suite: dynanav_full
+    source_episode: episode_19
+    scene: hospital
+    instruction: Move forward toward the staircase, then turn left to enter the hallway. Continue straight ahead and stop
+      in front of the blue hospital bed on the right side of the hallway.
+    spawn:
+    - 7.38
+    - 1.49
+    - 1.5707963267948966
+    floor_z: 0.01
+    goal:
+    - -12.23
+    - 10.19
+    success_threshold: 1.5
+    max_duration: 115.0
+    pedestrian_count: 30
+    seed: 666
+  dynanav_020:
+    suite: dynanav_full
+    source_episode: episode_20
+    scene: hospital
+    instruction: Move forward toward the staircase, then turn left to enter the hallway. Continue straight ahead and stop
+      in front of the blue hospital bed on the right side of the hallway.
+    spawn:
+    - 7.38
+    - 1.49
+    - 1.5707963267948966
+    floor_z: 0.01
+    goal:
+    - -12.23
+    - 10.19
+    success_threshold: 1.5
+    max_duration: 130.0
+    pedestrian_count: 40
+    seed: 666
+  dynanav_021:
+    suite: dynanav_full
+    source_episode: episode_21
+    scene: hospital
+    instruction: Exit the room and turn right to enter the hallway. Continue straight ahead and to the end of the hallway.
+    spawn:
+    - 23.3
+    - -0.9
+    - 3.141592653589793
+    floor_z: 0.01
+    goal:
+    - 20.0
+    - 24.0
+    success_threshold: 1.5
+    max_duration: 115.0
+    pedestrian_count: 0
+    seed: 666
+  dynanav_022:
+    suite: dynanav_full
+    source_episode: episode_22
+    scene: hospital
+    instruction: Exit the room and turn right to enter the hallway. Continue straight ahead and to the end of the hallway.
+    spawn:
+    - 23.3
+    - -0.9
+    - 3.141592653589793
+    floor_z: 0.01
+    goal:
+    - 20.0
+    - 24.0
+    success_threshold: 1.5
+    max_duration: 130.0
+    pedestrian_count: 10
+    seed: 666
+  dynanav_023:
+    suite: dynanav_full
+    source_episode: episode_23
+    scene: hospital
+    instruction: Exit the room and turn right to enter the hallway. Continue straight ahead and to the end of the hallway.
+    spawn:
+    - 23.3
+    - -0.9
+    - 3.141592653589793
+    floor_z: 0.01
+    goal:
+    - 20.0
+    - 24.0
+    success_threshold: 1.5
+    max_duration: 145.0
+    pedestrian_count: 20
+    seed: 666
+  dynanav_024:
+    suite: dynanav_full
+    source_episode: episode_24
+    scene: hospital
+    instruction: Exit the room and turn right to enter the hallway. Continue straight ahead and to the end of the hallway.
+    spawn:
+    - 23.3
+    - -0.9
+    - 3.141592653589793
+    floor_z: 0.01
+    goal:
+    - 20.0
+    - 24.0
+    success_threshold: 1.5
+    max_duration: 160.0
+    pedestrian_count: 30
+    seed: 666
+  dynanav_025:
+    suite: dynanav_full
+    source_episode: episode_25
+    scene: hospital
+    instruction: Exit the room and turn right to enter the hallway. Continue straight ahead and to the end of the hallway.
+    spawn:
+    - 23.3
+    - -0.9
+    - 3.141592653589793
+    floor_z: 0.01
+    goal:
+    - 20.0
+    - 24.0
+    success_threshold: 1.5
+    max_duration: 175.0
+    pedestrian_count: 40
+    seed: 666
+  dynanav_026:
+    suite: dynanav_full
+    source_episode: episode_26
+    scene: office
+    instruction: Go straight ahead and stop at the nearest elevator.
+    spawn:
+    - -2.85
+    - 9.6
+    - -2.303834612632515
+    floor_z: 0.01
+    goal:
+    - -13.4
+    - -1.2
+    success_threshold: 1.5
+    max_duration: 50.0
+    pedestrian_count: 0
+    seed: 666
+  dynanav_027:
+    suite: dynanav_full
+    source_episode: episode_27
+    scene: office
+    instruction: Go straight ahead and stop at the nearest elevator.
+    spawn:
+    - -2.85
+    - 9.6
+    - -2.303834612632515
+    floor_z: 0.01
+    goal:
+    - -13.4
+    - -1.2
+    success_threshold: 1.5
+    max_duration: 60.0
+    pedestrian_count: 10
+    seed: 666
+  dynanav_028:
+    suite: dynanav_full
+    source_episode: episode_28
+    scene: office
+    instruction: Go straight ahead and stop at the nearest elevator.
+    spawn:
+    - -2.85
+    - 9.6
+    - -2.303834612632515
+    floor_z: 0.01
+    goal:
+    - -13.4
+    - -1.2
+    success_threshold: 1.5
+    max_duration: 70.0
+    pedestrian_count: 20
+    seed: 666
+  dynanav_029:
+    suite: dynanav_full
+    source_episode: episode_29
+    scene: office
+    instruction: Go straight ahead and stop at the nearest elevator.
+    spawn:
+    - -2.85
+    - 9.6
+    - -2.303834612632515
+    floor_z: 0.01
+    goal:
+    - -13.4
+    - -1.2
+    success_threshold: 1.5
+    max_duration: 80.0
+    pedestrian_count: 30
+    seed: 666
+  dynanav_030:
+    suite: dynanav_full
+    source_episode: episode_30
+    scene: office
+    instruction: Go straight ahead and stop at the nearest elevator.
+    spawn:
+    - -2.85
+    - 9.6
+    - -2.303834612632515
+    floor_z: 0.01
+    goal:
+    - -13.4
+    - -1.2
+    success_threshold: 1.5
+    max_duration: 90.0
+    pedestrian_count: 40
+    seed: 666
+  dynanav_031:
+    suite: dynanav_full
+    source_episode: episode_31
+    scene: office
+    instruction: Turn right and follow the blue carpet to the end of the hallway. Enter the room with the reception desk.
+    spawn:
+    - -8.2
+    - 52.2
+    - 0.05480333851262195
+    floor_z: 0.01
+    goal:
+    - -3.0
+    - 10.87
+    success_threshold: 1.5
+    max_duration: 65.0
+    pedestrian_count: 0
+    seed: 666
+  dynanav_032:
+    suite: dynanav_full
+    source_episode: episode_32
+    scene: office
+    instruction: Turn right and follow the blue carpet to the end of the hallway. Enter the room with the reception desk.
+    spawn:
+    - -8.2
+    - 52.2
+    - 0.05480333851262195
+    floor_z: 0.01
+    goal:
+    - -3.0
+    - 10.87
+    success_threshold: 1.5
+    max_duration: 75.0
+    pedestrian_count: 10
+    seed: 666
+  dynanav_033:
+    suite: dynanav_full
+    source_episode: episode_33
+    scene: office
+    instruction: Turn right and follow the blue carpet to the end of the hallway. Enter the room with the reception desk.
+    spawn:
+    - -8.2
+    - 52.2
+    - 0.05480333851262195
+    floor_z: 0.01
+    goal:
+    - -3.0
+    - 10.87
+    success_threshold: 1.5
+    max_duration: 85.0
+    pedestrian_count: 20
+    seed: 666
+  dynanav_034:
+    suite: dynanav_full
+    source_episode: episode_34
+    scene: office
+    instruction: Turn right and follow the blue carpet to the end of the hallway. Enter the room with the reception desk.
+    spawn:
+    - -8.2
+    - 52.2
+    - 0.05480333851262195
+    floor_z: 0.01
+    goal:
+    - -3.0
+    - 10.87
+    success_threshold: 1.5
+    max_duration: 95.0
+    pedestrian_count: 30
+    seed: 666
+  dynanav_035:
+    suite: dynanav_full
+    source_episode: episode_35
+    scene: office
+    instruction: Turn right and follow the blue carpet to the end of the hallway. Enter the room with the reception desk.
+    spawn:
+    - -8.2
+    - 52.2
+    - 0.05480333851262195
+    floor_z: 0.01
+    goal:
+    - -3.0
+    - 10.87
+    success_threshold: 1.5
+    max_duration: 105.0
+    pedestrian_count: 40
+    seed: 666
+  dynanav_036:
+    suite: dynanav_full
+    source_episode: episode_36
+    scene: office
+    instruction: Go straight ahead through the hallway, then turn left at the end to approach the red emergency exit door.
+    spawn:
+    - -10.6
+    - -12.1
+    - -1.5707963267948966
+    floor_z: 0.01
+    goal:
+    - -7.68
+    - -25.53
+    success_threshold: 1.5
+    max_duration: 80.0
+    pedestrian_count: 0
+    seed: 666
+  dynanav_037:
+    suite: dynanav_full
+    source_episode: episode_37
+    scene: office
+    instruction: Go straight ahead through the hallway, then turn left at the end to approach the red emergency exit door.
+    spawn:
+    - -10.6
+    - -12.8
+    - -1.5707963267948966
+    floor_z: 0.01
+    goal:
+    - -7.68
+    - -25.53
+    success_threshold: 1.5
+    max_duration: 90.0
+    pedestrian_count: 10
+    seed: 666
+  dynanav_038:
+    suite: dynanav_full
+    source_episode: episode_38
+    scene: office
+    instruction: Go straight ahead through the hallway, then turn left at the end to approach the red emergency exit door.
+    spawn:
+    - -10.6
+    - -12.1
+    - -1.5707963267948966
+    floor_z: 0.01
+    goal:
+    - -7.68
+    - -25.53
+    success_threshold: 1.5
+    max_duration: 100.0
+    pedestrian_count: 20
+    seed: 666
+  dynanav_039:
+    suite: dynanav_full
+    source_episode: episode_39
+    scene: office
+    instruction: Go straight ahead through the hallway, then turn left at the end to approach the red emergency exit door.
+    spawn:
+    - -10.6
+    - -12.1
+    - -1.5707963267948966
+    floor_z: 0.01
+    goal:
+    - -7.68
+    - -25.53
+    success_threshold: 1.5
+    max_duration: 110.0
+    pedestrian_count: 30
+    seed: 666
+  dynanav_040:
+    suite: dynanav_full
+    source_episode: episode_40
+    scene: office
+    instruction: Go straight ahead through the hallway, then turn left at the end to approach the red emergency exit door.
+    spawn:
+    - -10.6
+    - -12.1
+    - -1.5707963267948966
+    floor_z: 0.01
+    goal:
+    - -7.68
+    - -25.53
+    success_threshold: 1.5
+    max_duration: 120.0
+    pedestrian_count: 40
+    seed: 666
+  dynanav_041:
+    suite: dynanav_full
+    source_episode: episode_41
+    scene: office
+    instruction: Go straight down the hallway, turn left at the end, then continue forward to enter the office room. Move
+      inside and stop in front of the desk on the right.
+    spawn:
+    - -3.04
+    - 48.1
+    - -4.71238898038469
+    floor_z: 0.01
+    goal:
+    - -15.5
+    - 54.7
+    success_threshold: 1.5
+    max_duration: 95.0
+    pedestrian_count: 0
+    seed: 666
+  dynanav_042:
+    suite: dynanav_full
+    source_episode: episode_42
+    scene: office
+    instruction: Go straight down the hallway, turn left at the end, then continue forward to enter the office room. Move
+      inside and stop in front of the desk on the right.
+    spawn:
+    - -3.04
+    - 48.1
+    - -4.71238898038469
+    floor_z: 0.01
+    goal:
+    - -15.5
+    - 54.7
+    success_threshold: 1.5
+    max_duration: 105.0
+    pedestrian_count: 10
+    seed: 666
+  dynanav_043:
+    suite: dynanav_full
+    source_episode: episode_43
+    scene: office
+    instruction: Go straight down the hallway, turn left at the end, then continue forward to enter the office room. Move
+      inside and stop in front of the desk on the right.
+    spawn:
+    - -3.04
+    - 48.1
+    - -4.71238898038469
+    floor_z: 0.01
+    goal:
+    - -15.5
+    - 54.7
+    success_threshold: 1.5
+    max_duration: 115.0
+    pedestrian_count: 20
+    seed: 666
+  dynanav_044:
+    suite: dynanav_full
+    source_episode: episode_44
+    scene: office
+    instruction: Go straight down the hallway, turn left at the end, then continue forward to enter the office room. Move
+      inside and stop in front of the desk on the right.
+    spawn:
+    - -3.04
+    - 48.1
+    - -4.71238898038469
+    floor_z: 0.01
+    goal:
+    - -15.5
+    - 54.7
+    success_threshold: 1.5
+    max_duration: 125.0
+    pedestrian_count: 30
+    seed: 666
+  dynanav_045:
+    suite: dynanav_full
+    source_episode: episode_45
+    scene: office
+    instruction: Go straight down the hallway, turn left at the end, then continue forward to enter the office room. Move
+      inside and stop in front of the desk on the right.
+    spawn:
+    - -3.04
+    - 48.1
+    - -4.71238898038469
+    floor_z: 0.01
+    goal:
+    - -15.5
+    - 54.7
+    success_threshold: 1.5
+    max_duration: 135.0
+    pedestrian_count: 40
+    seed: 666
+  dynanav_046:
+    suite: dynanav_full
+    source_episode: episode_46
+    scene: office
+    instruction: Go straight ahead, passing through the hallway behind the black glass doors, and then enter the office desk
+      area and stop at the white desk with the plant on it, located on the right side of the wall at the end.
+    spawn:
+    - -15.2
+    - 12.7
+    - 1.5707963267948966
+    floor_z: 0.01
+    goal:
+    - -12.5
+    - 49.0
+    success_threshold: 1.5
+    max_duration: 110.0
+    pedestrian_count: 0
+    seed: 666
+  dynanav_047:
+    suite: dynanav_full
+    source_episode: episode_47
+    scene: office
+    instruction: Go straight ahead, passing through the hallway behind the black glass doors, and then enter the office desk
+      area and stop at the white desk with the plant on it, located on the right side of the wall at the end.
+    spawn:
+    - -15.2
+    - 12.7
+    - 1.5707963267948966
+    floor_z: 0.01
+    goal:
+    - -12.5
+    - 49.0
+    success_threshold: 1.5
+    max_duration: 120.0
+    pedestrian_count: 10
+    seed: 666
+  dynanav_048:
+    suite: dynanav_full
+    source_episode: episode_48
+    scene: office
+    instruction: Go straight ahead, passing through the hallway behind the black glass doors, and then enter the office desk
+      area and stop at the white desk with the plant on it, located on the right side of the wall at the end.
+    spawn:
+    - -15.2
+    - 12.7
+    - 1.5707963267948966
+    floor_z: 0.01
+    goal:
+    - -12.5
+    - 49.0
+    success_threshold: 1.5
+    max_duration: 120.0
+    pedestrian_count: 20
+    seed: 666
+  dynanav_049:
+    suite: dynanav_full
+    source_episode: episode_49
+    scene: office
+    instruction: Go straight ahead, passing through the hallway behind the black glass doors, and then enter the office desk
+      area and stop at the white desk with the plant on it, located on the right side of the wall at the end.
+    spawn:
+    - -15.2
+    - 12.7
+    - 1.5707963267948966
+    floor_z: 0.01
+    goal:
+    - -12.5
+    - 49.0
+    success_threshold: 1.5
+    max_duration: 140.0
+    pedestrian_count: 30
+    seed: 666
+  dynanav_050:
+    suite: dynanav_full
+    source_episode: episode_50
+    scene: office
+    instruction: Go straight ahead, passing through the hallway behind the black glass doors, and then enter the office desk
+      area and stop at the white desk with the plant on it, located on the right side of the wall at the end.
+    spawn:
+    - -15.2
+    - 12.7
+    - 1.5707963267948966
+    floor_z: 0.01
+    goal:
+    - -12.5
+    - 49.0
+    success_threshold: 1.5
+    max_duration: 150.0
+    pedestrian_count: 40
+    seed: 666
+  dynanav_051:
+    suite: dynanav_full
+    source_episode: episode_51
+    scene: outdoor
+    instruction: Go straight until reach the black and white striped umbrellas.
+    spawn:
+    - 26.9
+    - 148.8
+    - 2.792526803190927
+    floor_z: 6.85
+    goal:
+    - 9.39
+    - 154.52
+    success_threshold: 4.0
+    max_duration: 100.0
+    pedestrian_count: 200
+    seed: 666
+  dynanav_052:
+    suite: dynanav_full
+    source_episode: episode_52
+    scene: outdoor
+    instruction: Go straight until reach the black and white striped umbrellas.
+    spawn:
+    - 26.9
+    - 148.8
+    - 2.792526803190927
+    floor_z: 6.85
+    goal:
+    - 9.39
+    - 154.52
+    success_threshold: 4.0
+    max_duration: 150.0
+    pedestrian_count: 200
+    seed: 666
+  dynanav_053:
+    suite: dynanav_full
+    source_episode: episode_53
+    scene: outdoor
+    instruction: Drive forward passing the pillars and stop when you reach the last pillar at the far end.
+    spawn:
+    - -24.79
+    - 173.1
+    - 0.5585053606381855
+    floor_z: 8.0
+    goal:
+    - 2.2
+    - 193.8
+    success_threshold: 4.0
+    max_duration: 150.0
+    pedestrian_count: 100
+    seed: 666
+  dynanav_054:
+    suite: dynanav_full
+    source_episode: episode_54
+    scene: outdoor
+    instruction: Drive forward passing the pillars and stop when you reach the last pillar at the far end.
+    spawn:
+    - -24.79
+    - 173.1
+    - 0.5585053606381855
+    floor_z: 8.5
+    goal:
+    - 2.2
+    - 193.8
+    success_threshold: 4.0
+    max_duration: 200.0
+    pedestrian_count: 200
+    seed: 666
+  dynanav_055:
+    suite: dynanav_full
+    source_episode: episode_55
+    scene: outdoor
+    instruction: Cross the street straight ahead, then proceed forward to the Northside Branch Library with the circular window
+      at front. Do not turn right.
+    spawn:
+    - -34.0
+    - 150.6
+    - 1.3962634015954636
+    floor_z: 6.25
+    goal:
+    - -24.02
+    - 173.3
+    success_threshold: 1.0
+    max_duration: 200.0
+    pedestrian_count: 100
+    seed: 666
+  dynanav_056:
+    suite: dynanav_full
+    source_episode: episode_56
+    scene: outdoor
+    instruction: Cross the street straight ahead, then proceed forward to the Northside Branch Library with the circular window
+      at front. Do not turn right.
+    spawn:
+    - -34.0
+    - 150.6
+    - 1.3962634015954636
+    floor_z: 6.25
+    goal:
+    - -24.02
+    - 173.3
+    success_threshold: 4.0
+    max_duration: 250.0
+    pedestrian_count: 200
+    seed: 666
+  dynanav_057:
+    suite: dynanav_full
+    source_episode: episode_57
+    scene: outdoor
+    instruction: Cross the street and continue straight until you reach the storefront with the yellow UPSWAY sign.
+    spawn:
+    - 2.26
+    - 147.4
+    - -1.5707963267948966
+    floor_z: 8.0
+    goal:
+    - 2.26
+    - 137.6
+    success_threshold: 1.0
+    max_duration: 250.0
+    pedestrian_count: 100
+    seed: 666
+  dynanav_058:
+    suite: dynanav_full
+    source_episode: episode_58
+    scene: outdoor
+    instruction: Cross the street and continue straight until you reach the storefront with the yellow UPSWAY sign.
+    spawn:
+    - -11.5
+    - 173.4
+    - -0.9424777960769379
+    floor_z: 8.0
+    goal:
+    - 2.26
+    - 137.6
+    success_threshold: 2.0
+    max_duration: 300.0
+    pedestrian_count: 200
+    seed: 666
+  dynanav_059:
+    suite: dynanav_full
+    source_episode: episode_59
+    scene: outdoor
+    instruction: Continue forward, go down the ramp by the slopeon the left side of the red triangular yield sign, then head
+      toward the fountain.
+    spawn:
+    - -18.04
+    - 111.52
+    - 1.0471975511965976
+    floor_z: 6.5
+    goal:
+    - -10.5
+    - 146.22
+    success_threshold: 4.0
+    max_duration: 200.0
+    pedestrian_count: 100
+    seed: 666
+  dynanav_060:
+    suite: dynanav_full
+    source_episode: episode_60
+    scene: outdoor
+    instruction: Continue forward, turn left to go down the ramp on the left side of the red triangular yield sign, then head
+      toward the fountain.
+    spawn:
+    - -18.04
+    - 111.52
+    - 0.3490658503988659
+    floor_z: 6.5
+    goal:
+    - -10.5
+    - 146.22
+    success_threshold: 4.0
+    max_duration: 250.0
+    pedestrian_count: 200
+    seed: 666
+  dynanav_061:
+    suite: dynanav_full
+    source_episode: episode_61
+    scene: warehouse
+    instruction: Proceed to the traffic cones at the entrance of Aisle 05 (the second aisle from the right).
+    spawn:
+    - -10.22
+    - -7.36
+    - 1.5707963267948966
+    floor_z: 0.01
+    goal:
+    - -3.26
+    - 7.61
+    success_threshold: 1.5
+    max_duration: 70.0
+    pedestrian_count: 0
+    seed: 666
+  dynanav_062:
+    suite: dynanav_full
+    source_episode: episode_62
+    scene: warehouse
+    instruction: Proceed to the yellow forklift at the entrance of Aisle 06 (the first aisle from the right).
+    spawn:
+    - -10.22
+    - -7.36
+    - 1.5707963267948966
+    floor_z: 0.01
+    goal:
+    - -3.26
+    - 7.61
+    success_threshold: 1.5
+    max_duration: 80.0
+    pedestrian_count: 10
+    seed: 666
+  dynanav_063:
+    suite: dynanav_full
+    source_episode: episode_63
+    scene: warehouse
+    instruction: Proceed to the yellow forklift at the entrance of Aisle 06 (the first aisle from the right).
+    spawn:
+    - -10.22
+    - -7.36
+    - 1.5707963267948966
+    floor_z: 0.01
+    goal:
+    - -3.26
+    - 7.61
+    success_threshold: 1.5
+    max_duration: 90.0
+    pedestrian_count: 20
+    seed: 666
+  dynanav_064:
+    suite: dynanav_full
+    source_episode: episode_64
+    scene: warehouse
+    instruction: Proceed to the yellow forklift at the entrance of Aisle 06 (the first aisle from the right).
+    spawn:
+    - -10.22
+    - -7.36
+    - 1.5707963267948966
+    floor_z: 0.01
+    goal:
+    - -3.26
+    - 7.61
+    success_threshold: 1.5
+    max_duration: 100.0
+    pedestrian_count: 30
+    seed: 666
+  dynanav_065:
+    suite: dynanav_full
+    source_episode: episode_65
+    scene: warehouse
+    instruction: Proceed to the yellow forklift at the entrance of Aisle 06 (the first aisle from the right).
+    spawn:
+    - -10.22
+    - -7.36
+    - 1.5707963267948966
+    floor_z: 0.01
+    goal:
+    - -3.26
+    - 7.61
+    success_threshold: 1.5
+    max_duration: 110.0
+    pedestrian_count: 40
+    seed: 666
+  dynanav_066:
+    suite: dynanav_full
+    source_episode: episode_66
+    scene: warehouse
+    instruction: Go straight to leave the current aisle, then turn right to approach the fire extinguisher cabinet on the
+      wall.
+    spawn:
+    - -7.3
+    - 19.8
+    - -1.5707963267948966
+    floor_z: 0.01
+    goal:
+    - -22.43
+    - 22.95
+    success_threshold: 1.5
+    max_duration: 115.0
+    pedestrian_count: 0
+    seed: 666
+  dynanav_067:
+    suite: dynanav_full
+    source_episode: episode_67
+    scene: warehouse
+    instruction: Go straight to leave the current aisle.  Turn right to approach the fire extinguisher cabinet on the wall.
+    spawn:
+    - -7.3
+    - 19.8
+    - -1.5707963267948966
+    floor_z: 0.01
+    goal:
+    - -22.43
+    - 22.95
+    success_threshold: 1.5
+    max_duration: 125.0
+    pedestrian_count: 10
+    seed: 666
+  dynanav_068:
+    suite: dynanav_full
+    source_episode: episode_68
+    scene: warehouse
+    instruction: Go straight to leave the current aisle, then turn right to approach the fire extinguisher cabinet on the
+      wall.
+    spawn:
+    - -7.3
+    - 19.8
+    - 1.5707963267948966
+    floor_z: 0.01
+    goal:
+    - -22.43
+    - 22.95
+    success_threshold: 1.5
+    max_duration: 135.0
+    pedestrian_count: 20
+    seed: 666
+  dynanav_069:
+    suite: dynanav_full
+    source_episode: episode_69
+    scene: warehouse
+    instruction: Go straight to leave the current aisle, then turn right to approach the fire extinguisher cabinet on the
+      wall.
+    spawn:
+    - -7.3
+    - 19.8
+    - 1.5707963267948966
+    floor_z: 0.01
+    goal:
+    - -22.43
+    - 22.95
+    success_threshold: 1.5
+    max_duration: 145.0
+    pedestrian_count: 30
+    seed: 666
+  dynanav_070:
+    suite: dynanav_full
+    source_episode: episode_70
+    scene: warehouse
+    instruction: Go straight to leave the current aisle, then turn right to approach the fire extinguisher cabinet on the
+      wall.
+    spawn:
+    - -7.3
+    - 19.8
+    - 1.5707963267948966
+    floor_z: 0.01
+    goal:
+    - -22.43
+    - 22.95
+    success_threshold: 1.5
+    max_duration: 155.0
+    pedestrian_count: 40
+    seed: 666
+  dynanav_071:
+    suite: dynanav_full
+    source_episode: episode_71
+    scene: warehouse
+    instruction: Enter Aisle 01, the leftmost aisle, and continue to the end.
+    spawn:
+    - -15.79
+    - -8.7
+    - 1.3962634015954636
+    floor_z: 0.01
+    goal:
+    - -22.8
+    - 23.4
+    success_threshold: 1.5
+    max_duration: 85.0
+    pedestrian_count: 0
+    seed: 666
+  dynanav_072:
+    suite: dynanav_full
+    source_episode: episode_72
+    scene: warehouse
+    instruction: Enter Aisle 01, the leftmost aisle, and continue to the end.
+    spawn:
+    - -15.79
+    - -8.7
+    - 1.3962634015954636
+    floor_z: 0.01
+    goal:
+    - -22.8
+    - 23.4
+    success_threshold: 1.5
+    max_duration: 95.0
+    pedestrian_count: 10
+    seed: 666
+  dynanav_073:
+    suite: dynanav_full
+    source_episode: episode_73
+    scene: warehouse
+    instruction: Enter Aisle 01, the leftmost aisle, and continue to the end.
+    spawn:
+    - -15.79
+    - -5.7
+    - 1.3962634015954636
+    floor_z: 0.01
+    goal:
+    - -22.8
+    - 23.4
+    success_threshold: 1.5
+    max_duration: 105.0
+    pedestrian_count: 20
+    seed: 666
+  dynanav_074:
+    suite: dynanav_full
+    source_episode: episode_74
+    scene: warehouse
+    instruction: Enter Aisle 01, the leftmost aisle, and continue to the end.
+    spawn:
+    - -15.79
+    - -5.7
+    - 1.3962634015954636
+    floor_z: 0.01
+    goal:
+    - -22.8
+    - 23.4
+    success_threshold: 1.5
+    max_duration: 115.0
+    pedestrian_count: 30
+    seed: 666
+  dynanav_075:
+    suite: dynanav_full
+    source_episode: episode_75
+    scene: warehouse
+    instruction: Enter Aisle 01, the leftmost aisle, and continue to the end.
+    spawn:
+    - -15.79
+    - -5.7
+    - 1.3962634015954636
+    floor_z: 0.01
+    goal:
+    - -22.8
+    - 23.4
+    success_threshold: 1.5
+    max_duration: 125.0
+    pedestrian_count: 40
+    seed: 666
+  dynanav_076:
+    suite: dynanav_full
+    source_episode: episode_76
+    scene: warehouse
+    instruction: Go straight to enter Aisle 06 (the last aisle from the left), passing the yellow forklift to reach the end
+      of the aisle.
+    spawn:
+    - -13.22
+    - -6.36
+    - 1.0297442586766545
+    floor_z: 0.01
+    goal:
+    - 1.82
+    - 24.5
+    success_threshold: 1.5
+    max_duration: 250.0
+    pedestrian_count: 0
+    seed: 666
+  dynanav_077:
+    suite: dynanav_full
+    source_episode: episode_77
+    scene: warehouse
+    instruction: Go straight to enter Aisle 06 (the last aisle from the left), passing the yellow forklift to reach the end
+      of the aisle.
+    spawn:
+    - -13.22
+    - -6.36
+    - 1.0297442586766545
+    floor_z: 0.01
+    goal:
+    - 1.82
+    - 24.5
+    success_threshold: 1.5
+    max_duration: 160.0
+    pedestrian_count: 10
+    seed: 666
+  dynanav_078:
+    suite: dynanav_full
+    source_episode: episode_78
+    scene: warehouse
+    instruction: Go straight to enter Aisle 06 (the last aisle from the left), passing the yellow forklift to reach the end
+      of the aisle.
+    spawn:
+    - -13.22
+    - -6.36
+    - 1.0297442586766545
+    floor_z: 0.01
+    goal:
+    - 1.82
+    - 24.5
+    success_threshold: 1.5
+    max_duration: 170.0
+    pedestrian_count: 20
+    seed: 666
+  dynanav_079:
+    suite: dynanav_full
+    source_episode: episode_79
+    scene: warehouse
+    instruction: Go straight to enter Aisle 06 (the last aisle from the left), passing the yellow forklift to reach the end
+      of the aisle.
+    spawn:
+    - -13.22
+    - -6.36
+    - 1.0297442586766545
+    floor_z: 0.01
+    goal:
+    - 1.82
+    - 24.5
+    success_threshold: 1.5
+    max_duration: 180.0
+    pedestrian_count: 30
+    seed: 666
+  dynanav_080:
+    suite: dynanav_full
+    source_episode: episode_80
+    scene: warehouse
+    instruction: Go straight to enter Aisle 06 (the last aisle from the left), passing the yellow forklift to reach the end
+      of the aisle.
+    spawn:
+    - -13.22
+    - -6.36
+    - 1.0297442586766545
+    floor_z: 0.01
+    goal:
+    - 1.82
+    - 24.5
+    success_threshold: 1.5
+    max_duration: 190.0
+    pedestrian_count: 40
+    seed: 666
+  dynanav_081:
+    suite: dynanav_full
+    source_episode: episode_81
+    scene: warehouse
+    instruction: Go straight past the aisle ahead. Turn right at the end and proceed forward to approach the fire extinguisher
+      on the last rack.
+    spawn:
+    - -18.1
+    - 0.0
+    - 1.5707963267948966
+    floor_z: 0.01
+    goal:
+    - 0.2
+    - 25.92
+    success_threshold: 1.5
+    max_duration: 130.0
+    pedestrian_count: 0
+    seed: 666
+  dynanav_082:
+    suite: dynanav_full
+    source_episode: episode_82
+    scene: warehouse
+    instruction: Go straight past the aisle ahead. Turn right at the end and proceed forward to approach the fire extinguisher
+      on the last rack.
+    spawn:
+    - -18.1
+    - 0.0
+    - 1.5707963267948966
+    floor_z: 0.01
+    goal:
+    - 0.2
+    - 25.92
+    success_threshold: 1.5
+    max_duration: 140.0
+    pedestrian_count: 10
+    seed: 666
+  dynanav_083:
+    suite: dynanav_full
+    source_episode: episode_83
+    scene: warehouse
+    instruction: Go straight past the aisle ahead. Turn right at the end and proceed forward to approach the fire extinguisher
+      on the last rack.
+    spawn:
+    - -18.1
+    - 0.0
+    - 1.5707963267948966
+    floor_z: 0.01
+    goal:
+    - 0.2
+    - 25.92
+    success_threshold: 1.5
+    max_duration: 150.0
+    pedestrian_count: 20
+    seed: 666
+  dynanav_084:
+    suite: dynanav_full
+    source_episode: episode_84
+    scene: warehouse
+    instruction: Go straight past the aisle ahead. Turn right at the end and proceed forward to approach the fire extinguisher
+      on the last rack.
+    spawn:
+    - -18.1
+    - 0.0
+    - 1.5707963267948966
+    floor_z: 0.01
+    goal:
+    - 0.2
+    - 25.92
+    success_threshold: 1.5
+    max_duration: 160.0
+    pedestrian_count: 30
+    seed: 666
+  dynanav_085:
+    suite: dynanav_full
+    source_episode: episode_85
+    scene: warehouse
+    instruction: Go straight past the aisle ahead. Turn right at the end and proceed forward to approach the fire extinguisher
+      on the last rack.
+    spawn:
+    - -18.1
+    - 0.0
+    - 1.5707963267948966
+    floor_z: 0.01
+    goal:
+    - 0.2
+    - 25.92
+    success_threshold: 1.5
+    max_duration: 170.0
+    pedestrian_count: 40
+    seed: 666

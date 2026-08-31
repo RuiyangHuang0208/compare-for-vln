@@ -1,0 +1,16 @@
+dualvln_adapter:
+  ros__parameters:
+    model.server_url: http://127.0.0.1:5801
+    input.image_topic: /camera/rgb/image_raw
+    input.depth_topic: /camera/depth/image_raw
+    input.camera_info_topic: /camera/rgb/camera_info
+    input.odom_topic: /odom
+    input.instruction_topic: /vln/instruction
+    input.episode_state_topic: /episode/state
+    output.command_topic: /vln/command
+    output.debug_path_topic: /vln/debug_path
+    output.latency_topic: /vln/inference_latency
+    output.frame_id: base_link
+    runtime.inference_rate_hz: 2.0
+    runtime.sensor_timeout: 0.5
+    runtime.request_timeout: 180.0

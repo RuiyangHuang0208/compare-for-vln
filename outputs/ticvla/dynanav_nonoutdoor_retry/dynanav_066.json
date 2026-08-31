@@ -1,0 +1,67 @@
+{
+  "model_name": "ticvla",
+  "experiment": "dynanav_nonoutdoor_retry",
+  "episode_id": "dynanav_066",
+  "scene": "warehouse",
+  "evaluation_mode": "trajectory_normalized",
+  "sensor_profile": "rgb_only",
+  "comparison_track": "rgb_only",
+  "camera_horizontal_fov_degrees": 90.0,
+  "model_inputs": [
+    "rgb",
+    "motion_state",
+    "inference_latency",
+    "instruction"
+  ],
+  "model_runtime": {
+    "sensors": [
+      "rgb",
+      "odom"
+    ],
+    "derived_inputs": [],
+    "model_internal_3d_perception": false,
+    "external_local_avoidance": false,
+    "uses_shared_path_follower": true,
+    "uses_shared_velocity_filter": true
+  },
+  "derived_inputs": [],
+  "model_internal_3d_perception": false,
+  "external_local_avoidance": false,
+  "uses_shared_path_follower": true,
+  "uses_shared_velocity_filter": true,
+  "instruction": "Go straight to leave the current aisle, then turn right to approach the fire extinguisher cabinet on the wall.",
+  "seed": 666,
+  "pedestrian_count": 0,
+  "official_pedestrian_count": 0,
+  "effective_pedestrian_count": 0,
+  "success": false,
+  "termination_reason": "timeout",
+  "failure_attribution": "inconclusive_timeout",
+  "navigation_error": 4.594817037,
+  "start_pose": [
+    -7.2983479499816895,
+    19.7510929107666
+  ],
+  "final_pose": [
+    -21.93813705444336,
+    27.501323699951172
+  ],
+  "spl": 0.0,
+  "path_length": 106.08357688876097,
+  "duration": 115.01999999899999,
+  "physical_collision_count": 0,
+  "pedestrian_collision_count": 0,
+  "collision_rate": 0.0,
+  "stuck_count": 0,
+  "recovery_count": 0,
+  "mean_inference_latency": 0.033593921244821766,
+  "p50_inference_latency": 0.029758110642433167,
+  "p95_inference_latency": 0.06263488046824928,
+  "max_inference_latency": 1.08270263671875,
+  "mean_vlm_latency": 0.032238498953711635,
+  "mean_action_expert_latency": 0.0013554223214351032,
+  "mean_control_frequency": 20.00576710188345,
+  "minimum_control_frequency": 19.08022044570517,
+  "direct_velocity": false,
+  "collision_events": []
+}

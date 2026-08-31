@@ -51,24 +51,17 @@ instruction Walk forward to the vending machine and stop in front of it.
 | 命令 | 作用 |
 |---|---|
 | `speed 0.6` | 把期望前进速度改为 `0.6 m/s`，任务前或运行中均可输入 |
-| `home` | 立即重置整个仿真环境，将机器人刷新到本次启动位置并停车 |
 | `status` | 只查看位置、当前指令、路径状态、期望速度和当前速度命令 |
 | `stop` | 取消当前任务、清除轨迹并立即停车 |
 | `quit` | 停车并退出 Isaac Sim 进程 |
 
 默认启动状态是等待指令并保持 `[0,0,0]`。只有收到 `instruction TEXT` 后才开始提交 RGB-D 和驱动机器人。自动化测试仍可显式传入 `--instruction "..."`，此时会在启动后自动执行。
 
-`home` 不调用 DualVLN，也不执行返航轨迹。它会立即调用 Isaac Lab environment reset，
-恢复机器人的初始 base 位姿、朝向、速度和关节状态，同时重置 policy 状态、清除旧轨迹、
-离散动作和可视化，并使尚未完成的模型结果失效。reset 后保持停车，必须再次输入
-`instruction TEXT` 才会继续导航。
-
 默认速度是 `0.3 m/s`。需要更快时建议先输入 `speed 0.6`，稳定后可尝试
-`speed 1.0`；运行时允许范围为 `0.05-5.0 m/s`，最高可输入 `speed 5.0`。
-RobotLab B2W policy 原始 `vx` 训练范围只有 `[-1.0,1.0] m/s`，因此 `1.0 m/s`
-以上属于超出训练分布的仿真实验命令：不保证实际达到设定速度，也不保证机器人稳定。
-超过 `0.4 m/s` 同时高于 InternNav 官方实机控制器的保守上限。横向速度固定为
-`vy=0`，角速度仍限制为 `0.4 rad/s`。
+`speed 0.8`；允许范围为 `0.05-1.0 m/s`。`1.0 m/s` 是 RobotLab B2W policy
+原始 `vx` 训练范围的上限，不会改变 policy 结构。超过 `0.4 m/s` 已高于 InternNav
+官方实机控制器的保守上限，只用于本仿真，速度越高时轨迹跟踪和近距离停车误差也会增大。
+横向速度固定为 `vy=0`，角速度仍限制为 `0.4 rad/s`。
 
 非 headless 模式会在 Isaac Sim 中打开 `DualVLN Monitor` 窗口，实时显示：
 
@@ -81,7 +74,7 @@ System 1 返回的世界坐标轨迹还会以小球显示在 Hospital 地面上�
 实际输出的可观察状态，不是额外生成的隐藏思维文本。使用 `--headless` 时不会创建窗口或
 轨迹标记，但终端日志保持不变。
 
-推理服务使用 PyTorch SDPA，以支持 RTX 5090；模型和 policy 结构均未改变。path follower 默认采用官方控制器相同的 `0.3 m/s` 期望速度；仿真运行时上限放宽到 `5.0 m/s`，角速度上限保持 `0.4 rad/s`。
+推理服务使用 PyTorch SDPA，以支持 RTX 5090；模型和 policy 结构均未改变。path follower 默认采用官方控制器相同的 `0.3 m/s` 期望速度；仿真运行时允许在 B2W policy 原始训练范围内调至 `1.0 m/s`，角速度上限保持 `0.4 rad/s`。
 
 ## 所有权边界
 
@@ -119,3 +112,12 @@ maximum command:  0.363
 stop command:     [0.00, 0.00, 0.00]
 video:            checkpoints/b2w_locomotion/videos/play/rl-video-step-0.mp4
 ```
+speed 1.5
+instruction Walk forward to the vending machine and stop in front of it.
+speed 1.0
+instruction Find a table.Walk forward to the table and stop in front of it.
+instruction Find a chair.Walk forward to the chair and stop in front of it.
+instruction Find a table.Walk forward to the chair and stop in front of it.
+instruction Go upstairs via the stairs and stop at the second-floor stairwell.
+instruction Go downstairs, find a wheelchair, and stop.
+instruction Find a mop and then stop.

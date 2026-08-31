@@ -1,0 +1,77 @@
+{
+  "model_name": "ticvla",
+  "experiment": "dynanav_full85_20260824",
+  "episode_id": "dynanav_002",
+  "scene": "hospital",
+  "evaluation_mode": "trajectory_normalized",
+  "sensor_profile": "rgb_only",
+  "comparison_track": "rgb_only",
+  "camera_horizontal_fov_degrees": 90.0,
+  "model_inputs": [
+    "rgb",
+    "motion_state",
+    "inference_latency",
+    "instruction"
+  ],
+  "model_runtime": {
+    "sensors": [
+      "rgb",
+      "odom"
+    ],
+    "derived_inputs": [],
+    "model_internal_3d_perception": false,
+    "external_local_avoidance": false,
+    "uses_shared_path_follower": true,
+    "uses_shared_velocity_filter": true
+  },
+  "derived_inputs": [],
+  "model_internal_3d_perception": false,
+  "external_local_avoidance": false,
+  "uses_shared_path_follower": true,
+  "uses_shared_velocity_filter": true,
+  "instruction": "Go straight ahead and stop at the front of the vending machine at front left.",
+  "seed": 666,
+  "pedestrian_count": 10,
+  "official_pedestrian_count": 10,
+  "effective_pedestrian_count": 10,
+  "success": true,
+  "termination_reason": "success",
+  "failure_attribution": "success",
+  "navigation_error": 1.497885665,
+  "start_pose": [
+    -2.95100736618042,
+    -1.1983376741409302
+  ],
+  "final_pose": [
+    8.184218406677246,
+    1.473070502281189
+  ],
+  "spl": 1.0,
+  "path_length": 11.747255027197467,
+  "duration": 13.36,
+  "physical_collision_count": 1,
+  "pedestrian_collision_count": 1,
+  "collision_rate": 0.07485029940119761,
+  "stuck_count": 0,
+  "recovery_count": 0,
+  "mean_inference_latency": 0.041571263820515014,
+  "p50_inference_latency": 0.030220871791243553,
+  "p95_inference_latency": 0.058702127635478954,
+  "max_inference_latency": 1.1272478103637695,
+  "mean_vlm_latency": 0.040142863130313344,
+  "mean_action_expert_latency": 0.0014284009212133242,
+  "mean_control_frequency": 20.06993812435739,
+  "minimum_control_frequency": 19.81609113732855,
+  "direct_velocity": false,
+  "collision_events": [
+    {
+      "time": 2.2800000000000002,
+      "force": 0.0,
+      "object": "/World/Characters/Character_05",
+      "robot_body": "pedestrian:/World/Characters/Character_05",
+      "is_pedestrian": true,
+      "episode_failure": false,
+      "distance": 0.6495488347023607
+    }
+  ]
+}

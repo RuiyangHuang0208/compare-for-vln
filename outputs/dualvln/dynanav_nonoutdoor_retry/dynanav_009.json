@@ -1,0 +1,78 @@
+{
+  "model_name": "dualvln",
+  "experiment": "dynanav_nonoutdoor_retry",
+  "episode_id": "dynanav_009",
+  "scene": "hospital",
+  "evaluation_mode": "trajectory_normalized",
+  "sensor_profile": "rgb_d",
+  "comparison_track": "rgb_d",
+  "camera_horizontal_fov_degrees": 79.0,
+  "model_inputs": [
+    "rgb",
+    "depth",
+    "camera_info",
+    "motion_state",
+    "instruction"
+  ],
+  "model_runtime": {
+    "sensors": [
+      "rgb",
+      "depth",
+      "odom"
+    ],
+    "derived_inputs": [],
+    "model_internal_3d_perception": false,
+    "external_local_avoidance": false,
+    "uses_shared_path_follower": true,
+    "uses_shared_velocity_filter": true
+  },
+  "derived_inputs": [],
+  "model_internal_3d_perception": false,
+  "external_local_avoidance": false,
+  "uses_shared_path_follower": true,
+  "uses_shared_velocity_filter": true,
+  "instruction": "Walk straight down the hallway and stop at the red bed located to the right of the doors.",
+  "seed": 666,
+  "pedestrian_count": 0,
+  "official_pedestrian_count": 30,
+  "effective_pedestrian_count": 0,
+  "success": false,
+  "termination_reason": "timeout",
+  "failure_attribution": "inconclusive_timeout",
+  "navigation_error": 30.252089938,
+  "start_pose": [
+    19.711410522460938,
+    29.236042022705078
+  ],
+  "final_pose": [
+    17.94211196899414,
+    27.118682861328125
+  ],
+  "spl": 0.0,
+  "path_length": 22.325545094173318,
+  "duration": 85.13999999900001,
+  "physical_collision_count": 1,
+  "pedestrian_collision_count": 0,
+  "collision_rate": 0.011745360582707837,
+  "stuck_count": 1,
+  "recovery_count": 0,
+  "mean_inference_latency": 1.0122130081512546,
+  "p50_inference_latency": 1.202540397644043,
+  "p95_inference_latency": 4.112456321716309,
+  "max_inference_latency": 4.348246097564697,
+  "mean_vlm_latency": null,
+  "mean_action_expert_latency": null,
+  "mean_control_frequency": 20.160698249127122,
+  "minimum_control_frequency": 18.629417772346574,
+  "direct_velocity": false,
+  "collision_events": [
+    {
+      "time": 51.980000000000004,
+      "force": 291.9037170410156,
+      "object": "unknown_static_geometry",
+      "robot_body": "base_link",
+      "is_pedestrian": false,
+      "episode_failure": false
+    }
+  ]
+}

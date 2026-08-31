@@ -1,0 +1,142 @@
+{
+  "model_name": "omnivla",
+  "experiment": "dynanav_full85_20260824",
+  "episode_id": "dynanav_050",
+  "scene": "office",
+  "evaluation_mode": "trajectory_normalized",
+  "sensor_profile": "rgb_only",
+  "comparison_track": "rgb_only",
+  "camera_horizontal_fov_degrees": 120.0,
+  "model_inputs": [
+    "rgb",
+    "instruction"
+  ],
+  "model_runtime": {
+    "variant": "omnivla-original",
+    "resume_step": 120000,
+    "modality_id": 7,
+    "action_shape": [
+      8,
+      4
+    ],
+    "target_inference_rate_hz": 3.0,
+    "sensors": [
+      "rgb"
+    ],
+    "derived_inputs": [],
+    "model_internal_3d_perception": false,
+    "external_local_avoidance": false,
+    "uses_shared_path_follower": true,
+    "uses_shared_velocity_filter": true
+  },
+  "derived_inputs": [],
+  "model_internal_3d_perception": false,
+  "external_local_avoidance": false,
+  "uses_shared_path_follower": true,
+  "uses_shared_velocity_filter": true,
+  "instruction": "Go straight ahead, passing through the hallway behind the black glass doors, and then enter the office desk area and stop at the white desk with the plant on it, located on the right side of the wall at the end.",
+  "seed": 666,
+  "pedestrian_count": 40,
+  "success": false,
+  "navigation_error": 35.655761784,
+  "spl": 0.0,
+  "path_length": 0.7268041913584501,
+  "duration": 150.040000001,
+  "physical_collision_count": 9,
+  "pedestrian_collision_count": 9,
+  "collision_rate": 0.0599840042651294,
+  "stuck_count": 0,
+  "recovery_count": 0,
+  "mean_inference_latency": 0.11463264174190074,
+  "p50_inference_latency": 0.11488725990056992,
+  "p95_inference_latency": 0.11685647293925285,
+  "max_inference_latency": 0.11854830384254456,
+  "mean_vlm_latency": null,
+  "mean_action_expert_latency": null,
+  "mean_control_frequency": 20.005531935003944,
+  "minimum_control_frequency": 19.11037971514612,
+  "direct_velocity": false,
+  "collision_events": [
+    {
+      "time": 19.7,
+      "force": 0.0,
+      "object": "/World/Characters/Character_32",
+      "robot_body": "pedestrian:/World/Characters/Character_32",
+      "is_pedestrian": true,
+      "episode_failure": false,
+      "distance": 0.6436993939446708
+    },
+    {
+      "time": 29.66,
+      "force": 0.0,
+      "object": "/World/Characters/Character_24",
+      "robot_body": "pedestrian:/World/Characters/Character_24",
+      "is_pedestrian": true,
+      "episode_failure": false,
+      "distance": 0.6438008921634942
+    },
+    {
+      "time": 51.08,
+      "force": 0.0,
+      "object": "/World/Characters/Character_34",
+      "robot_body": "pedestrian:/World/Characters/Character_34",
+      "is_pedestrian": true,
+      "episode_failure": false,
+      "distance": 0.6436993939446708
+    },
+    {
+      "time": 58.82,
+      "force": 0.0,
+      "object": "/World/Characters/Character_14",
+      "robot_body": "pedestrian:/World/Characters/Character_14",
+      "is_pedestrian": true,
+      "episode_failure": false,
+      "distance": 0.6438008921634942
+    },
+    {
+      "time": 75.3,
+      "force": 0.0,
+      "object": "/World/Characters/Character_14",
+      "robot_body": "pedestrian:/World/Characters/Character_14",
+      "is_pedestrian": true,
+      "episode_failure": false,
+      "distance": 0.6413285783262505
+    },
+    {
+      "time": 75.78,
+      "force": 0.0,
+      "object": "/World/Characters/Character_19",
+      "robot_body": "pedestrian:/World/Characters/Character_19",
+      "is_pedestrian": true,
+      "episode_failure": false,
+      "distance": 0.6413285783262505
+    },
+    {
+      "time": 117.94,
+      "force": 0.0,
+      "object": "/World/Characters/Character_23",
+      "robot_body": "pedestrian:/World/Characters/Character_23",
+      "is_pedestrian": true,
+      "episode_failure": false,
+      "distance": 0.641616595446385
+    },
+    {
+      "time": 135.52,
+      "force": 0.0,
+      "object": "/World/Characters/Character_14",
+      "robot_body": "pedestrian:/World/Characters/Character_14",
+      "is_pedestrian": true,
+      "episode_failure": false,
+      "distance": 0.6438008921634942
+    },
+    {
+      "time": 135.98,
+      "force": 0.0,
+      "object": "/World/Characters/Character_19",
+      "robot_body": "pedestrian:/World/Characters/Character_19",
+      "is_pedestrian": true,
+      "episode_failure": false,
+      "distance": 0.6438008921634942
+    }
+  ]
+}

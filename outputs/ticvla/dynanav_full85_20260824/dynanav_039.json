@@ -1,0 +1,104 @@
+{
+  "model_name": "ticvla",
+  "experiment": "dynanav_full85_20260824",
+  "episode_id": "dynanav_039",
+  "scene": "office",
+  "evaluation_mode": "trajectory_normalized",
+  "sensor_profile": "rgb_only",
+  "comparison_track": "rgb_only",
+  "camera_horizontal_fov_degrees": 120.0,
+  "model_inputs": [
+    "rgb",
+    "motion_state",
+    "inference_latency",
+    "instruction"
+  ],
+  "model_runtime": {
+    "sensors": [
+      "rgb",
+      "odom"
+    ],
+    "derived_inputs": [],
+    "model_internal_3d_perception": false,
+    "external_local_avoidance": false,
+    "uses_shared_path_follower": true,
+    "uses_shared_velocity_filter": true
+  },
+  "derived_inputs": [],
+  "model_internal_3d_perception": false,
+  "external_local_avoidance": false,
+  "uses_shared_path_follower": true,
+  "uses_shared_velocity_filter": true,
+  "instruction": "Go straight ahead through the hallway, then turn left at the end to approach the red emergency exit door.",
+  "seed": 666,
+  "pedestrian_count": 30,
+  "success": true,
+  "navigation_error": 1.496893634,
+  "spl": 1.0,
+  "path_length": 13.21681728854476,
+  "duration": 22.72,
+  "physical_collision_count": 6,
+  "pedestrian_collision_count": 0,
+  "collision_rate": 0.26408450704225356,
+  "stuck_count": 0,
+  "recovery_count": 0,
+  "mean_inference_latency": 1.0769437516436857,
+  "p50_inference_latency": 1.0733633041381836,
+  "p95_inference_latency": 1.1037297248840332,
+  "max_inference_latency": 1.1407488584518433,
+  "mean_vlm_latency": 1.0760457094977884,
+  "mean_action_expert_latency": 0.0008980459841790007,
+  "mean_control_frequency": 20.042973672428385,
+  "minimum_control_frequency": 19.68767782890025,
+  "direct_velocity": false,
+  "collision_events": [
+    {
+      "time": 17.62,
+      "force": 414.01800537109375,
+      "object": "unknown_static_geometry",
+      "robot_body": "FL_hip",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 17.900000000000002,
+      "force": 110.4262924194336,
+      "object": "unknown_static_geometry",
+      "robot_body": "FL_hip",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 18.04,
+      "force": 126.3193359375,
+      "object": "unknown_static_geometry",
+      "robot_body": "FL_hip",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 21.12,
+      "force": 130.42152404785156,
+      "object": "unknown_static_geometry",
+      "robot_body": "FL_hip",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 21.22,
+      "force": 290.64141845703125,
+      "object": "unknown_static_geometry",
+      "robot_body": "RL_calf",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 21.22,
+      "force": 290.64141845703125,
+      "object": "unknown_static_geometry",
+      "robot_body": "RR_calf",
+      "is_pedestrian": false,
+      "episode_failure": false
+    }
+  ]
+}

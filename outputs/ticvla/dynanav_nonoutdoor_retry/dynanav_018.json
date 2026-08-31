@@ -1,0 +1,67 @@
+{
+  "model_name": "ticvla",
+  "experiment": "dynanav_nonoutdoor_retry",
+  "episode_id": "dynanav_018",
+  "scene": "hospital",
+  "evaluation_mode": "trajectory_normalized",
+  "sensor_profile": "rgb_only",
+  "comparison_track": "rgb_only",
+  "camera_horizontal_fov_degrees": 90.0,
+  "model_inputs": [
+    "rgb",
+    "motion_state",
+    "inference_latency",
+    "instruction"
+  ],
+  "model_runtime": {
+    "sensors": [
+      "rgb",
+      "odom"
+    ],
+    "derived_inputs": [],
+    "model_internal_3d_perception": false,
+    "external_local_avoidance": false,
+    "uses_shared_path_follower": true,
+    "uses_shared_velocity_filter": true
+  },
+  "derived_inputs": [],
+  "model_internal_3d_perception": false,
+  "external_local_avoidance": false,
+  "uses_shared_path_follower": true,
+  "uses_shared_velocity_filter": true,
+  "instruction": "Move forward toward the staircase, then turn left to enter the hallway. Continue straight ahead and stop in front of the blue hospital bed on the right side of the hallway.",
+  "seed": 666,
+  "pedestrian_count": 0,
+  "official_pedestrian_count": 20,
+  "effective_pedestrian_count": 0,
+  "success": true,
+  "termination_reason": "success",
+  "failure_attribution": "success",
+  "navigation_error": 1.495329823,
+  "start_pose": [
+    7.378298759460449,
+    1.5394105911254883
+  ],
+  "final_pose": [
+    -10.73741340637207,
+    10.280534744262695
+  ],
+  "spl": 0.8477070550146966,
+  "path_length": 25.281973487359153,
+  "duration": 26.12,
+  "physical_collision_count": 0,
+  "pedestrian_collision_count": 0,
+  "collision_rate": 0.0,
+  "stuck_count": 0,
+  "recovery_count": 0,
+  "mean_inference_latency": 0.03545103493524948,
+  "p50_inference_latency": 0.02857255097478628,
+  "p95_inference_latency": 0.061582292430102825,
+  "max_inference_latency": 1.1077587604522705,
+  "mean_vlm_latency": 0.034135683796193916,
+  "mean_action_expert_latency": 0.0013153510280972114,
+  "mean_control_frequency": 20.04454573471354,
+  "minimum_control_frequency": 19.784743557137876,
+  "direct_velocity": false,
+  "collision_events": []
+}

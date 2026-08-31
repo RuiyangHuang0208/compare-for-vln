@@ -1,0 +1,28 @@
+navila_adapter:
+  ros__parameters:
+    model.repository_path: third_party/NaVILA
+    model.checkpoint_path: checkpoints/vln/navila
+    model.device: cuda:0
+    model.dtype: float16
+    model.server_url: http://127.0.0.1:5803
+    input.image_topic: /camera/rgb/image_raw
+    input.instruction_topic: /vln/instruction
+    input.episode_topic: /episode/state
+    input.episode_id_topic: /episode/id
+    input.sensor_profile: rgb_only
+    output.command_topic: /vln/command
+    output.raw_action_topic: /vln/navila/raw_action
+    output.debug_path_topic: /vln/debug_path
+    output.latency_topic: /vln/inference_latency
+    output.model_stop_topic: /episode/model_stop
+    output.frame_id: base_link
+    conversion.trajectory_spacing: 0.1
+    # Calibrated with left/right 45-degree dummy arcs using the SRU ONNX B2-W controller.
+    conversion.turn_radius: 1.0
+    conversion.allowed_forward_cm: [25, 50, 75]
+    conversion.allowed_turn_degrees: [15, 30, 45]
+    runtime.asynchronous: true
+    runtime.inference_timeout: 30.0
+    runtime.command_timeout: 0.5
+    runtime.inference_rate_hz: 2.0
+    runtime.local_avoidance_enabled: false

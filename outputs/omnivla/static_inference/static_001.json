@@ -1,0 +1,36 @@
+{
+  "model_name": "omnivla",
+  "variant": "omnivla-original",
+  "resume_step": 120000,
+  "implementation": "NHirose/OmniVLA inference/run_omnivla.py",
+  "input_image": "third_party/OmniVLA/inference/current_img.jpg",
+  "input_image_sha256": "efe5e0c4be8902da94eddae06ebde0bf0fc92c28ad9ff5688fe108cfcba1cc18",
+  "instruction": "Walk forward along the corridor and stop at the target.",
+  "goal_profile": "language_only",
+  "modality_id": 7,
+  "raw_trajectory_shape": [8, 4],
+  "raw_trajectory_8x4": [
+    [1.2578125, -0.1728515625, 0.98046875, -0.0634765625],
+    [2.265625, -0.2265625, 0.94140625, -0.0859375],
+    [3.484375, -0.2470703125, 0.9140625, -0.080078125],
+    [4.65625, -0.22265625, 0.87890625, -0.0859375],
+    [5.90625, -0.234375, 0.8671875, -0.07958984375],
+    [6.75, -0.234375, 0.83984375, -0.08203125],
+    [6.96875, -0.2236328125, 0.8125, -0.08349609375],
+    [6.0, -0.23828125, 0.77734375, -0.095703125]
+  ],
+  "inference_latency_seconds": 0.11802943097427487,
+  "service_latency_seconds": 0.12076496600639075,
+  "peak_gpu_memory_bytes": 16069447680,
+  "language_only_leakage_verified": true,
+  "language_only_leakage_max_abs_difference": 0.0,
+  "environment": {
+    "python": "3.10.20",
+    "numpy": "1.26.4",
+    "torch": "2.7.1+cu128",
+    "torchvision": "0.22.1+cu128",
+    "transformers_openvla_oft": "4.40.1",
+    "transformers_openvla_oft_commit": "bc339d9ad707454c0c115970db43c260067c61ab",
+    "gpu": "NVIDIA GeForce RTX 5090"
+  }
+}

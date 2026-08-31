@@ -1,0 +1,89 @@
+version: 1
+
+# TIC-VLA DynaNav benchmark reference.  Episode values are imported verbatim
+# from third_party/TIC-VLA/DynaNav/configs/benchmark_full.yaml; the workspace
+# converts only start_yaw from degrees to radians for ROS/Isaac conventions.
+official_dynanav:
+  seed: 666
+  episode_count: 85
+  scenes: [hospital, office, outdoor, warehouse]
+  success_rule: "ground-truth XY distance < per-episode success_threshold"
+  default_success_threshold: 1.5
+  timeout_rule: "per-episode simulation timeout; no extension"
+  source: third_party/TIC-VLA/DynaNav/configs/benchmark_full.yaml
+
+# This manifest is validated by dynanav_single_episode.launch.py. Episode-specific
+# spawn, goal, instruction, seed, pedestrian count, timeout and success threshold
+# remain authoritative in dynanav_bridge/config/episodes.yaml.
+shared:
+  evaluation_mode: trajectory_normalized
+  desired_speed: 1.0
+  locomotion: sru-onnx
+  path_follower: pure_pursuit
+  local_avoidance: false
+  trajectory_timeout: 15.0
+  camera:
+    frame_id: camera_front_optical
+    mount: unitree_b2w_f_oc_link
+    width: 640
+    height: 480
+    rate_hz: 10
+    # TIC-VLA 官方 DynaNav 相机使用 90° 水平视场；所有 RGB-only
+    # 模型共用该视场，保证模型比较时只改变模型而不改变相机。
+    horizontal_fov_degrees: 90.0
+
+tracks:
+  debug:
+    models: [dummy]
+    sensor_profile: rgb_only
+    reportable: false
+    camera_horizontal_fov_degrees: 120.0
+
+  controller_path_debug:
+    models: [controller_probe_shared, controller_probe_navila, controller_probe_uninavid]
+    sensor_profile: rgb_only
+    evaluation_mode: trajectory_normalized
+    reportable: false
+    camera_horizontal_fov_degrees: 90.0
+    note: Deterministic B2-W controller acceptance only; never merge with model benchmark results.
+
+  controller_velocity_debug:
+    models: [controller_probe_ticvla, controller_probe_omnivla]
+    sensor_profile: rgb_only
+    evaluation_mode: native_output
+    reportable: false
+    camera_horizontal_fov_degrees: 90.0
+    note: Deterministic official high-level formula acceptance only; never merge with model results.
+
+  rgb_only:
+    models: [ticvla, navila, uninavid, omnivla]
+    sensor_profile: rgb_only
+    reportable: true
+    # TIC-VLA DynaNav 的 front camera 明确按 90° 水平视场配置。
+    # 该值对 RGB-only 轨道内所有模型保持一致。
+    camera_horizontal_fov_degrees: 90.0
+    note: Motion state required by a model is non-privileged proprioception and is recorded in model_inputs.
+
+  rgb_d:
+    models: [dualvln]
+    sensor_profile: rgb_d
+    reportable: true
+    # InternNav real-world RGB-D reference calibration.
+    camera_horizontal_fov_degrees: 79.0
+    note: Results must not be merged with the RGB-only track.
+
+  omnivla_native:
+    models: [omnivla_native]
+    sensor_profile: rgb_only
+    evaluation_mode: native_output
+    reportable: true
+    camera_horizontal_fov_degrees: 90.0
+    note: Official OmniVLA waypoint-4 velocity conversion; separate from normalized trajectory track.
+
+  ticvla_native:
+    models: [ticvla_native]
+    sensor_profile: rgb_only
+    evaluation_mode: native_output
+    reportable: true
+    camera_horizontal_fov_degrees: 90.0
+    note: Official TIC-VLA Spot curvature equations with the B2-W SRU-ONNX 1.0 m/s safety clip.

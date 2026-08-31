@@ -4,12 +4,18 @@ __pycache__/
 build/
 install/
 log/
-outputs/
+logs/
 test_data/
 
 # Model downloads stay local. Keep only the download/inventory documentation.
-checkpoints/dualvln/*
-!checkpoints/dualvln/README.md
+checkpoints/vln/*
+!checkpoints/vln/README.md
+!checkpoints/vln/*/
+checkpoints/vln/*/*
+!checkpoints/vln/*/README.md
+!checkpoints/vln/*/*/
+checkpoints/vln/*/*/*
+!checkpoints/vln/*/*/SHA256SUMS
 
 # Editor, cache, and generated runtime files.
 .idea/

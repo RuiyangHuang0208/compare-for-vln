@@ -1,0 +1,72 @@
+{
+  "model_name": "ticvla",
+  "experiment": "dynanav_full85_20260824",
+  "episode_id": "dynanav_024",
+  "scene": "hospital",
+  "evaluation_mode": "trajectory_normalized",
+  "sensor_profile": "rgb_only",
+  "comparison_track": "rgb_only",
+  "camera_horizontal_fov_degrees": 120.0,
+  "model_inputs": [
+    "rgb",
+    "motion_state",
+    "inference_latency",
+    "instruction"
+  ],
+  "model_runtime": {
+    "sensors": [
+      "rgb",
+      "odom"
+    ],
+    "derived_inputs": [],
+    "model_internal_3d_perception": false,
+    "external_local_avoidance": false,
+    "uses_shared_path_follower": true,
+    "uses_shared_velocity_filter": true
+  },
+  "derived_inputs": [],
+  "model_internal_3d_perception": false,
+  "external_local_avoidance": false,
+  "uses_shared_path_follower": true,
+  "uses_shared_velocity_filter": true,
+  "instruction": "Exit the room and turn right to enter the hallway. Continue straight ahead and to the end of the hallway.",
+  "seed": 666,
+  "pedestrian_count": 30,
+  "success": true,
+  "navigation_error": 1.497352003,
+  "spl": 0.9088977612871505,
+  "path_length": 27.627133256318167,
+  "duration": 33.7,
+  "physical_collision_count": 2,
+  "pedestrian_collision_count": 0,
+  "collision_rate": 0.05934718100890207,
+  "stuck_count": 0,
+  "recovery_count": 0,
+  "mean_inference_latency": 1.0876412661570423,
+  "p50_inference_latency": 1.0871526002883911,
+  "p95_inference_latency": 1.1165322065353394,
+  "max_inference_latency": 1.147599220275879,
+  "mean_vlm_latency": 1.0867725183378976,
+  "mean_action_expert_latency": 0.0008687392197865642,
+  "mean_control_frequency": 20.027841333798083,
+  "minimum_control_frequency": 19.32534337313339,
+  "direct_velocity": false,
+  "collision_events": [
+    {
+      "time": 33.660000000000004,
+      "force": 153.9282989501953,
+      "object": "unknown_static_geometry",
+      "robot_body": "RL_calf",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 33.660000000000004,
+      "force": 153.9282989501953,
+      "object": "unknown_static_geometry",
+      "robot_body": "RR_calf",
+      "is_pedestrian": false,
+      "episode_failure": false
+    }
+  ]
+}

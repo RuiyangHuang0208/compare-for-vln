@@ -1,0 +1,88 @@
+{
+  "model_name": "ticvla",
+  "experiment": "dynanav_full85_20260824",
+  "episode_id": "dynanav_046",
+  "scene": "office",
+  "evaluation_mode": "trajectory_normalized",
+  "sensor_profile": "rgb_only",
+  "comparison_track": "rgb_only",
+  "camera_horizontal_fov_degrees": 120.0,
+  "model_inputs": [
+    "rgb",
+    "motion_state",
+    "inference_latency",
+    "instruction"
+  ],
+  "model_runtime": {
+    "sensors": [
+      "rgb",
+      "odom"
+    ],
+    "derived_inputs": [],
+    "model_internal_3d_perception": false,
+    "external_local_avoidance": false,
+    "uses_shared_path_follower": true,
+    "uses_shared_velocity_filter": true
+  },
+  "derived_inputs": [],
+  "model_internal_3d_perception": false,
+  "external_local_avoidance": false,
+  "uses_shared_path_follower": true,
+  "uses_shared_velocity_filter": true,
+  "instruction": "Go straight ahead, passing through the hallway behind the black glass doors, and then enter the office desk area and stop at the white desk with the plant on it, located on the right side of the wall at the end.",
+  "seed": 666,
+  "pedestrian_count": 0,
+  "success": true,
+  "navigation_error": 1.49805103,
+  "spl": 1.0,
+  "path_length": 35.360642506717724,
+  "duration": 42.44,
+  "physical_collision_count": 4,
+  "pedestrian_collision_count": 0,
+  "collision_rate": 0.09425070688030161,
+  "stuck_count": 0,
+  "recovery_count": 0,
+  "mean_inference_latency": 1.0666364763603835,
+  "p50_inference_latency": 1.0682252645492554,
+  "p95_inference_latency": 1.1018040180206299,
+  "max_inference_latency": 1.1298975944519043,
+  "mean_vlm_latency": 1.0657971941056799,
+  "mean_action_expert_latency": 0.0008392949592413716,
+  "mean_control_frequency": 20.022712538129014,
+  "minimum_control_frequency": 19.360393390682802,
+  "direct_velocity": false,
+  "collision_events": [
+    {
+      "time": 25.1,
+      "force": 396.4499206542969,
+      "object": "unknown_static_geometry",
+      "robot_body": "RL_calf",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 25.1,
+      "force": 396.4499206542969,
+      "object": "unknown_static_geometry",
+      "robot_body": "RR_calf",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 25.16,
+      "force": 123.76133728027344,
+      "object": "unknown_static_geometry",
+      "robot_body": "RL_calf",
+      "is_pedestrian": false,
+      "episode_failure": false
+    },
+    {
+      "time": 25.16,
+      "force": 123.76133728027344,
+      "object": "unknown_static_geometry",
+      "robot_body": "RR_calf",
+      "is_pedestrian": false,
+      "episode_failure": false
+    }
+  ]
+}

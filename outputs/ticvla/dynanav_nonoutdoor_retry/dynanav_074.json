@@ -1,0 +1,67 @@
+{
+  "model_name": "ticvla",
+  "experiment": "dynanav_nonoutdoor_retry",
+  "episode_id": "dynanav_074",
+  "scene": "warehouse",
+  "evaluation_mode": "trajectory_normalized",
+  "sensor_profile": "rgb_only",
+  "comparison_track": "rgb_only",
+  "camera_horizontal_fov_degrees": 90.0,
+  "model_inputs": [
+    "rgb",
+    "motion_state",
+    "inference_latency",
+    "instruction"
+  ],
+  "model_runtime": {
+    "sensors": [
+      "rgb",
+      "odom"
+    ],
+    "derived_inputs": [],
+    "model_internal_3d_perception": false,
+    "external_local_avoidance": false,
+    "uses_shared_path_follower": true,
+    "uses_shared_velocity_filter": true
+  },
+  "derived_inputs": [],
+  "model_internal_3d_perception": false,
+  "external_local_avoidance": false,
+  "uses_shared_path_follower": true,
+  "uses_shared_velocity_filter": true,
+  "instruction": "Enter Aisle 01, the leftmost aisle, and continue to the end.",
+  "seed": 666,
+  "pedestrian_count": 0,
+  "official_pedestrian_count": 30,
+  "effective_pedestrian_count": 0,
+  "success": true,
+  "termination_reason": "success",
+  "failure_attribution": "success",
+  "navigation_error": 1.482083274,
+  "start_pose": [
+    -15.783051490783691,
+    -5.652543544769287
+  ],
+  "final_pose": [
+    -23.09774398803711,
+    21.929258346557617
+  ],
+  "spl": 1.0,
+  "path_length": 29.06311477230033,
+  "duration": 30.36,
+  "physical_collision_count": 0,
+  "pedestrian_collision_count": 0,
+  "collision_rate": 0.0,
+  "stuck_count": 0,
+  "recovery_count": 0,
+  "mean_inference_latency": 0.03739121596419851,
+  "p50_inference_latency": 0.02994331531226635,
+  "p95_inference_latency": 0.08154871910810466,
+  "max_inference_latency": 1.1184206008911133,
+  "mean_vlm_latency": 0.03605604950677265,
+  "mean_action_expert_latency": 0.0013351665326842555,
+  "mean_control_frequency": 20.02552325571366,
+  "minimum_control_frequency": 19.659687242983107,
+  "direct_velocity": false,
+  "collision_events": []
+}
